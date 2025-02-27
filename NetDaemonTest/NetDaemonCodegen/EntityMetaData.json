@@ -1,0 +1,2046 @@
+{
+  "domains": [
+    {
+      "domain": "light",
+      "entities": [],
+      "attributes": [
+        {
+          "jsonName": "supported_color_modes",
+          "cSharpName": "SupportedColorModes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "color_mode",
+          "cSharpName": "ColorMode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "min_color_temp_kelvin",
+          "cSharpName": "MinColorTempKelvin",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "max_color_temp_kelvin",
+          "cSharpName": "MaxColorTempKelvin",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "min_mireds",
+          "cSharpName": "MinMireds",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "max_mireds",
+          "cSharpName": "MaxMireds",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "brightness",
+          "cSharpName": "Brightness",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "color_temp_kelvin",
+          "cSharpName": "ColorTempKelvin",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "color_temp",
+          "cSharpName": "ColorTemp",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "hs_color",
+          "cSharpName": "HsColor",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Double]"
+        },
+        {
+          "jsonName": "rgb_color",
+          "cSharpName": "RgbColor",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Double]"
+        },
+        {
+          "jsonName": "xy_color",
+          "cSharpName": "XyColor",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Double]"
+        },
+        {
+          "jsonName": "entity_id",
+          "cSharpName": "EntityId",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "effect_list",
+          "cSharpName": "EffectList",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "color",
+          "cSharpName": "Color",
+          "clrType": "System.Object"
+        }
+      ]
+    },
+    {
+      "domain": "media_player",
+      "entities": [],
+      "attributes": [
+        {
+          "jsonName": "app_id",
+          "cSharpName": "AppId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "app_name",
+          "cSharpName": "AppName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "device_class",
+          "cSharpName": "DeviceClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "entity_picture_local",
+          "cSharpName": "EntityPictureLocal",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "entity_picture",
+          "cSharpName": "EntityPicture",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "volume_level",
+          "cSharpName": "VolumeLevel",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "is_volume_muted",
+          "cSharpName": "IsVolumeMuted",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "media_content_id",
+          "cSharpName": "MediaContentId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_content_type",
+          "cSharpName": "MediaContentType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_duration",
+          "cSharpName": "MediaDuration",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "media_position",
+          "cSharpName": "MediaPosition",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "media_position_updated_at",
+          "cSharpName": "MediaPositionUpdatedAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_title",
+          "cSharpName": "MediaTitle",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_album_name",
+          "cSharpName": "MediaAlbumName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_image_url",
+          "cSharpName": "MediaImageUrl",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_artist",
+          "cSharpName": "MediaArtist",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "sound_mode_list",
+          "cSharpName": "SoundModeList",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "media_track",
+          "cSharpName": "MediaTrack",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "shuffle",
+          "cSharpName": "Shuffle",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "repeat",
+          "cSharpName": "Repeat",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "source_list",
+          "cSharpName": "SourceList",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "source",
+          "cSharpName": "Source",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "adb_response",
+          "cSharpName": "AdbResponse",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "hdmi_input",
+          "cSharpName": "HdmiInput",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "sound_mode",
+          "cSharpName": "SoundMode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "sound_mode_raw",
+          "cSharpName": "SoundModeRaw",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "automation",
+      "entities": [
+        {
+          "id": "automation.calculate_actual_total_power_import",
+          "friendlyName": "Calculate Total Power import",
+          "cSharpName": "CalculateActualTotalPowerImport"
+        },
+        {
+          "id": "automation.chargedynamic",
+          "friendlyName": "ChargeDynamic",
+          "cSharpName": "Chargedynamic"
+        },
+        {
+          "id": "automation.chargerlock",
+          "friendlyName": "Chargerlock",
+          "cSharpName": "Chargerlock"
+        },
+        {
+          "id": "automation.clean_database",
+          "friendlyName": "Clean_Database",
+          "cSharpName": "CleanDatabase"
+        },
+        {
+          "id": "automation.convert_charger_power_to_current",
+          "friendlyName": "Convert Charger Power to current",
+          "cSharpName": "ConvertChargerPowerToCurrent"
+        },
+        {
+          "id": "automation.send_max_current_to_charger",
+          "friendlyName": "Send_max_current_to_charger",
+          "cSharpName": "SendMaxCurrentToCharger"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "id",
+          "cSharpName": "Id",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "last_triggered",
+          "cSharpName": "LastTriggered",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "mode",
+          "cSharpName": "Mode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "current",
+          "cSharpName": "Current",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "binary_sensor",
+      "entities": [
+        {
+          "id": "binary_sensor.ib0347606272_connection_state",
+          "friendlyName": "IB0347606272 Connectiestatus",
+          "cSharpName": "Ib0347606272ConnectionState"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_car_is_active",
+          "friendlyName": "ID.3 Pro Performance Car Is Active",
+          "cSharpName": "Id3ProPerformanceCarIsActive"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_car_is_online",
+          "friendlyName": "ID.3 Pro Performance Car Is Online",
+          "cSharpName": "Id3ProPerformanceCarIsOnline"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_climatisation_at_unlock",
+          "friendlyName": "ID.3 Pro Performance Climatisation At Unlock",
+          "cSharpName": "Id3ProPerformanceClimatisationAtUnlock"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_climatisation_without_external_power",
+          "friendlyName": "ID.3 Pro Performance Climatisation Without External Power",
+          "cSharpName": "Id3ProPerformanceClimatisationWithoutExternalPower"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_front_window_heating_state",
+          "friendlyName": "ID.3 Pro Performance Front Window Heating State",
+          "cSharpName": "Id3ProPerformanceFrontWindowHeatingState"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_insufficient_battery_level_warning",
+          "friendlyName": "ID.3 Pro Performance Insufficient Battery Level Warning",
+          "cSharpName": "Id3ProPerformanceInsufficientBatteryLevelWarning"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_lights_left",
+          "friendlyName": "ID.3 Pro Performance Lights Left",
+          "cSharpName": "Id3ProPerformanceLightsLeft"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_lights_right",
+          "friendlyName": "ID.3 Pro Performance Lights Right",
+          "cSharpName": "Id3ProPerformanceLightsRight"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_rear_window_heating_state",
+          "friendlyName": "ID.3 Pro Performance Rear Window Heating State",
+          "cSharpName": "Id3ProPerformanceRearWindowHeatingState"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_window_heating_enabled",
+          "friendlyName": "ID.3 Pro Performance Window Heating Enabled",
+          "cSharpName": "Id3ProPerformanceWindowHeatingEnabled"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_zone_front_left_enabled",
+          "friendlyName": "ID.3 Pro Performance Zone Front Left Enabled",
+          "cSharpName": "Id3ProPerformanceZoneFrontLeftEnabled"
+        },
+        {
+          "id": "binary_sensor.id_3_pro_performance_zone_front_right_enabled",
+          "friendlyName": "ID.3 Pro Performance Zone Front Right Enabled",
+          "cSharpName": "Id3ProPerformanceZoneFrontRightEnabled"
+        },
+        {
+          "id": "binary_sensor.rpi_power_status",
+          "friendlyName": "RPi Power status",
+          "cSharpName": "RpiPowerStatus"
+        },
+        {
+          "id": "binary_sensor.ru3370192384_battery_state",
+          "friendlyName": "RU3370192384 Batterij",
+          "cSharpName": "Ru3370192384BatteryState"
+        },
+        {
+          "id": "binary_sensor.ru3370192384_connection_state",
+          "friendlyName": "RU3370192384 Connectiestatus",
+          "cSharpName": "Ru3370192384ConnectionState"
+        },
+        {
+          "id": "binary_sensor.verwarming_early_start",
+          "friendlyName": "Verwarming Vroege start",
+          "cSharpName": "VerwarmingEarlyStart"
+        },
+        {
+          "id": "binary_sensor.verwarming_link",
+          "friendlyName": "Verwarming Connectiviteit",
+          "cSharpName": "VerwarmingLink"
+        },
+        {
+          "id": "binary_sensor.verwarming_open_window",
+          "friendlyName": "Verwarming Raam",
+          "cSharpName": "VerwarmingOpenWindow"
+        },
+        {
+          "id": "binary_sensor.verwarming_overlay",
+          "friendlyName": "Verwarming Overlay",
+          "cSharpName": "VerwarmingOverlay"
+        },
+        {
+          "id": "binary_sensor.verwarming_power",
+          "friendlyName": "Verwarming Vermogen",
+          "cSharpName": "VerwarmingPower"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "device_class",
+          "cSharpName": "DeviceClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "button",
+      "entities": [
+        {
+          "id": "button.charger_reset",
+          "friendlyName": "charger Reset",
+          "cSharpName": "ChargerReset"
+        },
+        {
+          "id": "button.id_3_pro_performance_start_charging",
+          "friendlyName": "ID.3 Pro Performance Start Charging",
+          "cSharpName": "Id3ProPerformanceStartCharging"
+        },
+        {
+          "id": "button.id_3_pro_performance_start_climate",
+          "friendlyName": "ID.3 Pro Performance Start Climate",
+          "cSharpName": "Id3ProPerformanceStartClimate"
+        },
+        {
+          "id": "button.id_3_pro_performance_stop_charging",
+          "friendlyName": "ID.3 Pro Performance Stop Charging",
+          "cSharpName": "Id3ProPerformanceStopCharging"
+        },
+        {
+          "id": "button.id_3_pro_performance_stop_climate",
+          "friendlyName": "ID.3 Pro Performance Stop Climate",
+          "cSharpName": "Id3ProPerformanceStopClimate"
+        },
+        {
+          "id": "button.id_3_pro_performance_toggle_ac_charge_speed",
+          "friendlyName": "ID.3 Pro Performance Toggle AC Charge Speed",
+          "cSharpName": "Id3ProPerformanceToggleAcChargeSpeed"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "device_class",
+          "cSharpName": "DeviceClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "climate",
+      "entities": [
+        {
+          "id": "climate.aircoliving",
+          "friendlyName": "aircoliving",
+          "cSharpName": "Aircoliving"
+        },
+        {
+          "id": "climate.verwarming",
+          "friendlyName": "Verwarming",
+          "cSharpName": "Verwarming"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "hvac_modes",
+          "cSharpName": "HvacModes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "min_temp",
+          "cSharpName": "MinTemp",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "max_temp",
+          "cSharpName": "MaxTemp",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "target_temp_step",
+          "cSharpName": "TargetTempStep",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "fan_modes",
+          "cSharpName": "FanModes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "preset_modes",
+          "cSharpName": "PresetModes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "swing_modes",
+          "cSharpName": "SwingModes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "current_temperature",
+          "cSharpName": "CurrentTemperature",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "temperature",
+          "cSharpName": "Temperature",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "fan_mode",
+          "cSharpName": "FanMode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "hvac_action",
+          "cSharpName": "HvacAction",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "preset_mode",
+          "cSharpName": "PresetMode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "swing_mode",
+          "cSharpName": "SwingMode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "current_humidity",
+          "cSharpName": "CurrentHumidity",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "offset_celsius",
+          "cSharpName": "OffsetCelsius",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "offset_fahrenheit",
+          "cSharpName": "OffsetFahrenheit",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "default_overlay_type",
+          "cSharpName": "DefaultOverlayType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "default_overlay_seconds",
+          "cSharpName": "DefaultOverlaySeconds",
+          "clrType": null
+        }
+      ]
+    },
+    {
+      "domain": "conversation",
+      "entities": [
+        {
+          "id": "conversation.home_assistant",
+          "friendlyName": "Home Assistant",
+          "cSharpName": "HomeAssistant"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "device_tracker",
+      "entities": [
+        {
+          "id": "device_tracker.id_3_pro_performance_tracker",
+          "friendlyName": "ID.3 Pro Performance tracker",
+          "cSharpName": "Id3ProPerformanceTracker"
+        },
+        {
+          "id": "device_tracker.johan",
+          "friendlyName": "Johan",
+          "cSharpName": "Johan"
+        },
+        {
+          "id": "device_tracker.marleen",
+          "friendlyName": "Marleen",
+          "cSharpName": "Marleen"
+        },
+        {
+          "id": "device_tracker.tablet_johan",
+          "friendlyName": "tablet Johan ",
+          "cSharpName": "TabletJohan"
+        },
+        {
+          "id": "device_tracker.tablet_johan_2",
+          "friendlyName": "tablet johan",
+          "cSharpName": "TabletJohan2"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "source_type",
+          "cSharpName": "SourceType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "latitude",
+          "cSharpName": "Latitude",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "longitude",
+          "cSharpName": "Longitude",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "gps_accuracy",
+          "cSharpName": "GpsAccuracy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "last_captured",
+          "cSharpName": "LastCaptured",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "input_boolean",
+      "entities": [
+        {
+          "id": "input_boolean.dev_netdaemon_app_model_hello_yaml_app",
+          "friendlyName": "dev_netdaemon_app_model_hello_yaml_app",
+          "cSharpName": "DevNetdaemonAppModelHelloYamlApp"
+        },
+        {
+          "id": "input_boolean.dev_netdaemon_extensions_scheduling_scheduling_app",
+          "friendlyName": "dev_netdaemon_extensions_scheduling_scheduling_app",
+          "cSharpName": "DevNetdaemonExtensionsSchedulingSchedulingApp"
+        },
+        {
+          "id": "input_boolean.dev_netdaemon_hass_model_hello_world_app",
+          "friendlyName": "dev_netdaemon_hass_model_hello_world_app",
+          "cSharpName": "DevNetdaemonHassModelHelloWorldApp"
+        },
+        {
+          "id": "input_boolean.dev_netdaemon_hass_model_light_on_movement",
+          "friendlyName": "dev_netdaemon_hass_model_light_on_movement",
+          "cSharpName": "DevNetdaemonHassModelLightOnMovement"
+        },
+        {
+          "id": "input_boolean.dynamic_charging",
+          "friendlyName": "Dynamic_Charging",
+          "cSharpName": "DynamicCharging"
+        },
+        {
+          "id": "input_boolean.enablecharger",
+          "friendlyName": "EnableCharger",
+          "cSharpName": "Enablecharger"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "editable",
+          "cSharpName": "Editable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "input_number",
+      "isNumeric": true,
+      "entities": [
+        {
+          "id": "input_number.actual_total_power",
+          "friendlyName": "Actual_Total_Power",
+          "cSharpName": "ActualTotalPower"
+        },
+        {
+          "id": "input_number.charger_startpower_buffer",
+          "friendlyName": "charger_startpower_buffer",
+          "cSharpName": "ChargerStartpowerBuffer"
+        },
+        {
+          "id": "input_number.net_max_power",
+          "friendlyName": "net_max_power",
+          "cSharpName": "NetMaxPower"
+        },
+        {
+          "id": "input_number.nul",
+          "friendlyName": "Nul",
+          "cSharpName": "Nul"
+        },
+        {
+          "id": "input_number.offered_charging_power",
+          "friendlyName": "Offered_Charging_Power",
+          "cSharpName": "OfferedChargingPower"
+        },
+        {
+          "id": "input_number.set_charger_current",
+          "friendlyName": "Set_Charger_Current",
+          "cSharpName": "SetChargerCurrent"
+        },
+        {
+          "id": "input_number.set_charger_power",
+          "friendlyName": "Set_Charging_Power",
+          "cSharpName": "SetChargerPower"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "initial",
+          "cSharpName": "Initial",
+          "clrType": null
+        },
+        {
+          "jsonName": "editable",
+          "cSharpName": "Editable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "min",
+          "cSharpName": "Min",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "max",
+          "cSharpName": "Max",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "step",
+          "cSharpName": "Step",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "mode",
+          "cSharpName": "Mode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "unit_of_measurement",
+          "cSharpName": "UnitOfMeasurement",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "input_text",
+      "entities": [
+        {
+          "id": "input_text.active_charging_power",
+          "friendlyName": "Active_Charging_Power",
+          "cSharpName": "ActiveChargingPower"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "editable",
+          "cSharpName": "Editable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "min",
+          "cSharpName": "Min",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "max",
+          "cSharpName": "Max",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "pattern",
+          "cSharpName": "Pattern",
+          "clrType": null
+        },
+        {
+          "jsonName": "mode",
+          "cSharpName": "Mode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "number",
+      "isNumeric": true,
+      "entities": [
+        {
+          "id": "number.charger_maximum_current",
+          "friendlyName": "charger Maximum Current",
+          "cSharpName": "ChargerMaximumCurrent"
+        },
+        {
+          "id": "number.id_3_pro_performance_target_climate_temperature",
+          "friendlyName": "ID.3 Pro Performance Target Climate Temperature",
+          "cSharpName": "Id3ProPerformanceTargetClimateTemperature"
+        },
+        {
+          "id": "number.id_3_pro_performance_target_state_of_charge",
+          "friendlyName": "ID.3 Pro Performance Target State Of Charge",
+          "cSharpName": "Id3ProPerformanceTargetStateOfCharge"
+        },
+        {
+          "id": "number.solaredge_local_active_power_limit",
+          "friendlyName": "solaredge_local (Active Power Limit)",
+          "cSharpName": "SolaredgeLocalActivePowerLimit"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "min",
+          "cSharpName": "Min",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "max",
+          "cSharpName": "Max",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "step",
+          "cSharpName": "Step",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "mode",
+          "cSharpName": "Mode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "unit_of_measurement",
+          "cSharpName": "UnitOfMeasurement",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "person",
+      "entities": [
+        {
+          "id": "person.marleen",
+          "friendlyName": "Marleen",
+          "cSharpName": "Marleen"
+        },
+        {
+          "id": "person.thuis",
+          "friendlyName": "Johan",
+          "cSharpName": "Thuis"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "editable",
+          "cSharpName": "Editable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "id",
+          "cSharpName": "Id",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "device_trackers",
+          "cSharpName": "DeviceTrackers",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "user_id",
+          "cSharpName": "UserId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "sensor",
+      "entities": [
+        {
+          "id": "sensor.average_power_consumption",
+          "friendlyName": "Average Power Consumption",
+          "cSharpName": "AveragePowerConsumption"
+        },
+        {
+          "id": "sensor.charger_model",
+          "friendlyName": "charger Model",
+          "cSharpName": "ChargerModel"
+        },
+        {
+          "id": "sensor.charger_status",
+          "friendlyName": "charger Status",
+          "cSharpName": "ChargerStatus"
+        },
+        {
+          "id": "sensor.charger_status_connector",
+          "friendlyName": "charger Status Connector",
+          "cSharpName": "ChargerStatusConnector"
+        },
+        {
+          "id": "sensor.charger_stop_reason",
+          "friendlyName": "charger Stop Reason",
+          "cSharpName": "ChargerStopReason"
+        },
+        {
+          "id": "sensor.electricity_meter_actief_tarief",
+          "friendlyName": "Electricity Meter Actief tarief",
+          "cSharpName": "ElectricityMeterActiefTarief"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_auto_unlock_plug_when_charged",
+          "friendlyName": "ID.3 Pro Performance Auto Unlock Plug When Charged",
+          "cSharpName": "Id3ProPerformanceAutoUnlockPlugWhenCharged"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_auto_unlock_plug_when_charged_ac",
+          "friendlyName": "ID.3 Pro Performance Auto Unlock Plug When Charged AC",
+          "cSharpName": "Id3ProPerformanceAutoUnlockPlugWhenChargedAc"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_bonnet_lock_status",
+          "friendlyName": "ID.3 Pro Performance Bonnet Lock Status",
+          "cSharpName": "Id3ProPerformanceBonnetLockStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_bonnet_open_status",
+          "friendlyName": "ID.3 Pro Performance Bonnet Open Status",
+          "cSharpName": "Id3ProPerformanceBonnetOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_car_type",
+          "friendlyName": "ID.3 Pro Performance Car Type",
+          "cSharpName": "Id3ProPerformanceCarType"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_charge_type",
+          "friendlyName": "ID.3 Pro Performance Charge Type",
+          "cSharpName": "Id3ProPerformanceChargeType"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_charging_mode",
+          "friendlyName": "ID.3 Pro Performance Charging Mode",
+          "cSharpName": "Id3ProPerformanceChargingMode"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_charging_settings",
+          "friendlyName": "ID.3 Pro Performance Charging Settings",
+          "cSharpName": "Id3ProPerformanceChargingSettings"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_charging_state",
+          "friendlyName": "ID.3 Pro Performance Charging State",
+          "cSharpName": "Id3ProPerformanceChargingState"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_climatisation_state",
+          "friendlyName": "ID.3 Pro Performance Climatisation State",
+          "cSharpName": "Id3ProPerformanceClimatisationState"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_front_left_lock_status",
+          "friendlyName": "ID.3 Pro Performance Door Front Left Lock Status",
+          "cSharpName": "Id3ProPerformanceDoorFrontLeftLockStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_front_left_open_status",
+          "friendlyName": "ID.3 Pro Performance Door Front Left Open Status",
+          "cSharpName": "Id3ProPerformanceDoorFrontLeftOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_front_right_lock_status",
+          "friendlyName": "ID.3 Pro Performance Door Front Right Lock Status",
+          "cSharpName": "Id3ProPerformanceDoorFrontRightLockStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_front_right_open_status",
+          "friendlyName": "ID.3 Pro Performance Door Front Right Open Status",
+          "cSharpName": "Id3ProPerformanceDoorFrontRightOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_lock_status",
+          "friendlyName": "ID.3 Pro Performance Door Lock Status",
+          "cSharpName": "Id3ProPerformanceDoorLockStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_rear_left_lock_status",
+          "friendlyName": "ID.3 Pro Performance Door Rear Left Lock Status",
+          "cSharpName": "Id3ProPerformanceDoorRearLeftLockStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_rear_left_open_status",
+          "friendlyName": "ID.3 Pro Performance Door Rear Left Open Status",
+          "cSharpName": "Id3ProPerformanceDoorRearLeftOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_rear_right_lock_status",
+          "friendlyName": "ID.3 Pro Performance Door Rear Right Lock Status",
+          "cSharpName": "Id3ProPerformanceDoorRearRightLockStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_door_rear_right_open_status",
+          "friendlyName": "ID.3 Pro Performance Door Rear Right Open Status",
+          "cSharpName": "Id3ProPerformanceDoorRearRightOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_max_charge_current_ac",
+          "friendlyName": "ID.3 Pro Performance Max Charge Current AC",
+          "cSharpName": "Id3ProPerformanceMaxChargeCurrentAc"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_overall_status",
+          "friendlyName": "ID.3 Pro Performance Overall Status",
+          "cSharpName": "Id3ProPerformanceOverallStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_plug_connection_state",
+          "friendlyName": "ID.3 Pro Performance Plug Connection State",
+          "cSharpName": "Id3ProPerformancePlugConnectionState"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_plug_lock_state",
+          "friendlyName": "ID.3 Pro Performance Plug Lock State",
+          "cSharpName": "Id3ProPerformancePlugLockState"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_sunroof_cover_status",
+          "friendlyName": "ID.3 Pro Performance Sunroof Cover Status",
+          "cSharpName": "Id3ProPerformanceSunroofCoverStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_sunroof_open_status",
+          "friendlyName": "ID.3 Pro Performance Sunroof Open Status",
+          "cSharpName": "Id3ProPerformanceSunroofOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_trunk_lock_status",
+          "friendlyName": "ID.3 Pro Performance Trunk Lock Status",
+          "cSharpName": "Id3ProPerformanceTrunkLockStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_trunk_open_status",
+          "friendlyName": "ID.3 Pro Performance Trunk Open Status",
+          "cSharpName": "Id3ProPerformanceTrunkOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_unit_in_car",
+          "friendlyName": "ID.3 Pro Performance Unit In car",
+          "cSharpName": "Id3ProPerformanceUnitInCar"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_window_front_left_open_status",
+          "friendlyName": "ID.3 Pro Performance Window Front Left Open Status",
+          "cSharpName": "Id3ProPerformanceWindowFrontLeftOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_window_front_right_open_status",
+          "friendlyName": "ID.3 Pro Performance Window Front Right Open Status",
+          "cSharpName": "Id3ProPerformanceWindowFrontRightOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_window_rear_left_open_status",
+          "friendlyName": "ID.3 Pro Performance Window Rear Left Open Status",
+          "cSharpName": "Id3ProPerformanceWindowRearLeftOpenStatus"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_window_rear_right_open_status",
+          "friendlyName": "ID.3 Pro Performance Window Rear Right Open Status",
+          "cSharpName": "Id3ProPerformanceWindowRearRightOpenStatus"
+        },
+        {
+          "id": "sensor.onedrivebackup",
+          "friendlyName": null,
+          "cSharpName": "Onedrivebackup"
+        },
+        {
+          "id": "sensor.onedrivefilesync",
+          "friendlyName": null,
+          "cSharpName": "Onedrivefilesync"
+        },
+        {
+          "id": "sensor.solaredge_local_status",
+          "friendlyName": "solaredge_local Status",
+          "cSharpName": "SolaredgeLocalStatus"
+        },
+        {
+          "id": "sensor.solaredge_local_status_vendor",
+          "friendlyName": "solaredge_local Status Vendor",
+          "cSharpName": "SolaredgeLocalStatusVendor"
+        },
+        {
+          "id": "sensor.tablet_johan_battery_state",
+          "friendlyName": "tablet Johan  Battery state",
+          "cSharpName": "TabletJohanBatteryState"
+        },
+        {
+          "id": "sensor.tablet_johan_charger_type",
+          "friendlyName": "tablet Johan  Charger type",
+          "cSharpName": "TabletJohanChargerType"
+        },
+        {
+          "id": "sensor.thuis_automatic_geofencing",
+          "friendlyName": "Thuis Automatisch geo-fencing",
+          "cSharpName": "ThuisAutomaticGeofencing"
+        },
+        {
+          "id": "sensor.thuis_geofencing_mode",
+          "friendlyName": "Thuis Geo-fencing mode",
+          "cSharpName": "ThuisGeofencingMode"
+        },
+        {
+          "id": "sensor.thuis_tado_mode",
+          "friendlyName": "Thuis Tado mode",
+          "cSharpName": "ThuisTadoMode"
+        },
+        {
+          "id": "sensor.verwarming_tado_mode",
+          "friendlyName": "Verwarming Tado mode",
+          "cSharpName": "VerwarmingTadoMode"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "options",
+          "cSharpName": "Options",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "device_class",
+          "cSharpName": "DeviceClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "state_class",
+          "cSharpName": "StateClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "status_description",
+          "cSharpName": "StatusDescription",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "1",
+          "cSharpName": "_1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Last Local backup date",
+          "cSharpName": "LastLocalbackupdate",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Last OneDrive backup date",
+          "cSharpName": "LastOneDrivebackupdate",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Backups in Home Assistant",
+          "cSharpName": "BackupsinHomeAssistant",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Backups in OneDrive",
+          "cSharpName": "BackupsinOneDrive",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Number of local backups marked to retain indefinitely",
+          "cSharpName": "Numberoflocalbackupsmarkedtoretainindefinitely",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Number of OneDrive backups marked to retain indefinitely",
+          "cSharpName": "NumberofOneDrivebackupsmarkedtoretainindefinitely",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Current backup upload percentage",
+          "cSharpName": "Currentbackupuploadpercentage",
+          "clrType": null
+        },
+        {
+          "jsonName": "Current backup upload speed (KB/s)",
+          "cSharpName": "CurrentbackupuploadspeedKBs",
+          "clrType": null
+        },
+        {
+          "jsonName": "Backup download percentage",
+          "cSharpName": "Backupdownloadpercentage",
+          "clrType": null
+        },
+        {
+          "jsonName": "Current file upload percentage",
+          "cSharpName": "Currentfileuploadpercentage",
+          "clrType": null
+        },
+        {
+          "jsonName": "Current file upload speed (KB/s)",
+          "cSharpName": "CurrentfileuploadspeedKBs",
+          "clrType": null
+        }
+      ]
+    },
+    {
+      "domain": "sensor",
+      "isNumeric": true,
+      "entities": [
+        {
+          "id": "sensor.aircoliving_compressor_energy_consumption",
+          "friendlyName": "aircoliving Compressor energieverbruik",
+          "cSharpName": "AircolivingCompressorEnergyConsumption"
+        },
+        {
+          "id": "sensor.aircoliving_compressor_estimated_power_consumption",
+          "friendlyName": "aircoliving Compressor geschat energieverbruik",
+          "cSharpName": "AircolivingCompressorEstimatedPowerConsumption"
+        },
+        {
+          "id": "sensor.aircoliving_cool_energy_consumption",
+          "friendlyName": "aircoliving Koelen energieverbruik",
+          "cSharpName": "AircolivingCoolEnergyConsumption"
+        },
+        {
+          "id": "sensor.aircoliving_energy_consumption",
+          "friendlyName": "aircoliving Energieverbruik",
+          "cSharpName": "AircolivingEnergyConsumption"
+        },
+        {
+          "id": "sensor.aircoliving_heat_energy_consumption",
+          "friendlyName": "aircoliving Warmte energieverbruik",
+          "cSharpName": "AircolivingHeatEnergyConsumption"
+        },
+        {
+          "id": "sensor.aircoliving_inside_temperature",
+          "friendlyName": "aircoliving Binnentemperatuur",
+          "cSharpName": "AircolivingInsideTemperature"
+        },
+        {
+          "id": "sensor.aircoliving_outside_temperature",
+          "friendlyName": "aircoliving Buitentemperatuur",
+          "cSharpName": "AircolivingOutsideTemperature"
+        },
+        {
+          "id": "sensor.charger_current_import",
+          "friendlyName": "charger Current Import",
+          "cSharpName": "ChargerCurrentImport"
+        },
+        {
+          "id": "sensor.charger_current_offered",
+          "friendlyName": "charger Current Offered",
+          "cSharpName": "ChargerCurrentOffered"
+        },
+        {
+          "id": "sensor.charger_frequency",
+          "friendlyName": "charger Frequency",
+          "cSharpName": "ChargerFrequency"
+        },
+        {
+          "id": "sensor.charger_power_active_import",
+          "friendlyName": "charger Power Active Import",
+          "cSharpName": "ChargerPowerActiveImport"
+        },
+        {
+          "id": "sensor.cpu_temperature",
+          "friendlyName": "CPU Temperature",
+          "cSharpName": "CpuTemperature"
+        },
+        {
+          "id": "sensor.electricity_meter_energieproductie",
+          "friendlyName": "Electricity Meter Energieproductie",
+          "cSharpName": "ElectricityMeterEnergieproductie"
+        },
+        {
+          "id": "sensor.electricity_meter_energieproductie_tarief_1",
+          "friendlyName": "Electricity Meter Energieproductie (tarief 1)",
+          "cSharpName": "ElectricityMeterEnergieproductieTarief1"
+        },
+        {
+          "id": "sensor.electricity_meter_energieproductie_tarief_1_compensation",
+          "friendlyName": "sensor Compensation",
+          "cSharpName": "ElectricityMeterEnergieproductieTarief1Compensation"
+        },
+        {
+          "id": "sensor.electricity_meter_energieproductie_tarief_2",
+          "friendlyName": "Electricity Meter Energieproductie (tarief 2)",
+          "cSharpName": "ElectricityMeterEnergieproductieTarief2"
+        },
+        {
+          "id": "sensor.electricity_meter_energieproductie_tarief_2_compensation",
+          "friendlyName": "sensor Compensation",
+          "cSharpName": "ElectricityMeterEnergieproductieTarief2Compensation"
+        },
+        {
+          "id": "sensor.electricity_meter_energieproductie_tarief_2_cost",
+          "friendlyName": null,
+          "cSharpName": "ElectricityMeterEnergieproductieTarief2Cost"
+        },
+        {
+          "id": "sensor.electricity_meter_energieverbruik",
+          "friendlyName": "Electricity Meter Energieverbruik",
+          "cSharpName": "ElectricityMeterEnergieverbruik"
+        },
+        {
+          "id": "sensor.electricity_meter_energieverbruik_tarief_1",
+          "friendlyName": "Electricity Meter Energieverbruik (tarief 1)",
+          "cSharpName": "ElectricityMeterEnergieverbruikTarief1"
+        },
+        {
+          "id": "sensor.electricity_meter_energieverbruik_tarief_1_cost",
+          "friendlyName": "sensor Cost",
+          "cSharpName": "ElectricityMeterEnergieverbruikTarief1Cost"
+        },
+        {
+          "id": "sensor.electricity_meter_energieverbruik_tarief_2",
+          "friendlyName": "Electricity Meter Energieverbruik (tarief 2)",
+          "cSharpName": "ElectricityMeterEnergieverbruikTarief2"
+        },
+        {
+          "id": "sensor.electricity_meter_energieverbruik_tarief_2_cost",
+          "friendlyName": "sensor Cost",
+          "cSharpName": "ElectricityMeterEnergieverbruikTarief2Cost"
+        },
+        {
+          "id": "sensor.electricity_meter_huidig_gemiddelde_vraag",
+          "friendlyName": "Electricity Meter Huidig gemiddelde vraag",
+          "cSharpName": "ElectricityMeterHuidigGemiddeldeVraag"
+        },
+        {
+          "id": "sensor.electricity_meter_maximale_vraag_huidige_maand",
+          "friendlyName": "Electricity Meter Maximale vraag huidige maand",
+          "cSharpName": "ElectricityMeterMaximaleVraagHuidigeMaand"
+        },
+        {
+          "id": "sensor.electricity_meter_spanning_fase_l1",
+          "friendlyName": "Electricity Meter Spanning fase L1",
+          "cSharpName": "ElectricityMeterSpanningFaseL1"
+        },
+        {
+          "id": "sensor.gas_meter_gasverbruik",
+          "friendlyName": "Gas Meter Gasverbruik",
+          "cSharpName": "GasMeterGasverbruik"
+        },
+        {
+          "id": "sensor.gas_meter_gasverbruik_cost",
+          "friendlyName": "sensor Cost",
+          "cSharpName": "GasMeterGasverbruikCost"
+        },
+        {
+          "id": "sensor.home_assistant_core_cpu_percent",
+          "friendlyName": "Home Assistant Core CPU-percentage",
+          "cSharpName": "HomeAssistantCoreCpuPercent"
+        },
+        {
+          "id": "sensor.home_assistant_host_disk_free",
+          "friendlyName": "Home Assistant Host Schijfruimte vrij",
+          "cSharpName": "HomeAssistantHostDiskFree"
+        },
+        {
+          "id": "sensor.home_assistant_supervisor_cpu_percent",
+          "friendlyName": "Home Assistant Supervisor CPU-percentage",
+          "cSharpName": "HomeAssistantSupervisorCpuPercent"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_charge_power",
+          "friendlyName": "ID.3 Pro Performance Charge Power",
+          "cSharpName": "Id3ProPerformanceChargePower"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_charge_rate",
+          "friendlyName": "ID.3 Pro Performance Charge Rate",
+          "cSharpName": "Id3ProPerformanceChargeRate"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_fuel_level",
+          "friendlyName": "ID.3 Pro Performance Fuel Level",
+          "cSharpName": "Id3ProPerformanceFuelLevel"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_gasoline_range",
+          "friendlyName": "ID.3 Pro Performance Gasoline Range",
+          "cSharpName": "Id3ProPerformanceGasolineRange"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_health_inspection",
+          "friendlyName": "ID.3 Pro Performance Health Inspection",
+          "cSharpName": "Id3ProPerformanceHealthInspection"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_health_inspection_km",
+          "friendlyName": "ID.3 Pro Performance Health Inspection km",
+          "cSharpName": "Id3ProPerformanceHealthInspectionKm"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_hv_battery_temperature_max",
+          "friendlyName": "ID.3 Pro Performance HV Battery Temperature Max",
+          "cSharpName": "Id3ProPerformanceHvBatteryTemperatureMax"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_hv_battery_temperature_min",
+          "friendlyName": "ID.3 Pro Performance HV Battery Temperature Min",
+          "cSharpName": "Id3ProPerformanceHvBatteryTemperatureMin"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_last_trip_average_electric_consumption",
+          "friendlyName": "ID.3 Pro Performance Last Trip Average Electric consumption",
+          "cSharpName": "Id3ProPerformanceLastTripAverageElectricConsumption"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_last_trip_average_fuel_consumption",
+          "friendlyName": "ID.3 Pro Performance Last Trip Average Fuel consumption",
+          "cSharpName": "Id3ProPerformanceLastTripAverageFuelConsumption"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_odometer",
+          "friendlyName": "ID.3 Pro Performance Odometer",
+          "cSharpName": "Id3ProPerformanceOdometer"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_oil_inspection_days",
+          "friendlyName": "ID.3 Pro Performance Oil Inspection days",
+          "cSharpName": "Id3ProPerformanceOilInspectionDays"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_oil_inspection_km",
+          "friendlyName": "ID.3 Pro Performance Oil Inspection km",
+          "cSharpName": "Id3ProPerformanceOilInspectionKm"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_range",
+          "friendlyName": "ID.3 Pro Performance Range",
+          "cSharpName": "Id3ProPerformanceRange"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_remaining_charging_time",
+          "friendlyName": "ID.3 Pro Performance Remaining Charging Time",
+          "cSharpName": "Id3ProPerformanceRemainingChargingTime"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_remaining_climatisation_time",
+          "friendlyName": "ID.3 Pro Performance Remaining Climatisation Time",
+          "cSharpName": "Id3ProPerformanceRemainingClimatisationTime"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_state_of_charge",
+          "friendlyName": "ID.3 Pro Performance State of Charge",
+          "cSharpName": "Id3ProPerformanceStateOfCharge"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_target_state_of_charge",
+          "friendlyName": "ID.3 Pro Performance Target State of Charge",
+          "cSharpName": "Id3ProPerformanceTargetStateOfCharge"
+        },
+        {
+          "id": "sensor.id_3_pro_performance_target_temperature",
+          "friendlyName": "ID.3 Pro Performance Target Temperature",
+          "cSharpName": "Id3ProPerformanceTargetTemperature"
+        },
+        {
+          "id": "sensor.solaredge_current_power",
+          "friendlyName": "solaredge Huidig vermogen",
+          "cSharpName": "SolaredgeCurrentPower"
+        },
+        {
+          "id": "sensor.solaredge_lifetime_energy",
+          "friendlyName": "solaredge Lifetime energy",
+          "cSharpName": "SolaredgeLifetimeEnergy"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_current",
+          "friendlyName": "solaredge_local AC Current",
+          "cSharpName": "SolaredgeLocalAcCurrent"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_current_a",
+          "friendlyName": "solaredge_local AC Current A",
+          "cSharpName": "SolaredgeLocalAcCurrentA"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_current_b",
+          "friendlyName": "solaredge_local AC Current B",
+          "cSharpName": "SolaredgeLocalAcCurrentB"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_current_c",
+          "friendlyName": "solaredge_local AC Current C",
+          "cSharpName": "SolaredgeLocalAcCurrentC"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_energy_kwh",
+          "friendlyName": "solaredge_local AC Energy kWh",
+          "cSharpName": "SolaredgeLocalAcEnergyKwh"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_frequency",
+          "friendlyName": "solaredge_local AC Frequency",
+          "cSharpName": "SolaredgeLocalAcFrequency"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_pf",
+          "friendlyName": "solaredge_local AC PF",
+          "cSharpName": "SolaredgeLocalAcPf"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_power",
+          "friendlyName": "solaredge_local AC Power",
+          "cSharpName": "SolaredgeLocalAcPower"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_va",
+          "friendlyName": "solaredge_local AC VA",
+          "cSharpName": "SolaredgeLocalAcVa"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_var",
+          "friendlyName": "solaredge_local AC VAR",
+          "cSharpName": "SolaredgeLocalAcVar"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_voltage_ab",
+          "friendlyName": "solaredge_local AC Voltage AB",
+          "cSharpName": "SolaredgeLocalAcVoltageAb"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_voltage_an",
+          "friendlyName": "solaredge_local AC Voltage AN",
+          "cSharpName": "SolaredgeLocalAcVoltageAn"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_voltage_bc",
+          "friendlyName": "solaredge_local AC Voltage BC",
+          "cSharpName": "SolaredgeLocalAcVoltageBc"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_voltage_bn",
+          "friendlyName": "solaredge_local AC Voltage BN",
+          "cSharpName": "SolaredgeLocalAcVoltageBn"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_voltage_ca",
+          "friendlyName": "solaredge_local AC Voltage CA",
+          "cSharpName": "SolaredgeLocalAcVoltageCa"
+        },
+        {
+          "id": "sensor.solaredge_local_ac_voltage_cn",
+          "friendlyName": "solaredge_local AC Voltage CN",
+          "cSharpName": "SolaredgeLocalAcVoltageCn"
+        },
+        {
+          "id": "sensor.solaredge_local_dc_current",
+          "friendlyName": "solaredge_local DC Current",
+          "cSharpName": "SolaredgeLocalDcCurrent"
+        },
+        {
+          "id": "sensor.solaredge_local_dc_power",
+          "friendlyName": "solaredge_local DC Power",
+          "cSharpName": "SolaredgeLocalDcPower"
+        },
+        {
+          "id": "sensor.solaredge_local_dc_voltage",
+          "friendlyName": "solaredge_local DC Voltage",
+          "cSharpName": "SolaredgeLocalDcVoltage"
+        },
+        {
+          "id": "sensor.solaredge_local_temp_sink",
+          "friendlyName": "solaredge_local Temp Sink",
+          "cSharpName": "SolaredgeLocalTempSink"
+        },
+        {
+          "id": "sensor.tablet_johan_battery_level",
+          "friendlyName": "tablet Johan  Battery level",
+          "cSharpName": "TabletJohanBatteryLevel"
+        },
+        {
+          "id": "sensor.thuis_outdoor_temperature",
+          "friendlyName": "Thuis Buitentemperatuur",
+          "cSharpName": "ThuisOutdoorTemperature"
+        },
+        {
+          "id": "sensor.thuis_solar_percentage",
+          "friendlyName": "Thuis Zonne-energie percentage",
+          "cSharpName": "ThuisSolarPercentage"
+        },
+        {
+          "id": "sensor.verwarming_heating",
+          "friendlyName": "Verwarming Verwarmen",
+          "cSharpName": "VerwarmingHeating"
+        },
+        {
+          "id": "sensor.verwarming_humidity",
+          "friendlyName": "Verwarming Luchtvochtigheid",
+          "cSharpName": "VerwarmingHumidity"
+        },
+        {
+          "id": "sensor.verwarming_temperature",
+          "friendlyName": "Verwarming Temperatuur",
+          "cSharpName": "VerwarmingTemperature"
+        },
+        {
+          "id": "sensor.voltage",
+          "friendlyName": "Voltage",
+          "cSharpName": "Voltage"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "state_class",
+          "cSharpName": "StateClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "unit_of_measurement",
+          "cSharpName": "UnitOfMeasurement",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "device_class",
+          "cSharpName": "DeviceClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "last_reset",
+          "cSharpName": "LastReset",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "location",
+          "cSharpName": "Location",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "context",
+          "cSharpName": "Context",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "unit",
+          "cSharpName": "Unit",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "L1",
+          "cSharpName": "L1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "time",
+          "cSharpName": "Time",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "setting",
+          "cSharpName": "Setting",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "switch",
+      "entities": [
+        {
+          "id": "switch.aircoliving_none",
+          "friendlyName": "aircoliving Power",
+          "cSharpName": "AircolivingNone"
+        },
+        {
+          "id": "switch.aircoliving_streamer",
+          "friendlyName": "aircoliving Streamer",
+          "cSharpName": "AircolivingStreamer"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "update",
+      "entities": [
+        {
+          "id": "update.apexcharts_card_update",
+          "friendlyName": "apexcharts-card update",
+          "cSharpName": "ApexchartsCardUpdate"
+        },
+        {
+          "id": "update.average_sensor_update",
+          "friendlyName": "Average Sensor update",
+          "cSharpName": "AverageSensorUpdate"
+        },
+        {
+          "id": "update.hacs_update",
+          "friendlyName": "HACS update",
+          "cSharpName": "HacsUpdate"
+        },
+        {
+          "id": "update.home_assistant_core_update",
+          "friendlyName": "Home Assistant Core Update",
+          "cSharpName": "HomeAssistantCoreUpdate"
+        },
+        {
+          "id": "update.home_assistant_operating_system_update",
+          "friendlyName": "Home Assistant Operating System Update",
+          "cSharpName": "HomeAssistantOperatingSystemUpdate"
+        },
+        {
+          "id": "update.home_assistant_supervisor_update",
+          "friendlyName": "Home Assistant Supervisor Update",
+          "cSharpName": "HomeAssistantSupervisorUpdate"
+        },
+        {
+          "id": "update.mini_graph_card_update",
+          "friendlyName": "mini-graph-card update",
+          "cSharpName": "MiniGraphCardUpdate"
+        },
+        {
+          "id": "update.onedrive_backup_update",
+          "friendlyName": "OneDrive Backup Update",
+          "cSharpName": "OnedriveBackupUpdate"
+        },
+        {
+          "id": "update.open_charge_point_protocol_ocpp_update",
+          "friendlyName": "Open Charge Point Protocol (OCPP) update",
+          "cSharpName": "OpenChargePointProtocolOcppUpdate"
+        },
+        {
+          "id": "update.solaredge_modbus_update",
+          "friendlyName": "Solaredge Modbus update",
+          "cSharpName": "SolaredgeModbusUpdate"
+        },
+        {
+          "id": "update.studio_code_server_update",
+          "friendlyName": "Studio Code Server Update",
+          "cSharpName": "StudioCodeServerUpdate"
+        },
+        {
+          "id": "update.terminal_ssh_update",
+          "friendlyName": "Terminal \u0026 SSH Update",
+          "cSharpName": "TerminalSshUpdate"
+        },
+        {
+          "id": "update.volkswagen_we_connect_id_update",
+          "friendlyName": "Volkswagen We Connect ID update",
+          "cSharpName": "VolkswagenWeConnectIdUpdate"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "auto_update",
+          "cSharpName": "AutoUpdate",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "display_precision",
+          "cSharpName": "DisplayPrecision",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "installed_version",
+          "cSharpName": "InstalledVersion",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "in_progress",
+          "cSharpName": "InProgress",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "latest_version",
+          "cSharpName": "LatestVersion",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "release_summary",
+          "cSharpName": "ReleaseSummary",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "release_url",
+          "cSharpName": "ReleaseUrl",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "skipped_version",
+          "cSharpName": "SkippedVersion",
+          "clrType": null
+        },
+        {
+          "jsonName": "title",
+          "cSharpName": "Title",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "update_percentage",
+          "cSharpName": "UpdatePercentage",
+          "clrType": null
+        },
+        {
+          "jsonName": "entity_picture",
+          "cSharpName": "EntityPicture",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "zone",
+      "entities": [
+        {
+          "id": "zone.home",
+          "friendlyName": "Thuis",
+          "cSharpName": "Home"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "latitude",
+          "cSharpName": "Latitude",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "longitude",
+          "cSharpName": "Longitude",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "radius",
+          "cSharpName": "Radius",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "passive",
+          "cSharpName": "Passive",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "persons",
+          "cSharpName": "Persons",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "editable",
+          "cSharpName": "Editable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    }
+  ]
+}
