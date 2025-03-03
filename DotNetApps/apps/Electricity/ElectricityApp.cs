@@ -14,16 +14,16 @@ public class ElectricityApp
     private readonly ILogger<ElectricityApp> _logger;
 
     private readonly CultureInfo culture = new("en-US");
-    private readonly IHaContext ha;
-    private readonly Entities entities;
+    private readonly IHaContext _ha;
+    private readonly Entities _entities;
 
     private double actualTotalPower;
     private double chargerCurrent;
     private bool chargingSuspended = false;
 
     private const string CHARGING = "Charging";
-    private const long SUSPENDTIME = 30; 
-    private const double PFACTOR = 1.0;
+    private long _SuspendTime = 30; 
+    private double _PFactor = 1.0;
 
     private NumericSensorEntity consumptionEntity;
     private NumericSensorEntity injectionEntity;
@@ -39,11 +39,16 @@ public class ElectricityApp
     private NumericSensorEntity chargerCurrentImportEntity;
     private NumericSensorEntity chargerCurrentOfferedEntity;
 
-    public ElectricityApp(IHaContext ha, IScheduler scheduler,  Entities entities, ILogger<ElectricityApp> logger)
+    public ElectricityApp(IHaContext ha,
+                          IScheduler scheduler,
+                          Entities entities,
+                          IAppConfig<ChargerConfig> config,
+                          ILogger<ElectricityApp> logger)
     {
-        this.ha = ha;
-        this.entities = entities;
+        _ha = ha;
+        _entities = entities;
         _logger = logger;
+        ConfigureApp(config);
         SetupEntities();
         chargerCurrent = chargerCurrentOfferedEntity.State ?? 0.0;
 
@@ -61,8 +66,14 @@ public class ElectricityApp
         chargerStatusEntity
             .StateChanges()
             .Where(e => e.Old?.State == CHARGING)
-            .WhenStateIsFor(s => s?.State != CHARGING, TimeSpan.FromSeconds(SUSPENDTIME), scheduler)
+            .WhenStateIsFor(s => s?.State != CHARGING, TimeSpan.FromSeconds(_SuspendTime), scheduler)
             .Subscribe(s => ResumeCharging());
+    }
+
+    private void ConfigureApp(IAppConfig<ChargerConfig> config)
+    {
+        _SuspendTime = config.Value.SuspendTime;
+        _PFactor = config.Value.PFactor;
     }
 
     private void ResumeCharging()
@@ -94,19 +105,19 @@ public class ElectricityApp
                   )]
     private void SetupEntities()
     {
-        consumptionEntity = entities.Sensor.ElectricityMeterEnergieverbruik;
-        injectionEntity = entities.Sensor.ElectricityMeterEnergieproductie;
-        actualTotalPowerEntity = entities.InputNumber.ActualTotalPower;
-        enableChargerEntity = entities.InputBoolean.Enablecharger;
-        dynamicCharging = entities.InputBoolean.DynamicCharging;
-        setChargerPowerEntity = entities.InputNumber.SetChargerPower;
-        voltageEntity = entities.Sensor.ElectricityMeterSpanningFaseL1;
-        chargerMaxCurrentEntity = entities.Number.ChargerMaximumCurrent;
-        OfferedChargingPowerEntity = entities.InputNumber.OfferedChargingPower;
-        netMaxPowerEntity = entities.InputNumber.NetMaxPower;
-        chargerStatusEntity = entities.Sensor.ChargerStatusConnector;
-        chargerCurrentImportEntity = entities.Sensor.ChargerCurrentImport;
-        chargerCurrentOfferedEntity = entities.Sensor.ChargerCurrentOffered;
+        consumptionEntity = _entities.Sensor.ElectricityMeterEnergieverbruik;
+        injectionEntity = _entities.Sensor.ElectricityMeterEnergieproductie;
+        actualTotalPowerEntity = _entities.InputNumber.ActualTotalPower;
+        enableChargerEntity = _entities.InputBoolean.Enablecharger;
+        dynamicCharging = _entities.InputBoolean.DynamicCharging;
+        setChargerPowerEntity = _entities.InputNumber.SetChargerPower;
+        voltageEntity = _entities.Sensor.ElectricityMeterSpanningFaseL1;
+        chargerMaxCurrentEntity = _entities.Number.ChargerMaximumCurrent;
+        OfferedChargingPowerEntity = _entities.InputNumber.OfferedChargingPower;
+        netMaxPowerEntity = _entities.InputNumber.NetMaxPower;
+        chargerStatusEntity = _entities.Sensor.ChargerStatusConnector;
+        chargerCurrentImportEntity = _entities.Sensor.ChargerCurrentImport;
+        chargerCurrentOfferedEntity = _entities.Sensor.ChargerCurrentOffered;
     }
 
     private void UpdateActualTotalPower()
@@ -167,7 +178,7 @@ public class ElectricityApp
 
         // if actually charging calculate new current
         double deltaBudget = (netMaxPowerEntity.State ?? 0.0) - actualTotalPower;
-        current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * PFACTOR / voltageEntity.State! : 0.0));
+        current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
         _logger.LogDebug($"Charging, current > {current}");
         return current;
     }
