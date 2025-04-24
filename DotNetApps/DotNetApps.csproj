@@ -26,12 +26,12 @@
     </Target>
         
     <ItemGroup>
-        <PackageReference Include="NetDaemon.AppModel" Version="25.6.0" />
-        <PackageReference Include="NetDaemon.Runtime" Version="25.6.0" />
-        <PackageReference Include="NetDaemon.HassModel" Version="25.6.0" />
-        <PackageReference Include="NetDaemon.Client" Version="25.6.0" />
-        <PackageReference Include="NetDaemon.Extensions.Scheduling" Version="25.6.0" />
-        <PackageReference Include="NetDaemon.Extensions.Logging" Version="25.6.0" />
-        <PackageReference Include="NetDaemon.Extensions.Tts" Version="25.6.0" />
+        <PackageReference Include="NetDaemon.AppModel" Version="25.10.0" />
+        <PackageReference Include="NetDaemon.Runtime" Version="25.10.0" />
+        <PackageReference Include="NetDaemon.HassModel" Version="25.10.0" />
+        <PackageReference Include="NetDaemon.Client" Version="25.10.0" />
+        <PackageReference Include="NetDaemon.Extensions.Scheduling" Version="25.10.0" />
+        <PackageReference Include="NetDaemon.Extensions.Logging" Version="25.10.0" />
+        <PackageReference Include="NetDaemon.Extensions.Tts" Version="25.10.0" />
     </ItemGroup>
 </Project>

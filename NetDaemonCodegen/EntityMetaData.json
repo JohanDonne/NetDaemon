@@ -430,13 +430,13 @@
           "clrType": "System.String"
         },
         {
-          "jsonName": "friendly_name",
-          "cSharpName": "FriendlyName",
+          "jsonName": "icon",
+          "cSharpName": "Icon",
           "clrType": "System.String"
         },
         {
-          "jsonName": "icon",
-          "cSharpName": "Icon",
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
           "clrType": "System.String"
         },
         {
@@ -544,18 +544,8 @@
           "clrType": "System.Double"
         },
         {
-          "jsonName": "fan_modes",
-          "cSharpName": "FanModes",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
-        },
-        {
           "jsonName": "preset_modes",
           "cSharpName": "PresetModes",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
-        },
-        {
-          "jsonName": "swing_modes",
-          "cSharpName": "SwingModes",
           "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
         },
         {
@@ -569,9 +559,9 @@
           "clrType": "System.Double"
         },
         {
-          "jsonName": "fan_mode",
-          "cSharpName": "FanMode",
-          "clrType": "System.String"
+          "jsonName": "current_humidity",
+          "cSharpName": "CurrentHumidity",
+          "clrType": "System.Double"
         },
         {
           "jsonName": "hvac_action",
@@ -582,26 +572,6 @@
           "jsonName": "preset_mode",
           "cSharpName": "PresetMode",
           "clrType": "System.String"
-        },
-        {
-          "jsonName": "swing_mode",
-          "cSharpName": "SwingMode",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "friendly_name",
-          "cSharpName": "FriendlyName",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "supported_features",
-          "cSharpName": "SupportedFeatures",
-          "clrType": "System.Double"
-        },
-        {
-          "jsonName": "current_humidity",
-          "cSharpName": "CurrentHumidity",
-          "clrType": "System.Double"
         },
         {
           "jsonName": "offset_celsius",
@@ -622,6 +592,36 @@
           "jsonName": "default_overlay_seconds",
           "cSharpName": "DefaultOverlaySeconds",
           "clrType": null
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "fan_modes",
+          "cSharpName": "FanModes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "swing_modes",
+          "cSharpName": "SwingModes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "fan_mode",
+          "cSharpName": "FanMode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "swing_mode",
+          "cSharpName": "SwingMode",
+          "clrType": "System.String"
         }
       ]
     },
@@ -1308,6 +1308,16 @@
           "clrType": "System.String"
         },
         {
+          "jsonName": "state_class",
+          "cSharpName": "StateClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "device_class",
+          "cSharpName": "DeviceClass",
+          "clrType": "System.String"
+        },
+        {
           "jsonName": "attribution",
           "cSharpName": "Attribution",
           "clrType": "System.String"
@@ -1321,16 +1331,6 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
-        },
-        {
-          "jsonName": "state_class",
-          "cSharpName": "StateClass",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "device_class",
-          "cSharpName": "DeviceClass",
-          "clrType": "System.String"
         }
       ]
     },
@@ -1368,6 +1368,38 @@
           "jsonName": "user_id",
           "cSharpName": "UserId",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "select",
+      "entities": [
+        {
+          "id": "select.rc_force_charge_discharge",
+          "friendlyName": "RC Force Charge/Discharge",
+          "cSharpName": "RcForceChargeDischarge"
+        },
+        {
+          "id": "select.soliscloud_energy_storage_control_switch",
+          "friendlyName": "Soliscloud Energy Storage Control Switch",
+          "cSharpName": "SoliscloudEnergyStorageControlSwitch"
+        },
+        {
+          "id": "select.work_mode",
+          "friendlyName": "Work Mode",
+          "cSharpName": "WorkMode"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "options",
+          "cSharpName": "Options",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
         },
         {
           "jsonName": "friendly_name",
@@ -1842,6 +1874,21 @@
       ],
       "attributes": [
         {
+          "jsonName": "state_class",
+          "cSharpName": "StateClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "status_description",
+          "cSharpName": "StatusDescription",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
           "jsonName": "options",
           "cSharpName": "Options",
           "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
@@ -1857,94 +1904,9 @@
           "clrType": "System.String"
         },
         {
-          "jsonName": "friendly_name",
-          "cSharpName": "FriendlyName",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "state_class",
-          "cSharpName": "StateClass",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "status_description",
-          "cSharpName": "StatusDescription",
-          "clrType": "System.String"
-        },
-        {
           "jsonName": "1",
           "cSharpName": "_1",
           "clrType": "System.String"
-        },
-        {
-          "jsonName": "attribution",
-          "cSharpName": "Attribution",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "restored",
-          "cSharpName": "Restored",
-          "clrType": "System.Boolean"
-        },
-        {
-          "jsonName": "supported_features",
-          "cSharpName": "SupportedFeatures",
-          "clrType": "System.Double"
-        },
-        {
-          "jsonName": "Last Local backup date",
-          "cSharpName": "LastLocalbackupdate",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "Last OneDrive backup date",
-          "cSharpName": "LastOneDrivebackupdate",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "Backups in Home Assistant",
-          "cSharpName": "BackupsinHomeAssistant",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "Backups in OneDrive",
-          "cSharpName": "BackupsinOneDrive",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "Number of local backups marked to retain indefinitely",
-          "cSharpName": "Numberoflocalbackupsmarkedtoretainindefinitely",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "Number of OneDrive backups marked to retain indefinitely",
-          "cSharpName": "NumberofOneDrivebackupsmarkedtoretainindefinitely",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "Current backup upload percentage",
-          "cSharpName": "Currentbackupuploadpercentage",
-          "clrType": null
-        },
-        {
-          "jsonName": "Current backup upload speed (KB/s)",
-          "cSharpName": "CurrentbackupuploadspeedKBs",
-          "clrType": null
-        },
-        {
-          "jsonName": "Backup download percentage",
-          "cSharpName": "Backupdownloadpercentage",
-          "clrType": null
-        },
-        {
-          "jsonName": "Current file upload percentage",
-          "cSharpName": "Currentfileuploadpercentage",
-          "clrType": null
-        },
-        {
-          "jsonName": "Current file upload speed (KB/s)",
-          "cSharpName": "CurrentfileuploadspeedKBs",
-          "clrType": null
         },
         {
           "jsonName": "ChargeProfileMaxStackLevel",
@@ -1954,6 +1916,11 @@
         {
           "jsonName": "time",
           "cSharpName": "Time",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
           "clrType": "System.String"
         },
         {
@@ -1970,6 +1937,16 @@
           "jsonName": "API Name",
           "cSharpName": "APIName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -3735,19 +3712,24 @@
           "clrType": "System.String"
         },
         {
-          "jsonName": "icon",
-          "cSharpName": "Icon",
-          "clrType": "System.String"
-        },
-        {
           "jsonName": "last_reset",
           "cSharpName": "LastReset",
           "clrType": "System.String"
         },
         {
-          "jsonName": "location",
-          "cSharpName": "Location",
+          "jsonName": "icon",
+          "cSharpName": "Icon",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "unit",
+          "cSharpName": "Unit",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "L1-N",
+          "cSharpName": "L1N",
+          "clrType": "System.Double"
         },
         {
           "jsonName": "context",
@@ -3755,8 +3737,8 @@
           "clrType": "System.String"
         },
         {
-          "jsonName": "unit",
-          "cSharpName": "Unit",
+          "jsonName": "location",
+          "cSharpName": "Location",
           "clrType": "System.String"
         },
         {
@@ -3780,21 +3762,6 @@
           "clrType": "System.String"
         },
         {
-          "jsonName": "restored",
-          "cSharpName": "Restored",
-          "clrType": "System.Boolean"
-        },
-        {
-          "jsonName": "supported_features",
-          "cSharpName": "SupportedFeatures",
-          "clrType": "System.Double"
-        },
-        {
-          "jsonName": "L1-N",
-          "cSharpName": "L1N",
-          "clrType": "System.Double"
-        },
-        {
           "jsonName": "Last updated",
           "cSharpName": "Lastupdated",
           "clrType": "System.String"
@@ -3808,6 +3775,16 @@
           "jsonName": "API Name",
           "cSharpName": "APIName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -4127,245 +4104,9 @@
       ],
       "attributes": [
         {
-          "jsonName": "friendly_name",
-          "cSharpName": "FriendlyName",
-          "clrType": "System.String"
-        },
-        {
           "jsonName": "icon",
           "cSharpName": "Icon",
           "clrType": "System.String"
-        }
-      ]
-    },
-    {
-      "domain": "update",
-      "entities": [
-        {
-          "id": "update.apexcharts_card_update",
-          "friendlyName": "apexcharts-card update",
-          "cSharpName": "ApexchartsCardUpdate"
-        },
-        {
-          "id": "update.average_sensor_update",
-          "friendlyName": "Average Sensor update",
-          "cSharpName": "AverageSensorUpdate"
-        },
-        {
-          "id": "update.hacs_update",
-          "friendlyName": "HACS update",
-          "cSharpName": "HacsUpdate"
-        },
-        {
-          "id": "update.home_assistant_core_update",
-          "friendlyName": "Home Assistant Core Update",
-          "cSharpName": "HomeAssistantCoreUpdate"
-        },
-        {
-          "id": "update.home_assistant_operating_system_update",
-          "friendlyName": "Home Assistant Operating System Update",
-          "cSharpName": "HomeAssistantOperatingSystemUpdate"
-        },
-        {
-          "id": "update.home_assistant_supervisor_update",
-          "friendlyName": "Home Assistant Supervisor Update",
-          "cSharpName": "HomeAssistantSupervisorUpdate"
-        },
-        {
-          "id": "update.mini_graph_card_update",
-          "friendlyName": "mini-graph-card update",
-          "cSharpName": "MiniGraphCardUpdate"
-        },
-        {
-          "id": "update.netdaemon_v5_net_9_update",
-          "friendlyName": "NetDaemon V5 (.NET 9) Update",
-          "cSharpName": "NetdaemonV5Net9Update"
-        },
-        {
-          "id": "update.open_charge_point_protocol_ocpp_update",
-          "friendlyName": "Open Charge Point Protocol (OCPP) update",
-          "cSharpName": "OpenChargePointProtocolOcppUpdate"
-        },
-        {
-          "id": "update.samba_share_update",
-          "friendlyName": "Samba share Update",
-          "cSharpName": "SambaShareUpdate"
-        },
-        {
-          "id": "update.solaredge_modbus_update",
-          "friendlyName": "Solaredge Modbus update",
-          "cSharpName": "SolaredgeModbusUpdate"
-        },
-        {
-          "id": "update.solis_modbus_integration_update",
-          "friendlyName": "Solis Modbus Integration update",
-          "cSharpName": "SolisModbusIntegrationUpdate"
-        },
-        {
-          "id": "update.soliscloud_portal_integration_update",
-          "friendlyName": "SolisCloud portal integration update",
-          "cSharpName": "SoliscloudPortalIntegrationUpdate"
-        },
-        {
-          "id": "update.studio_code_server_update",
-          "friendlyName": "Studio Code Server Update",
-          "cSharpName": "StudioCodeServerUpdate"
-        },
-        {
-          "id": "update.terminal_ssh_update",
-          "friendlyName": "Terminal \u0026 SSH Update",
-          "cSharpName": "TerminalSshUpdate"
-        },
-        {
-          "id": "update.volkswagen_we_connect_id_update",
-          "friendlyName": "Volkswagen We Connect ID update",
-          "cSharpName": "VolkswagenWeConnectIdUpdate"
-        }
-      ],
-      "attributes": [
-        {
-          "jsonName": "auto_update",
-          "cSharpName": "AutoUpdate",
-          "clrType": "System.Boolean"
-        },
-        {
-          "jsonName": "display_precision",
-          "cSharpName": "DisplayPrecision",
-          "clrType": "System.Double"
-        },
-        {
-          "jsonName": "installed_version",
-          "cSharpName": "InstalledVersion",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "in_progress",
-          "cSharpName": "InProgress",
-          "clrType": "System.Boolean"
-        },
-        {
-          "jsonName": "latest_version",
-          "cSharpName": "LatestVersion",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "release_summary",
-          "cSharpName": "ReleaseSummary",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "release_url",
-          "cSharpName": "ReleaseUrl",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "skipped_version",
-          "cSharpName": "SkippedVersion",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "title",
-          "cSharpName": "Title",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "update_percentage",
-          "cSharpName": "UpdatePercentage",
-          "clrType": null
-        },
-        {
-          "jsonName": "entity_picture",
-          "cSharpName": "EntityPicture",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "friendly_name",
-          "cSharpName": "FriendlyName",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "supported_features",
-          "cSharpName": "SupportedFeatures",
-          "clrType": "System.Double"
-        }
-      ]
-    },
-    {
-      "domain": "zone",
-      "entities": [
-        {
-          "id": "zone.home",
-          "friendlyName": "Thuis",
-          "cSharpName": "Home"
-        }
-      ],
-      "attributes": [
-        {
-          "jsonName": "latitude",
-          "cSharpName": "Latitude",
-          "clrType": "System.Double"
-        },
-        {
-          "jsonName": "longitude",
-          "cSharpName": "Longitude",
-          "clrType": "System.Double"
-        },
-        {
-          "jsonName": "radius",
-          "cSharpName": "Radius",
-          "clrType": "System.Double"
-        },
-        {
-          "jsonName": "passive",
-          "cSharpName": "Passive",
-          "clrType": "System.Boolean"
-        },
-        {
-          "jsonName": "persons",
-          "cSharpName": "Persons",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
-        },
-        {
-          "jsonName": "editable",
-          "cSharpName": "Editable",
-          "clrType": "System.Boolean"
-        },
-        {
-          "jsonName": "icon",
-          "cSharpName": "Icon",
-          "clrType": "System.String"
-        },
-        {
-          "jsonName": "friendly_name",
-          "cSharpName": "FriendlyName",
-          "clrType": "System.String"
-        }
-      ]
-    },
-    {
-      "domain": "select",
-      "entities": [
-        {
-          "id": "select.rc_force_charge_discharge",
-          "friendlyName": "RC Force Charge/Discharge",
-          "cSharpName": "RcForceChargeDischarge"
-        },
-        {
-          "id": "select.soliscloud_energy_storage_control_switch",
-          "friendlyName": "Soliscloud Energy Storage Control Switch",
-          "cSharpName": "SoliscloudEnergyStorageControlSwitch"
-        },
-        {
-          "id": "select.work_mode",
-          "friendlyName": "Work Mode",
-          "cSharpName": "WorkMode"
-        }
-      ],
-      "attributes": [
-        {
-          "jsonName": "options",
-          "cSharpName": "Options",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
         },
         {
           "jsonName": "friendly_name",
@@ -4659,6 +4400,210 @@
         }
       ],
       "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "update",
+      "entities": [
+        {
+          "id": "update.apexcharts_card_update",
+          "friendlyName": "apexcharts-card update",
+          "cSharpName": "ApexchartsCardUpdate"
+        },
+        {
+          "id": "update.average_sensor_update",
+          "friendlyName": "Average Sensor update",
+          "cSharpName": "AverageSensorUpdate"
+        },
+        {
+          "id": "update.hacs_update",
+          "friendlyName": "HACS update",
+          "cSharpName": "HacsUpdate"
+        },
+        {
+          "id": "update.home_assistant_core_update",
+          "friendlyName": "Home Assistant Core Update",
+          "cSharpName": "HomeAssistantCoreUpdate"
+        },
+        {
+          "id": "update.home_assistant_operating_system_update",
+          "friendlyName": "Home Assistant Operating System Update",
+          "cSharpName": "HomeAssistantOperatingSystemUpdate"
+        },
+        {
+          "id": "update.home_assistant_supervisor_update",
+          "friendlyName": "Home Assistant Supervisor Update",
+          "cSharpName": "HomeAssistantSupervisorUpdate"
+        },
+        {
+          "id": "update.mini_graph_card_update",
+          "friendlyName": "mini-graph-card update",
+          "cSharpName": "MiniGraphCardUpdate"
+        },
+        {
+          "id": "update.netdaemon_v5_net_9_update",
+          "friendlyName": "NetDaemon V5 (.NET 9) Update",
+          "cSharpName": "NetdaemonV5Net9Update"
+        },
+        {
+          "id": "update.open_charge_point_protocol_ocpp_update",
+          "friendlyName": "Open Charge Point Protocol (OCPP) update",
+          "cSharpName": "OpenChargePointProtocolOcppUpdate"
+        },
+        {
+          "id": "update.samba_share_update",
+          "friendlyName": "Samba share Update",
+          "cSharpName": "SambaShareUpdate"
+        },
+        {
+          "id": "update.solaredge_modbus_update",
+          "friendlyName": "Solaredge Modbus update",
+          "cSharpName": "SolaredgeModbusUpdate"
+        },
+        {
+          "id": "update.solis_modbus_integration_update",
+          "friendlyName": "Solis Modbus Integration update",
+          "cSharpName": "SolisModbusIntegrationUpdate"
+        },
+        {
+          "id": "update.soliscloud_portal_integration_update",
+          "friendlyName": "SolisCloud portal integration update",
+          "cSharpName": "SoliscloudPortalIntegrationUpdate"
+        },
+        {
+          "id": "update.studio_code_server_update",
+          "friendlyName": "Studio Code Server Update",
+          "cSharpName": "StudioCodeServerUpdate"
+        },
+        {
+          "id": "update.terminal_ssh_update",
+          "friendlyName": "Terminal \u0026 SSH Update",
+          "cSharpName": "TerminalSshUpdate"
+        },
+        {
+          "id": "update.volkswagen_we_connect_id_update",
+          "friendlyName": "Volkswagen We Connect ID update",
+          "cSharpName": "VolkswagenWeConnectIdUpdate"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "auto_update",
+          "cSharpName": "AutoUpdate",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "display_precision",
+          "cSharpName": "DisplayPrecision",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "installed_version",
+          "cSharpName": "InstalledVersion",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "in_progress",
+          "cSharpName": "InProgress",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "latest_version",
+          "cSharpName": "LatestVersion",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "release_summary",
+          "cSharpName": "ReleaseSummary",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "release_url",
+          "cSharpName": "ReleaseUrl",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "skipped_version",
+          "cSharpName": "SkippedVersion",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "title",
+          "cSharpName": "Title",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "update_percentage",
+          "cSharpName": "UpdatePercentage",
+          "clrType": null
+        },
+        {
+          "jsonName": "entity_picture",
+          "cSharpName": "EntityPicture",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "zone",
+      "entities": [
+        {
+          "id": "zone.home",
+          "friendlyName": "Thuis",
+          "cSharpName": "Home"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "latitude",
+          "cSharpName": "Latitude",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "longitude",
+          "cSharpName": "Longitude",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "radius",
+          "cSharpName": "Radius",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "passive",
+          "cSharpName": "Passive",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "persons",
+          "cSharpName": "Persons",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "editable",
+          "cSharpName": "Editable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
         {
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",

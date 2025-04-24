@@ -5,6 +5,7 @@ using NetDaemon.HassModel.Entities;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reactive.Concurrency;
+using System.Threading.Tasks;
 
 namespace DotNetApps.apps.Electricity;
 
@@ -18,16 +19,19 @@ public class ElectricityApp
     private readonly Entities _entities;
 
     private double actualTotalPower;
+    private double actualBatteryPower;
     private double chargerCurrent;
     private bool chargingSuspended = false;
 
     private const string CHARGING = "Charging";
+    private const string AVAILABLE = "Available";
     private long _SuspendTime = 30; 
     private double _PFactor = 1.0;
 
     private NumericSensorEntity consumptionEntity;
     private NumericSensorEntity injectionEntity;
     private InputNumberEntity actualTotalPowerEntity;
+    private InputNumberEntity actualBatteryPowerEntity;
     private InputBooleanEntity enableChargerEntity;
     private InputBooleanEntity dynamicCharging;
     private InputNumberEntity setChargerPowerEntity;
@@ -38,6 +42,10 @@ public class ElectricityApp
     private SensorEntity chargerStatusEntity;
     private NumericSensorEntity chargerCurrentImportEntity;
     private NumericSensorEntity chargerCurrentOfferedEntity;
+    private NumericSensorEntity batteryChargingPowerEntity;
+    private NumericSensorEntity batteryDischargingPowerEntity;
+    private NumericSensorEntity batterySocEntity;
+    private AutomationEntity configureChargerEnity;
 
     public ElectricityApp(IHaContext ha,
                           IScheduler scheduler,
@@ -55,7 +63,12 @@ public class ElectricityApp
         scheduler.SchedulePeriodic(TimeSpan.FromSeconds(2), () =>
         {
             UpdateActualTotalPower();
+            UpdateActualBatteryPower();
             UpdateChargerPower();
+        });
+        scheduler.SchedulePeriodic(TimeSpan.FromSeconds(60), async () =>
+        {
+            await CheckOccpConfiguration();
         });
 
         chargerStatusEntity
@@ -68,6 +81,11 @@ public class ElectricityApp
             .Where(e => e.Old?.State == CHARGING)
             .WhenStateIsFor(s => s?.State != CHARGING, TimeSpan.FromSeconds(_SuspendTime), scheduler)
             .Subscribe(s => ResumeCharging());
+
+        chargerStatusEntity
+           .StateChanges()
+           .Where(e => e.New?.State == AVAILABLE)
+           .Subscribe(s => ResetStaticChargingPower());
     }
 
     private void ConfigureApp(IAppConfig<ChargerConfig> config)
@@ -89,6 +107,12 @@ public class ElectricityApp
         chargingSuspended = true;
     }
 
+    private void ResetStaticChargingPower()
+    {
+        // reset static charging power to 0 whenever CCS cable is disconnected
+        setChargerPowerEntity.SetValue(0.0);
+    }
+
     [MemberNotNull(nameof(consumptionEntity),
                      nameof(injectionEntity),
                      nameof(actualTotalPowerEntity),
@@ -101,13 +125,22 @@ public class ElectricityApp
                      nameof(chargerStatusEntity),
                      nameof(chargerCurrentImportEntity),
                      nameof(chargerCurrentOfferedEntity),
-                     nameof(setChargerPowerEntity)
+                     nameof(setChargerPowerEntity),
+                     nameof(actualTotalPowerEntity),
+                     nameof(actualBatteryPowerEntity),
+                     nameof(batteryChargingPowerEntity),
+                     nameof(batteryDischargingPowerEntity),
+                     nameof(batterySocEntity),
+                     nameof(configureChargerEnity)
                   )]
     private void SetupEntities()
     {
         consumptionEntity = _entities.Sensor.ElectricityMeterEnergieverbruik;
         injectionEntity = _entities.Sensor.ElectricityMeterEnergieproductie;
         actualTotalPowerEntity = _entities.InputNumber.ActualTotalPower;
+        actualBatteryPowerEntity = _entities.InputNumber.ActualBatteryPower;
+        batteryChargingPowerEntity = _entities.Sensor.SolisS6Eh1pBatteryChargePower;
+        batteryDischargingPowerEntity = _entities.Sensor.SolisS6Eh1pBatteryDischargePower;
         enableChargerEntity = _entities.InputBoolean.Enablecharger;
         dynamicCharging = _entities.InputBoolean.DynamicCharging;
         setChargerPowerEntity = _entities.InputNumber.SetChargerPower;
@@ -118,6 +151,8 @@ public class ElectricityApp
         chargerStatusEntity = _entities.Sensor.ChargerStatusConnector;
         chargerCurrentImportEntity = _entities.Sensor.ChargerCurrentImport;
         chargerCurrentOfferedEntity = _entities.Sensor.ChargerCurrentOffered;
+        batterySocEntity = _entities.Sensor.SolisS6Eh1pBatterySoc;
+        configureChargerEnity = _entities.Automation.ConfigureOcppCharger;
     }
 
     private void UpdateActualTotalPower()
@@ -134,6 +169,33 @@ public class ElectricityApp
             actualTotalPower = 0.0;
         }
         actualTotalPowerEntity.SetValue(actualTotalPower);
+    }
+
+    private void UpdateActualBatteryPower()
+    {
+        // calculate Actual Total Power import from grid
+        try
+        {
+            double chargingValue = batteryChargingPowerEntity.State ?? 0.0;
+            double dischargingValue = batteryDischargingPowerEntity.State ?? 0.0;
+            actualBatteryPower = chargingValue - dischargingValue;
+        }
+        catch
+        {
+            actualBatteryPower = 0.0;
+        }
+        actualBatteryPowerEntity.SetValue(actualBatteryPower);
+    }
+
+    private async Task CheckOccpConfiguration()
+    {
+        if (chargerStatusEntity.State != CHARGING) return;
+        await Task.Delay(30000);
+        if (OfferedChargingPowerEntity.State > 1500.0 && chargerCurrentOfferedEntity.State < 1.0)
+        {
+          // charger does not report correct values, should be configured through OCPP
+          configureChargerEnity.Trigger();
+        }
     }
 
     private void UpdateChargerPower()
@@ -157,10 +219,54 @@ public class ElectricityApp
 
     private double GetDynamicCurrent()
     {
+        return GetDynamicChargerCurrentWithHomeBatteryPriority();
+
+        //double current;
+        //if (chargerStatusEntity.State != CHARGING)
+        //{
+        //    // calculate current offered to car
+        //    double powerBudget = (netMaxPowerEntity.State ?? 0.0) - actualTotalPower;
+        //    current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
+        //    _logger.LogDebug($"Not charging, current > {current}");
+        //    return current > 0.0 ? current : 0.0;
+        //}
+        //// Check if car is actually charging 
+        //// This is to prevent changing the offered power while the car/charger is still
+        //// syncing to the previous setting 
+
+        //double delta = (chargerCurrentImportEntity.State ?? 0.0) - chargerCurrent;
+        //if ((delta < -1.0) || (delta > 1.0))
+        //{
+        //    _logger.LogDebug($"Car is syncing, delta: {delta}");
+        //    return chargerCurrent;
+        //}
+
+        //// if actually charging calculate new current
+        //double deltaBudget = (netMaxPowerEntity.State ?? 0.0) - actualTotalPower;
+        //current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
+        //_logger.LogDebug($"Charging, current > {current}");
+        //return current;
+    }
+
+    private double GetDynamicChargerCurrentWithHomeBatteryPriority()
+    {
         double current;
         if (chargerStatusEntity.State != CHARGING)
         {
-            double powerBudget = (netMaxPowerEntity.State ?? 0.0) - actualTotalPower;
+            // calculate current offered to car
+            double powerBudget = actualTotalPower > -100 ? 0 : -1.0 * actualTotalPower;
+
+            // the condition (500.0 < powerBudget && powerBudget < 1500.0) indicates one of two conditions:
+            // 1. there is a surplus of solar power while the home battery is charging, but not enough to charge the car.
+            //    In that case it's better to lower the charging budget for the home battery to the point where the car
+            //    starts charging as well (otherwise the surplus solar power is injected into the grid).
+            // 2. the home battery is fully charged and solar power surplus is not enough to charge the car. In that case
+            //    it's better to take some power from the home battery to the point where the car starts charging.
+            //    Otherwise the surplus solar power is injected into the grid.
+            //    Note: the calculation for the case where the car is in the 'CHARGING' state should make sure that the home battery 
+            //          is not discharged beyond an acceptable level 
+            
+            if (500.0 < powerBudget && powerBudget < 1500.0) powerBudget = 1500.0;
             current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
             _logger.LogDebug($"Not charging, current > {current}");
             return current > 0.0 ? current : 0.0;
@@ -176,11 +282,23 @@ public class ElectricityApp
             return chargerCurrent;
         }
 
-        // if actually charging calculate new current
-        double deltaBudget = (netMaxPowerEntity.State ?? 0.0) - actualTotalPower;
+        // if actually charging, calculate new current
+        double deltaBudget;
+        if (actualBatteryPower >= 0)
+        {
+            // car is charging purely on solar
+            deltaBudget = -1.0 * actualTotalPower;
+        }
+        else
+        {
+            // car is charging on solar and home battery
+            // only allow this for a maximum of 1000W if home battery has a SOC > 80%
+            deltaBudget = (actualBatteryPower < 1000.0 && batterySocEntity.State > 80.0 ) ? 0 : -1.0 * actualBatteryPower;
+        }
+
         current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
         _logger.LogDebug($"Charging, current > {current}");
-        return current;
+        return current; 
     }
 
     private void SetChargerCurrent(double current)
