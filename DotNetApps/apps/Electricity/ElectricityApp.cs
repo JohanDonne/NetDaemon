@@ -225,33 +225,8 @@ public class ElectricityApp
 
     private double GetDynamicCurrent()
     {
-        return GetDynamicChargerCurrentWithHomeBatteryPriority();
-
-        //double current;
-        //if (chargerStatusEntity.State != CHARGING)
-        //{
-        //    // calculate current offered to car
-        //    double powerBudget = (netMaxPowerEntity.State ?? 0.0) - actualTotalPower;
-        //    current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
-        //    _logger.LogDebug($"Not charging, current > {current}");
-        //    return current > 0.0 ? current : 0.0;
-        //}
-        //// Check if car is actually charging 
-        //// This is to prevent changing the offered power while the car/charger is still
-        //// syncing to the previous setting 
-
-        //double delta = (chargerCurrentImportEntity.State ?? 0.0) - chargerCurrent;
-        //if ((delta < -1.0) || (delta > 1.0))
-        //{
-        //    _logger.LogDebug($"Car is syncing, delta: {delta}");
-        //    return chargerCurrent;
-        //}
-
-        //// if actually charging calculate new current
-        //double deltaBudget = (netMaxPowerEntity.State ?? 0.0) - actualTotalPower;
-        //current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
-        //_logger.LogDebug($"Charging, current > {current}");
-        //return current;
+        if ((netMaxPowerEntity.State ?? 0.0) > 0.0) return GetDynamicChargerCurrentWithCarPriority();
+        return GetDynamicChargerCurrentWithHomeBatteryPriority();        
     }
 
     private double GetDynamicChargerCurrentWithHomeBatteryPriority()
@@ -280,7 +255,6 @@ public class ElectricityApp
         // Check if car is actually charging 
         // This is to prevent changing the offered power while the car/charger is still
         // syncing to the previous setting 
-
         double delta = (chargerCurrentImportEntity.State ?? 0.0) - chargerCurrent;
         if ((delta < -1.0) || (delta > 1.0))
         {
@@ -325,6 +299,34 @@ public class ElectricityApp
         _logger.LogDebug($"Charging, current --> {current}");
         return current; 
     }
+
+    private double GetDynamicChargerCurrentWithCarPriority()
+    {
+        double current = 0.0;
+        if (chargerStatusEntity.State != CHARGING)
+        {
+            double powerBudget = (netMaxPowerEntity.State ?? 0.0) - (averageActualPower - actualBatteryPower);
+            current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
+            _logger.LogDebug($"Car Priority,  Not charging, current --> {current}");
+            return current > 0.0 ? current : 0.0;
+        }
+        // Check if car is actually charging 
+        // This is to prevent changing the offered power while the car/charger is still
+        // syncing to the previous setting 
+        double delta = (chargerCurrentImportEntity.State ?? 0.0) - chargerCurrent;
+        if ((delta < -1.0) || (delta > 1.0))
+        {
+            _logger.LogDebug($"Car is syncing, delta: {delta}");
+            return chargerCurrent;
+        }
+        //// if actually charging calculate new current
+        double deltaBudget = (netMaxPowerEntity.State ?? 0.0) - (averageActualPower - actualBatteryPower);
+        current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
+        _logger.LogDebug($"Car Priority, Charging, current --> {current}");
+
+        return current;
+    }
+
 
     private void SetChargerCurrent(double current)
     {
