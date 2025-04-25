@@ -318,7 +318,7 @@ public class ElectricityApp
         // don't lower the power offered to the car when there is temporarily lower solar power
         // as long as the battery still has decent charging power or SOC
         // This is to avoid toggling the car charging current between 6 (charging) and 5 (not  charging)
-        if (deltaBudget < 0 && chargerCurrent < 7.0 && (actualBatteryPower > 2000 || batterySocEntity.State > 95.0)) deltaBudget = 0;
+        if (deltaBudget < 0 && chargerCurrent < 7.0 && actualBatteryPower > -1000.0 && (actualBatteryPower > 2000 || batterySocEntity.State > 95.0)) deltaBudget = 0;
 
         current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
         _logger.LogDebug($"Charging, averagePower: {averageActualPower:F0}, deltaBudget: {deltaBudget:F0}, actualBatteryPower: {actualBatteryPower:F0} ");
