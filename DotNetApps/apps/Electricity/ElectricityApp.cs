@@ -333,7 +333,7 @@ public class ElectricityApp
         if (current < 0.0) current = 0.0;
         if ((chargerCurrent - current) > 0.5 || (chargerCurrent - current) < -0.5)
         {
-            current = current < 31.0 ? current : 31.0;
+            current = current < 32.0 ? current : 32.0;
             chargerCurrent = current;
             chargerMaxCurrentEntity.SetValue(chargerCurrent.ToString());
             OfferedChargingPowerEntity.SetValue(chargerCurrent * voltageEntity.State ?? 0.0);
