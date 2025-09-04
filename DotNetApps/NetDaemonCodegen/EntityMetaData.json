@@ -279,6 +279,11 @@
           "id": "automation.send_max_current_to_charger",
           "friendlyName": "Send_max_current_to_charger",
           "cSharpName": "SendMaxCurrentToCharger"
+        },
+        {
+          "id": "automation.solis_status_notificatie",
+          "friendlyName": "Solis Status Notificatie",
+          "cSharpName": "SolisStatusNotificatie"
         }
       ],
       "attributes": [
@@ -483,11 +488,6 @@
           "id": "button.id_3_pro_performance_toggle_ac_charge_speed",
           "friendlyName": "ID.3 Pro Performance Toggle AC Charge Speed",
           "cSharpName": "Id3ProPerformanceToggleAcChargeSpeed"
-        },
-        {
-          "id": "button.soliscloud_update_timed_charge_discharge",
-          "friendlyName": "Soliscloud Update Timed Charge/Discharge",
-          "cSharpName": "SoliscloudUpdateTimedChargeDischarge"
         }
       ],
       "attributes": [
@@ -916,9 +916,14 @@
           "cSharpName": "Id3ProPerformanceTargetStateOfCharge"
         },
         {
-          "id": "number.solaredge_local_active_power_limit",
-          "friendlyName": "solaredge_local (Active Power Limit)",
-          "cSharpName": "SolaredgeLocalActivePowerLimit"
+          "id": "number.solaredge_active_power_limit",
+          "friendlyName": "solaredge Active Power Limit",
+          "cSharpName": "SolaredgeActivePowerLimit"
+        },
+        {
+          "id": "number.solis_s6_eh1p_backflow_power",
+          "friendlyName": "Solis S6-EH1P Backflow Power",
+          "cSharpName": "SolisS6Eh1pBackflowPower"
         },
         {
           "id": "number.solis_s6_eh1p_backup_soc",
@@ -936,11 +941,6 @@
           "cSharpName": "SolisS6Eh1pBatteryDischargeLimitPower"
         },
         {
-          "id": "number.solis_s6_eh1p_battery_force_charge_power_limitation",
-          "friendlyName": "Solis S6-EH1P Battery Force-charge Power Limitation",
-          "cSharpName": "SolisS6Eh1pBatteryForceChargePowerLimitation"
-        },
-        {
           "id": "number.solis_s6_eh1p_battery_max_charge_current",
           "friendlyName": "Solis S6-EH1P Battery Max Charge Current",
           "cSharpName": "SolisS6Eh1pBatteryMaxChargeCurrent"
@@ -951,14 +951,39 @@
           "cSharpName": "SolisS6Eh1pBatteryMaxDischargeCurrent"
         },
         {
+          "id": "number.solis_s6_eh1p_battery_rated_capacity",
+          "friendlyName": "Solis S6-EH1P Battery Rated Capacity",
+          "cSharpName": "SolisS6Eh1pBatteryRatedCapacity"
+        },
+        {
+          "id": "number.solis_s6_eh1p_equalizing_charge_voltage",
+          "friendlyName": "Solis S6-EH1P Equalizing Charge Voltage",
+          "cSharpName": "SolisS6Eh1pEqualizingChargeVoltage"
+        },
+        {
           "id": "number.solis_s6_eh1p_flexible_export_backflow_power",
           "friendlyName": "Solis S6-EH1P Flexible Export Backflow Power",
           "cSharpName": "SolisS6Eh1pFlexibleExportBackflowPower"
         },
         {
+          "id": "number.solis_s6_eh1p_floating_charge_voltage",
+          "friendlyName": "Solis S6-EH1P Floating Charge Voltage",
+          "cSharpName": "SolisS6Eh1pFloatingChargeVoltage"
+        },
+        {
+          "id": "number.solis_s6_eh1p_force_charge_power_limitation",
+          "friendlyName": "Solis S6-EH1P Force-charge Power Limitation",
+          "cSharpName": "SolisS6Eh1pForceChargePowerLimitation"
+        },
+        {
           "id": "number.solis_s6_eh1p_force_charge_soc",
           "friendlyName": "Solis S6-EH1P Force Charge SOC",
           "cSharpName": "SolisS6Eh1pForceChargeSoc"
+        },
+        {
+          "id": "number.solis_s6_eh1p_forcecharge_voltage",
+          "friendlyName": "Solis S6-EH1P Forcecharge Voltage",
+          "cSharpName": "SolisS6Eh1pForcechargeVoltage"
         },
         {
           "id": "number.solis_s6_eh1p_generator_charging_power",
@@ -1186,6 +1211,11 @@
           "cSharpName": "SolisS6Eh1pOverdischargeSoc"
         },
         {
+          "id": "number.solis_s6_eh1p_overdischarge_voltage",
+          "friendlyName": "Solis S6-EH1P Overdischarge Voltage",
+          "cSharpName": "SolisS6Eh1pOverdischargeVoltage"
+        },
+        {
           "id": "number.solis_s6_eh1p_peak_baseline_soc",
           "friendlyName": "Solis S6-EH1P Peak Baseline SOC",
           "cSharpName": "SolisS6Eh1pPeakBaselineSoc"
@@ -1224,51 +1254,6 @@
           "id": "number.solis_s6_eh1p_time_charging_discharge_current",
           "friendlyName": "Solis S6-EH1P Time-Charging Discharge Current",
           "cSharpName": "SolisS6Eh1pTimeChargingDischargeCurrent"
-        },
-        {
-          "id": "number.soliscloud_backup_soc",
-          "friendlyName": "Soliscloud Backup SOC",
-          "cSharpName": "SoliscloudBackupSoc"
-        },
-        {
-          "id": "number.soliscloud_force_charge_soc",
-          "friendlyName": "Soliscloud Force Charge SOC",
-          "cSharpName": "SoliscloudForceChargeSoc"
-        },
-        {
-          "id": "number.soliscloud_overdischarge_soc",
-          "friendlyName": "Soliscloud Overdischarge SOC",
-          "cSharpName": "SoliscloudOverdischargeSoc"
-        },
-        {
-          "id": "number.soliscloud_timed_charge_current_1",
-          "friendlyName": "Soliscloud Timed Charge Current 1",
-          "cSharpName": "SoliscloudTimedChargeCurrent1"
-        },
-        {
-          "id": "number.soliscloud_timed_charge_current_2",
-          "friendlyName": "Soliscloud Timed Charge Current 2",
-          "cSharpName": "SoliscloudTimedChargeCurrent2"
-        },
-        {
-          "id": "number.soliscloud_timed_charge_current_3",
-          "friendlyName": "Soliscloud Timed Charge Current 3",
-          "cSharpName": "SoliscloudTimedChargeCurrent3"
-        },
-        {
-          "id": "number.soliscloud_timed_discharge_current_1",
-          "friendlyName": "Soliscloud Timed Discharge Current 1",
-          "cSharpName": "SoliscloudTimedDischargeCurrent1"
-        },
-        {
-          "id": "number.soliscloud_timed_discharge_current_2",
-          "friendlyName": "Soliscloud Timed Discharge Current 2",
-          "cSharpName": "SoliscloudTimedDischargeCurrent2"
-        },
-        {
-          "id": "number.soliscloud_timed_discharge_current_3",
-          "friendlyName": "Soliscloud Timed Discharge Current 3",
-          "cSharpName": "SoliscloudTimedDischargeCurrent3"
         }
       ],
       "attributes": [
@@ -1388,6 +1373,11 @@
           "id": "sensor.backup_backup_manager_state",
           "friendlyName": "Backup Backup Manager state",
           "cSharpName": "BackupBackupManagerState"
+        },
+        {
+          "id": "sensor.backup_last_attempted_automatic_backup",
+          "friendlyName": "Backup Last attempted automatic backup",
+          "cSharpName": "BackupLastAttemptedAutomaticBackup"
         },
         {
           "id": "sensor.backup_last_successful_automatic_backup",
@@ -1655,14 +1645,29 @@
           "cSharpName": "OnedriveSchijfstatus"
         },
         {
-          "id": "sensor.solaredge_local_status",
-          "friendlyName": "solaredge_local Status",
-          "cSharpName": "SolaredgeLocalStatus"
+          "id": "sensor.solaredge_status",
+          "friendlyName": "solaredge Status",
+          "cSharpName": "SolaredgeStatus"
         },
         {
-          "id": "sensor.solaredge_local_status_vendor",
-          "friendlyName": "solaredge_local Status Vendor",
-          "cSharpName": "SolaredgeLocalStatusVendor"
+          "id": "sensor.solaredge_status_vendor",
+          "friendlyName": "solaredge Status Vendor",
+          "cSharpName": "SolaredgeStatusVendor"
+        },
+        {
+          "id": "sensor.solis_hmi_version_all",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis HMI Version all",
+          "cSharpName": "SolisHmiVersionAll"
+        },
+        {
+          "id": "sensor.solis_power_state",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Power State",
+          "cSharpName": "SolisPowerState"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_alarm_code_data",
+          "friendlyName": "Solis S6-EH1P Alarm code data",
+          "cSharpName": "SolisS6Eh1pAlarmCodeData"
         },
         {
           "id": "sensor.solis_s6_eh1p_battery_current_direction",
@@ -1683,6 +1688,11 @@
           "id": "sensor.solis_s6_eh1p_battery_force_charge_source",
           "friendlyName": "Solis S6-EH1P Battery Force Charge Source",
           "cSharpName": "SolisS6Eh1pBatteryForceChargeSource"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_battery_model",
+          "friendlyName": "Solis S6-EH1P Battery Model",
+          "cSharpName": "SolisS6Eh1pBatteryModel"
         },
         {
           "id": "sensor.solis_s6_eh1p_dsp_version",
@@ -1720,6 +1730,11 @@
           "cSharpName": "SolisS6Eh1pGeneratorSettingSwitch"
         },
         {
+          "id": "sensor.solis_s6_eh1p_grid_feed_in_switch_value",
+          "friendlyName": "Solis S6-EH1P Grid feed in Switch value",
+          "cSharpName": "SolisS6Eh1pGridFeedInSwitchValue"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_hmi_version",
           "friendlyName": "Solis S6-EH1P HMI Version",
           "cSharpName": "SolisS6Eh1pHmiVersion"
@@ -1730,9 +1745,19 @@
           "cSharpName": "SolisS6Eh1pHybridFunctionControl"
         },
         {
+          "id": "sensor.solis_s6_eh1p_inverter_model_definition",
+          "friendlyName": "Solis S6-EH1P Inverter model definition",
+          "cSharpName": "SolisS6Eh1pInverterModelDefinition"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_inverter_type_definition",
           "friendlyName": "Solis S6-EH1P Inverter Type Definition",
           "cSharpName": "SolisS6Eh1pInverterTypeDefinition"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_last_clock_adjustment",
+          "friendlyName": "Solis S6-EH1P Last Clock Adjustment",
+          "cSharpName": "SolisS6Eh1pLastClockAdjustment"
         },
         {
           "id": "sensor.solis_s6_eh1p_last_modbus_success",
@@ -1743,6 +1768,21 @@
           "id": "sensor.solis_s6_eh1p_model_no",
           "friendlyName": "Solis S6-EH1P Model No",
           "cSharpName": "SolisS6Eh1pModelNo"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_operating_mode",
+          "friendlyName": "Solis S6-EH1P Operating Mode",
+          "cSharpName": "SolisS6Eh1pOperatingMode"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_power_factor",
+          "friendlyName": "Solis S6-EH1P Power Factor",
+          "cSharpName": "SolisS6Eh1pPowerFactor"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_power_state",
+          "friendlyName": "Solis S6-EH1P Power State",
+          "cSharpName": "SolisS6Eh1pPowerState"
         },
         {
           "id": "sensor.solis_s6_eh1p_protocol_version",
@@ -1790,14 +1830,19 @@
           "cSharpName": "SolisS6Eh1pTimeOfUseV2Switch"
         },
         {
-          "id": "sensor.soliscloud_power_state",
-          "friendlyName": "SolisCloud Power State",
-          "cSharpName": "SoliscloudPowerState"
+          "id": "sensor.solis_state",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis State",
+          "cSharpName": "SolisState"
         },
         {
-          "id": "sensor.soliscloud_state",
-          "friendlyName": "SolisCloud State",
-          "cSharpName": "SoliscloudState"
+          "id": "sensor.solis_state_2",
+          "friendlyName": "Solis State",
+          "cSharpName": "SolisState2"
+        },
+        {
+          "id": "sensor.solis_timestamp_measurements_received",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Timestamp Measurements Received",
+          "cSharpName": "SolisTimestampMeasurementsReceived"
         },
         {
           "id": "sensor.system_monitor_load_1m",
@@ -1970,6 +2015,11 @@
           "jsonName": "API Name",
           "cSharpName": "APIName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "MeterValuesSampledData",
+          "cSharpName": "MeterValuesSampledData",
+          "clrType": "System.String"
         }
       ]
     },
@@ -2123,14 +2173,24 @@
           "cSharpName": "ElectricityMeterSpanningFaseL1"
         },
         {
-          "id": "sensor.gas_meter_gasverbruik",
+          "id": "sensor.gas_meter_gasverbruik_2",
           "friendlyName": "Gas Meter Gasverbruik",
-          "cSharpName": "GasMeterGasverbruik"
+          "cSharpName": "GasMeterGasverbruik2"
+        },
+        {
+          "id": "sensor.gas_meter_gasverbruik_2_cost",
+          "friendlyName": "sensor Cost",
+          "cSharpName": "GasMeterGasverbruik2Cost"
         },
         {
           "id": "sensor.gas_meter_gasverbruik_cost",
-          "friendlyName": "sensor Cost",
+          "friendlyName": null,
           "cSharpName": "GasMeterGasverbruikCost"
+        },
+        {
+          "id": "sensor.gas_meter_gasverbruik_cost_2",
+          "friendlyName": null,
+          "cSharpName": "GasMeterGasverbruikCost2"
         },
         {
           "id": "sensor.home_assistant_core_cpu_percent",
@@ -2253,114 +2313,324 @@
           "cSharpName": "OnedriveResterendeOpslag"
         },
         {
+          "id": "sensor.solaredge_ac_current",
+          "friendlyName": "solaredge AC Current",
+          "cSharpName": "SolaredgeAcCurrent"
+        },
+        {
+          "id": "sensor.solaredge_ac_current_a",
+          "friendlyName": "solaredge AC Current A",
+          "cSharpName": "SolaredgeAcCurrentA"
+        },
+        {
+          "id": "sensor.solaredge_ac_current_b",
+          "friendlyName": "solaredge AC Current B",
+          "cSharpName": "SolaredgeAcCurrentB"
+        },
+        {
+          "id": "sensor.solaredge_ac_current_c",
+          "friendlyName": "solaredge AC Current C",
+          "cSharpName": "SolaredgeAcCurrentC"
+        },
+        {
+          "id": "sensor.solaredge_ac_energy_kwh",
+          "friendlyName": "solaredge AC Energy kWh",
+          "cSharpName": "SolaredgeAcEnergyKwh"
+        },
+        {
+          "id": "sensor.solaredge_ac_frequency",
+          "friendlyName": "solaredge AC Frequency",
+          "cSharpName": "SolaredgeAcFrequency"
+        },
+        {
+          "id": "sensor.solaredge_ac_pf",
+          "friendlyName": "solaredge AC PF",
+          "cSharpName": "SolaredgeAcPf"
+        },
+        {
+          "id": "sensor.solaredge_ac_power",
+          "friendlyName": "solaredge AC Power",
+          "cSharpName": "SolaredgeAcPower"
+        },
+        {
+          "id": "sensor.solaredge_ac_va",
+          "friendlyName": "solaredge AC VA",
+          "cSharpName": "SolaredgeAcVa"
+        },
+        {
+          "id": "sensor.solaredge_ac_var",
+          "friendlyName": "solaredge AC VAR",
+          "cSharpName": "SolaredgeAcVar"
+        },
+        {
+          "id": "sensor.solaredge_ac_voltage_ab",
+          "friendlyName": "solaredge AC Voltage AB",
+          "cSharpName": "SolaredgeAcVoltageAb"
+        },
+        {
+          "id": "sensor.solaredge_ac_voltage_an",
+          "friendlyName": "solaredge AC Voltage AN",
+          "cSharpName": "SolaredgeAcVoltageAn"
+        },
+        {
+          "id": "sensor.solaredge_ac_voltage_bc",
+          "friendlyName": "solaredge AC Voltage BC",
+          "cSharpName": "SolaredgeAcVoltageBc"
+        },
+        {
+          "id": "sensor.solaredge_ac_voltage_bn",
+          "friendlyName": "solaredge AC Voltage BN",
+          "cSharpName": "SolaredgeAcVoltageBn"
+        },
+        {
+          "id": "sensor.solaredge_ac_voltage_ca",
+          "friendlyName": "solaredge AC Voltage CA",
+          "cSharpName": "SolaredgeAcVoltageCa"
+        },
+        {
+          "id": "sensor.solaredge_ac_voltage_cn",
+          "friendlyName": "solaredge AC Voltage CN",
+          "cSharpName": "SolaredgeAcVoltageCn"
+        },
+        {
           "id": "sensor.solaredge_current_power",
           "friendlyName": "solaredge Huidig vermogen",
           "cSharpName": "SolaredgeCurrentPower"
         },
         {
+          "id": "sensor.solaredge_dc_current",
+          "friendlyName": "solaredge DC Current",
+          "cSharpName": "SolaredgeDcCurrent"
+        },
+        {
+          "id": "sensor.solaredge_dc_power",
+          "friendlyName": "solaredge DC Power",
+          "cSharpName": "SolaredgeDcPower"
+        },
+        {
+          "id": "sensor.solaredge_dc_voltage",
+          "friendlyName": "solaredge DC Voltage",
+          "cSharpName": "SolaredgeDcVoltage"
+        },
+        {
           "id": "sensor.solaredge_lifetime_energy",
-          "friendlyName": "solaredge Lifetime energy",
+          "friendlyName": "solaredge Levensduur energie",
           "cSharpName": "SolaredgeLifetimeEnergy"
         },
         {
-          "id": "sensor.solaredge_local_ac_current",
-          "friendlyName": "solaredge_local AC Current",
-          "cSharpName": "SolaredgeLocalAcCurrent"
+          "id": "sensor.solaredge_temp_sink",
+          "friendlyName": "solaredge Temp Sink",
+          "cSharpName": "SolaredgeTempSink"
         },
         {
-          "id": "sensor.solaredge_local_ac_current_a",
-          "friendlyName": "solaredge_local AC Current A",
-          "cSharpName": "SolaredgeLocalAcCurrentA"
+          "id": "sensor.solis_ac_current_r",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis AC Current R",
+          "cSharpName": "SolisAcCurrentR"
         },
         {
-          "id": "sensor.solaredge_local_ac_current_b",
-          "friendlyName": "solaredge_local AC Current B",
-          "cSharpName": "SolaredgeLocalAcCurrentB"
+          "id": "sensor.solis_ac_frequency",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis AC Frequency",
+          "cSharpName": "SolisAcFrequency"
         },
         {
-          "id": "sensor.solaredge_local_ac_current_c",
-          "friendlyName": "solaredge_local AC Current C",
-          "cSharpName": "SolaredgeLocalAcCurrentC"
+          "id": "sensor.solis_ac_output_total_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis AC Output Total Power",
+          "cSharpName": "SolisAcOutputTotalPower"
         },
         {
-          "id": "sensor.solaredge_local_ac_energy_kwh",
-          "friendlyName": "solaredge_local AC Energy kWh",
-          "cSharpName": "SolaredgeLocalAcEnergyKwh"
+          "id": "sensor.solis_ac_voltage_r",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis AC Voltage R",
+          "cSharpName": "SolisAcVoltageR"
         },
         {
-          "id": "sensor.solaredge_local_ac_frequency",
-          "friendlyName": "solaredge_local AC Frequency",
-          "cSharpName": "SolaredgeLocalAcFrequency"
+          "id": "sensor.solis_backup_load_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Backup Load Power",
+          "cSharpName": "SolisBackupLoadPower"
         },
         {
-          "id": "sensor.solaredge_local_ac_pf",
-          "friendlyName": "solaredge_local AC PF",
-          "cSharpName": "SolaredgeLocalAcPf"
+          "id": "sensor.solis_battery_current",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Battery Current",
+          "cSharpName": "SolisBatteryCurrent"
         },
         {
-          "id": "sensor.solaredge_local_ac_power",
-          "friendlyName": "solaredge_local AC Power",
-          "cSharpName": "SolaredgeLocalAcPower"
+          "id": "sensor.solis_battery_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Battery Power",
+          "cSharpName": "SolisBatteryPower"
         },
         {
-          "id": "sensor.solaredge_local_ac_va",
-          "friendlyName": "solaredge_local AC VA",
-          "cSharpName": "SolaredgeLocalAcVa"
+          "id": "sensor.solis_battery_state_of_health",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Battery State Of Health",
+          "cSharpName": "SolisBatteryStateOfHealth"
         },
         {
-          "id": "sensor.solaredge_local_ac_var",
-          "friendlyName": "solaredge_local AC VAR",
-          "cSharpName": "SolaredgeLocalAcVar"
+          "id": "sensor.solis_battery_voltage",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Battery Voltage",
+          "cSharpName": "SolisBatteryVoltage"
         },
         {
-          "id": "sensor.solaredge_local_ac_voltage_ab",
-          "friendlyName": "solaredge_local AC Voltage AB",
-          "cSharpName": "SolaredgeLocalAcVoltageAb"
+          "id": "sensor.solis_daily_energy_charged",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Daily Energy Charged",
+          "cSharpName": "SolisDailyEnergyCharged"
         },
         {
-          "id": "sensor.solaredge_local_ac_voltage_an",
-          "friendlyName": "solaredge_local AC Voltage AN",
-          "cSharpName": "SolaredgeLocalAcVoltageAn"
+          "id": "sensor.solis_daily_energy_discharged",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Daily Energy Discharged",
+          "cSharpName": "SolisDailyEnergyDischarged"
         },
         {
-          "id": "sensor.solaredge_local_ac_voltage_bc",
-          "friendlyName": "solaredge_local AC Voltage BC",
-          "cSharpName": "SolaredgeLocalAcVoltageBc"
+          "id": "sensor.solis_daily_grid_energy_purchased",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Daily Grid Energy Purchased",
+          "cSharpName": "SolisDailyGridEnergyPurchased"
         },
         {
-          "id": "sensor.solaredge_local_ac_voltage_bn",
-          "friendlyName": "solaredge_local AC Voltage BN",
-          "cSharpName": "SolaredgeLocalAcVoltageBn"
+          "id": "sensor.solis_daily_grid_energy_used",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Daily Grid Energy Used",
+          "cSharpName": "SolisDailyGridEnergyUsed"
         },
         {
-          "id": "sensor.solaredge_local_ac_voltage_ca",
-          "friendlyName": "solaredge_local AC Voltage CA",
-          "cSharpName": "SolaredgeLocalAcVoltageCa"
+          "id": "sensor.solis_daily_on_grid_energy",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Daily On-grid Energy",
+          "cSharpName": "SolisDailyOnGridEnergy"
         },
         {
-          "id": "sensor.solaredge_local_ac_voltage_cn",
-          "friendlyName": "solaredge_local AC Voltage CN",
-          "cSharpName": "SolaredgeLocalAcVoltageCn"
+          "id": "sensor.solis_energy_this_month",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Energy This Month",
+          "cSharpName": "SolisEnergyThisMonth"
         },
         {
-          "id": "sensor.solaredge_local_dc_current",
-          "friendlyName": "solaredge_local DC Current",
-          "cSharpName": "SolaredgeLocalDcCurrent"
+          "id": "sensor.solis_energy_this_year",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Energy This Year",
+          "cSharpName": "SolisEnergyThisYear"
         },
         {
-          "id": "sensor.solaredge_local_dc_power",
-          "friendlyName": "solaredge_local DC Power",
-          "cSharpName": "SolaredgeLocalDcPower"
+          "id": "sensor.solis_energy_today",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Energy Today",
+          "cSharpName": "SolisEnergyToday"
         },
         {
-          "id": "sensor.solaredge_local_dc_voltage",
-          "friendlyName": "solaredge_local DC Voltage",
-          "cSharpName": "SolaredgeLocalDcVoltage"
+          "id": "sensor.solis_energy_total",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Energy Total",
+          "cSharpName": "SolisEnergyTotal"
         },
         {
-          "id": "sensor.solaredge_local_temp_sink",
-          "friendlyName": "solaredge_local Temp Sink",
-          "cSharpName": "SolaredgeLocalTempSink"
+          "id": "sensor.solis_force_charge_soc",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Force Charge SOC",
+          "cSharpName": "SolisForceChargeSoc"
+        },
+        {
+          "id": "sensor.solis_force_discharge_soc",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Force Discharge SOC",
+          "cSharpName": "SolisForceDischargeSoc"
+        },
+        {
+          "id": "sensor.solis_grid_phase1_apparent_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase1 Apparent Power",
+          "cSharpName": "SolisGridPhase1ApparentPower"
+        },
+        {
+          "id": "sensor.solis_grid_phase1_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase1 Power",
+          "cSharpName": "SolisGridPhase1Power"
+        },
+        {
+          "id": "sensor.solis_grid_phase1_reactive_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase1 Reactive Power",
+          "cSharpName": "SolisGridPhase1ReactivePower"
+        },
+        {
+          "id": "sensor.solis_grid_phase2_apparent_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase2 Apparent Power",
+          "cSharpName": "SolisGridPhase2ApparentPower"
+        },
+        {
+          "id": "sensor.solis_grid_phase2_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase2 Power",
+          "cSharpName": "SolisGridPhase2Power"
+        },
+        {
+          "id": "sensor.solis_grid_phase2_reactive_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase2 Reactive Power",
+          "cSharpName": "SolisGridPhase2ReactivePower"
+        },
+        {
+          "id": "sensor.solis_grid_phase3_apparent_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase3 Apparent Power",
+          "cSharpName": "SolisGridPhase3ApparentPower"
+        },
+        {
+          "id": "sensor.solis_grid_phase3_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase3 Power",
+          "cSharpName": "SolisGridPhase3Power"
+        },
+        {
+          "id": "sensor.solis_grid_phase3_reactive_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Grid Phase3 Reactive Power",
+          "cSharpName": "SolisGridPhase3ReactivePower"
+        },
+        {
+          "id": "sensor.solis_meter_item_a_current",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Meter item A current",
+          "cSharpName": "SolisMeterItemACurrent"
+        },
+        {
+          "id": "sensor.solis_meter_item_a_volt",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Meter item A volt",
+          "cSharpName": "SolisMeterItemAVolt"
+        },
+        {
+          "id": "sensor.solis_meter_item_b_current",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Meter item B current",
+          "cSharpName": "SolisMeterItemBCurrent"
+        },
+        {
+          "id": "sensor.solis_meter_item_b_volt",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Meter item B volt",
+          "cSharpName": "SolisMeterItemBVolt"
+        },
+        {
+          "id": "sensor.solis_meter_item_c_current",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Meter item C current",
+          "cSharpName": "SolisMeterItemCCurrent"
+        },
+        {
+          "id": "sensor.solis_meter_item_c_volt",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Meter item C volt",
+          "cSharpName": "SolisMeterItemCVolt"
+        },
+        {
+          "id": "sensor.solis_monthly_energy_charged",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Monthly Energy Charged",
+          "cSharpName": "SolisMonthlyEnergyCharged"
+        },
+        {
+          "id": "sensor.solis_monthly_energy_discharged",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Monthly Energy Discharged",
+          "cSharpName": "SolisMonthlyEnergyDischarged"
+        },
+        {
+          "id": "sensor.solis_monthly_grid_energy_purchased",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Monthly Grid Energy Purchased",
+          "cSharpName": "SolisMonthlyGridEnergyPurchased"
+        },
+        {
+          "id": "sensor.solis_monthly_on_grid_energy",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Monthly On-grid Energy",
+          "cSharpName": "SolisMonthlyOnGridEnergy"
+        },
+        {
+          "id": "sensor.solis_plant_total_consumption_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Plant Total Consumption power",
+          "cSharpName": "SolisPlantTotalConsumptionPower"
+        },
+        {
+          "id": "sensor.solis_power_grid_total_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Power Grid total power",
+          "cSharpName": "SolisPowerGridTotalPower"
+        },
+        {
+          "id": "sensor.solis_remaining_battery_capacity",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Remaining Battery Capacity",
+          "cSharpName": "SolisRemainingBatteryCapacity"
         },
         {
           "id": "sensor.solis_s6_eh1p_a_phase_current",
@@ -2398,14 +2668,39 @@
           "cSharpName": "SolisS6Eh1pBPhaseVoltage"
         },
         {
+          "id": "sensor.solis_s6_eh1p_backflow_power",
+          "friendlyName": "Solis S6-EH1P Backflow Power",
+          "cSharpName": "SolisS6Eh1pBackflowPower"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_backup_ac_current_phase_a",
           "friendlyName": "Solis S6-EH1P Backup AC Current Phase A",
           "cSharpName": "SolisS6Eh1pBackupAcCurrentPhaseA"
         },
         {
+          "id": "sensor.solis_s6_eh1p_backup_ac_current_phase_b",
+          "friendlyName": "Solis S6-EH1P Backup AC Current Phase B",
+          "cSharpName": "SolisS6Eh1pBackupAcCurrentPhaseB"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_backup_ac_current_phase_c",
+          "friendlyName": "Solis S6-EH1P Backup AC Current Phase C",
+          "cSharpName": "SolisS6Eh1pBackupAcCurrentPhaseC"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_backup_ac_voltage_phase_a",
           "friendlyName": "Solis S6-EH1P Backup AC Voltage Phase A",
           "cSharpName": "SolisS6Eh1pBackupAcVoltagePhaseA"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_backup_ac_voltage_phase_b",
+          "friendlyName": "Solis S6-EH1P Backup AC Voltage Phase B",
+          "cSharpName": "SolisS6Eh1pBackupAcVoltagePhaseB"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_backup_ac_voltage_phase_c",
+          "friendlyName": "Solis S6-EH1P Backup AC Voltage Phase C",
+          "cSharpName": "SolisS6Eh1pBackupAcVoltagePhaseC"
         },
         {
           "id": "sensor.solis_s6_eh1p_backup_load_month_energy",
@@ -2478,11 +2773,6 @@
           "cSharpName": "SolisS6Eh1pBatteryDischargePower"
         },
         {
-          "id": "sensor.solis_s6_eh1p_battery_force_charge_power_limitation",
-          "friendlyName": "Solis S6-EH1P Battery Force-charge Power Limitation",
-          "cSharpName": "SolisS6Eh1pBatteryForceChargePowerLimitation"
-        },
-        {
           "id": "sensor.solis_s6_eh1p_battery_max_charge_current",
           "friendlyName": "Solis S6-EH1P Battery Max Charge Current",
           "cSharpName": "SolisS6Eh1pBatteryMaxChargeCurrent"
@@ -2498,6 +2788,11 @@
           "cSharpName": "SolisS6Eh1pBatteryPower"
         },
         {
+          "id": "sensor.solis_s6_eh1p_battery_rated_capacity",
+          "friendlyName": "Solis S6-EH1P Battery Rated Capacity",
+          "cSharpName": "SolisS6Eh1pBatteryRatedCapacity"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_battery_soc",
           "friendlyName": "Solis S6-EH1P Battery SOC",
           "cSharpName": "SolisS6Eh1pBatterySoc"
@@ -2506,6 +2801,11 @@
           "id": "sensor.solis_s6_eh1p_battery_soh",
           "friendlyName": "Solis S6-EH1P Battery SOH",
           "cSharpName": "SolisS6Eh1pBatterySoh"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_battery_temperature_bms",
+          "friendlyName": "Solis S6-EH1P Battery Temperature (BMS)",
+          "cSharpName": "SolisS6Eh1pBatteryTemperatureBms"
         },
         {
           "id": "sensor.solis_s6_eh1p_battery_voltage",
@@ -2543,14 +2843,34 @@
           "cSharpName": "SolisS6Eh1pClockSeconds"
         },
         {
+          "id": "sensor.solis_s6_eh1p_equalizing_charge_voltage",
+          "friendlyName": "Solis S6-EH1P Equalizing Charge Voltage",
+          "cSharpName": "SolisS6Eh1pEqualizingChargeVoltage"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_flexible_export_backflow_power",
           "friendlyName": "Solis S6-EH1P Flexible Export Backflow Power",
           "cSharpName": "SolisS6Eh1pFlexibleExportBackflowPower"
         },
         {
+          "id": "sensor.solis_s6_eh1p_floating_charge_voltage",
+          "friendlyName": "Solis S6-EH1P Floating Charge Voltage",
+          "cSharpName": "SolisS6Eh1pFloatingChargeVoltage"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_force_charge_power_limitation",
+          "friendlyName": "Solis S6-EH1P Force-charge Power Limitation",
+          "cSharpName": "SolisS6Eh1pForceChargePowerLimitation"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_force_charge_soc",
           "friendlyName": "Solis S6-EH1P Force Charge SOC",
           "cSharpName": "SolisS6Eh1pForceChargeSoc"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_forcecharge_voltage",
+          "friendlyName": "Solis S6-EH1P Forcecharge Voltage",
+          "cSharpName": "SolisS6Eh1pForcechargeVoltage"
         },
         {
           "id": "sensor.solis_s6_eh1p_generator_charging_power",
@@ -3063,6 +3383,11 @@
           "cSharpName": "SolisS6Eh1pMaxDischargeCurrent"
         },
         {
+          "id": "sensor.solis_s6_eh1p_max_inverter_current",
+          "friendlyName": "Solis S6-EH1P Max Inverter Current",
+          "cSharpName": "SolisS6Eh1pMaxInverterCurrent"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_maximum_allowable_percentage_of_generator",
           "friendlyName": "Solis S6-EH1P Maximum Allowable Percentage of Generator",
           "cSharpName": "SolisS6Eh1pMaximumAllowablePercentageOfGenerator"
@@ -3133,6 +3458,11 @@
           "cSharpName": "SolisS6Eh1pOverdischargeSoc"
         },
         {
+          "id": "sensor.solis_s6_eh1p_overdischarge_voltage",
+          "friendlyName": "Solis S6-EH1P Overdischarge Voltage",
+          "cSharpName": "SolisS6Eh1pOverdischargeVoltage"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_parallel_inverter_ac_current",
           "friendlyName": "Solis S6-EH1P Parallel Inverter AC Current",
           "cSharpName": "SolisS6Eh1pParallelInverterAcCurrent"
@@ -3161,6 +3491,11 @@
           "id": "sensor.solis_s6_eh1p_pv_bus_half_voltage",
           "friendlyName": "Solis S6-EH1P PV Bus Half Voltage",
           "cSharpName": "SolisS6Eh1pPvBusHalfVoltage"
+        },
+        {
+          "id": "sensor.solis_s6_eh1p_pv_bus_voltage",
+          "friendlyName": "Solis S6-EH1P PV Bus Voltage",
+          "cSharpName": "SolisS6Eh1pPvBusVoltage"
         },
         {
           "id": "sensor.solis_s6_eh1p_pv_current_1",
@@ -3239,7 +3574,7 @@
         },
         {
           "id": "sensor.solis_s6_eh1p_pv_voltage_2",
-          "friendlyName": "Solis S6-EH1P PV Voltage 2 ",
+          "friendlyName": "Solis S6-EH1P PV Voltage 2",
           "cSharpName": "SolisS6Eh1pPvVoltage2"
         },
         {
@@ -3553,6 +3888,11 @@
           "cSharpName": "SolisS6Eh1pTodayEnergyImportedFromGrid"
         },
         {
+          "id": "sensor.solis_s6_eh1p_today_net_grid_energy",
+          "friendlyName": "Solis S6-EH1P Today Net Grid Energy",
+          "cSharpName": "SolisS6Eh1pTodayNetGridEnergy"
+        },
+        {
           "id": "sensor.solis_s6_eh1p_total_battery_charge_energy",
           "friendlyName": "Solis S6-EH1P Total Battery Charge Energy",
           "cSharpName": "SolisS6Eh1pTotalBatteryChargeEnergy"
@@ -3608,69 +3948,59 @@
           "cSharpName": "SolisS6Eh1pYesterdayEnergyImportedFromGrid"
         },
         {
-          "id": "sensor.soliscloud_ac_output_total_power",
-          "friendlyName": "SolisCloud AC Output Total Power",
-          "cSharpName": "SoliscloudAcOutputTotalPower"
+          "id": "sensor.solis_temperature",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Temperature",
+          "cSharpName": "SolisTemperature"
         },
         {
-          "id": "sensor.soliscloud_battery_power",
-          "friendlyName": "SolisCloud Battery Power",
-          "cSharpName": "SoliscloudBatteryPower"
+          "id": "sensor.solis_total_consumption_power",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Total Consumption power",
+          "cSharpName": "SolisTotalConsumptionPower"
         },
         {
-          "id": "sensor.soliscloud_battery_state_of_health",
-          "friendlyName": "SolisCloud Battery State Of Health",
-          "cSharpName": "SoliscloudBatteryStateOfHealth"
+          "id": "sensor.solis_total_energy_charged",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Total Energy Charged",
+          "cSharpName": "SolisTotalEnergyCharged"
         },
         {
-          "id": "sensor.soliscloud_energy_total",
-          "friendlyName": "SolisCloud Energy Total",
-          "cSharpName": "SoliscloudEnergyTotal"
+          "id": "sensor.solis_total_energy_discharged",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Total Energy Discharged",
+          "cSharpName": "SolisTotalEnergyDischarged"
         },
         {
-          "id": "sensor.soliscloud_force_charge_soc",
-          "friendlyName": "SolisCloud Force Charge SOC",
-          "cSharpName": "SoliscloudForceChargeSoc"
+          "id": "sensor.solis_total_energy_purchased",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Total Energy Purchased",
+          "cSharpName": "SolisTotalEnergyPurchased"
         },
         {
-          "id": "sensor.soliscloud_force_discharge_soc",
-          "friendlyName": "SolisCloud Force Discharge SOC",
-          "cSharpName": "SoliscloudForceDischargeSoc"
+          "id": "sensor.solis_total_energy_used",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Total Energy Used",
+          "cSharpName": "SolisTotalEnergyUsed"
         },
         {
-          "id": "sensor.soliscloud_plant_total_consumption_power",
-          "friendlyName": "SolisCloud Plant Total Consumption power",
-          "cSharpName": "SoliscloudPlantTotalConsumptionPower"
+          "id": "sensor.solis_total_on_grid_energy",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Total On-grid Energy",
+          "cSharpName": "SolisTotalOnGridEnergy"
         },
         {
-          "id": "sensor.soliscloud_power_grid_total_power",
-          "friendlyName": "SolisCloud Power Grid total power",
-          "cSharpName": "SoliscloudPowerGridTotalPower"
+          "id": "sensor.solis_yearly_energy_charged",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Yearly Energy Charged",
+          "cSharpName": "SolisYearlyEnergyCharged"
         },
         {
-          "id": "sensor.soliscloud_remaining_battery_capacity",
-          "friendlyName": "SolisCloud Remaining Battery Capacity",
-          "cSharpName": "SoliscloudRemainingBatteryCapacity"
+          "id": "sensor.solis_yearly_energy_discharged",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Yearly Energy Discharged",
+          "cSharpName": "SolisYearlyEnergyDischarged"
         },
         {
-          "id": "sensor.soliscloud_total_consumption_power",
-          "friendlyName": "SolisCloud Total Consumption power",
-          "cSharpName": "SoliscloudTotalConsumptionPower"
+          "id": "sensor.solis_yearly_grid_energy_purchased",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Yearly Grid Energy Purchased",
+          "cSharpName": "SolisYearlyGridEnergyPurchased"
         },
         {
-          "id": "sensor.soliscloud_total_energy_charged",
-          "friendlyName": "SolisCloud Total Energy Charged",
-          "cSharpName": "SoliscloudTotalEnergyCharged"
-        },
-        {
-          "id": "sensor.soliscloud_total_energy_discharged",
-          "friendlyName": "SolisCloud Total Energy Discharged",
-          "cSharpName": "SoliscloudTotalEnergyDischarged"
-        },
-        {
-          "id": "sensor.soliscloud_yearly_energy_discharged",
-          "friendlyName": "SolisCloud Yearly Energy Discharged",
-          "cSharpName": "SoliscloudYearlyEnergyDischarged"
+          "id": "sensor.solis_yearly_on_grid_energy",
+          "friendlyName": "Solis_Inverter_010262224270628 Solis Yearly On-grid Energy",
+          "cSharpName": "SolisYearlyOnGridEnergy"
         },
         {
           "id": "sensor.system_monitor_processor_use",
@@ -3815,6 +4145,16 @@
       "domain": "switch",
       "entities": [
         {
+          "id": "switch.ac_coupling_enable",
+          "friendlyName": "AC Coupling Enable",
+          "cSharpName": "AcCouplingEnable"
+        },
+        {
+          "id": "switch.ac_coupling_position_off_gen_port_on_backup_port",
+          "friendlyName": "AC Coupling Position (off = GEN port, on = Backup port)",
+          "cSharpName": "AcCouplingPositionOffGenPortOnBackupPort"
+        },
+        {
           "id": "switch.aircoliving_none",
           "friendlyName": "aircoliving Power",
           "cSharpName": "AircolivingNone"
@@ -3823,6 +4163,51 @@
           "id": "switch.aircoliving_streamer",
           "friendlyName": "aircoliving Streamer",
           "cSharpName": "AircolivingStreamer"
+        },
+        {
+          "id": "switch.allow_export_switch_under_self_generation_and_self_use",
+          "friendlyName": "Allow export switch under self-generation and self-use",
+          "cSharpName": "AllowExportSwitchUnderSelfGenerationAndSelfUse"
+        },
+        {
+          "id": "switch.allow_grid_to_charge_the_battery",
+          "friendlyName": "Allow Grid to Charge the Battery",
+          "cSharpName": "AllowGridToChargeTheBattery"
+        },
+        {
+          "id": "switch.backup2load_manual_automatic_switch_off_manual_on_automatic",
+          "friendlyName": "Backup2Load manual/automatic switch (off = Manual, on = Automatic)",
+          "cSharpName": "Backup2loadManualAutomaticSwitchOffManualOnAutomatic"
+        },
+        {
+          "id": "switch.backup2load_manual_enable",
+          "friendlyName": "Backup2Load manual enable",
+          "cSharpName": "Backup2loadManualEnable"
+        },
+        {
+          "id": "switch.batt_ovc",
+          "friendlyName": "Batt OVC",
+          "cSharpName": "BattOvc"
+        },
+        {
+          "id": "switch.battery_current_correction",
+          "friendlyName": "Battery Current Correction",
+          "cSharpName": "BatteryCurrentCorrection"
+        },
+        {
+          "id": "switch.battery_forcecharge_peakshaving",
+          "friendlyName": "Battery Forcecharge Peakshaving",
+          "cSharpName": "BatteryForcechargePeakshaving"
+        },
+        {
+          "id": "switch.battery_healing_mode",
+          "friendlyName": "Battery Healing Mode",
+          "cSharpName": "BatteryHealingMode"
+        },
+        {
+          "id": "switch.battery_wakeup_switch",
+          "friendlyName": "Battery Wakeup Switch",
+          "cSharpName": "BatteryWakeupSwitch"
         },
         {
           "id": "switch.charger_availability",
@@ -3840,14 +4225,154 @@
           "cSharpName": "ConstVoltageModeEnableConstVoltage"
         },
         {
+          "id": "switch.dual_backup_enable",
+          "friendlyName": "Dual Backup Enable",
+          "cSharpName": "DualBackupEnable"
+        },
+        {
+          "id": "switch.feed_in_priority_mode",
+          "friendlyName": "Feed-In Priority Mode",
+          "cSharpName": "FeedInPriorityMode"
+        },
+        {
           "id": "switch.flexible_export_enabling_switch",
           "friendlyName": "Flexible Export Enabling Switch",
           "cSharpName": "FlexibleExportEnablingSwitch"
         },
         {
+          "id": "switch.force_start_generator",
+          "friendlyName": "Force Start Generator",
+          "cSharpName": "ForceStartGenerator"
+        },
+        {
+          "id": "switch.generator_access_location",
+          "friendlyName": "Generator access location",
+          "cSharpName": "GeneratorAccessLocation"
+        },
+        {
+          "id": "switch.generator_charge_enable",
+          "friendlyName": "Generator Charge Enable",
+          "cSharpName": "GeneratorChargeEnable"
+        },
+        {
+          "id": "switch.generator_charging_period_1_switch",
+          "friendlyName": "Generator charging period 1 switch",
+          "cSharpName": "GeneratorChargingPeriod1Switch"
+        },
+        {
+          "id": "switch.generator_charging_period_2_switch",
+          "friendlyName": "Generator charging period 2 switch",
+          "cSharpName": "GeneratorChargingPeriod2Switch"
+        },
+        {
+          "id": "switch.generator_charging_period_3_switch",
+          "friendlyName": "Generator charging period 3 switch",
+          "cSharpName": "GeneratorChargingPeriod3Switch"
+        },
+        {
+          "id": "switch.generator_charging_period_4_switch",
+          "friendlyName": "Generator charging period 4 switch",
+          "cSharpName": "GeneratorChargingPeriod4Switch"
+        },
+        {
+          "id": "switch.generator_charging_period_5_switch",
+          "friendlyName": "Generator charging period 5 switch",
+          "cSharpName": "GeneratorChargingPeriod5Switch"
+        },
+        {
+          "id": "switch.generator_charging_period_6_switch",
+          "friendlyName": "Generator charging period 6 switch",
+          "cSharpName": "GeneratorChargingPeriod6Switch"
+        },
+        {
+          "id": "switch.generator_connection_position",
+          "friendlyName": "Generator connection position",
+          "cSharpName": "GeneratorConnectionPosition"
+        },
+        {
+          "id": "switch.generator_enable_signal",
+          "friendlyName": "Generator enable signal",
+          "cSharpName": "GeneratorEnableSignal"
+        },
+        {
+          "id": "switch.generator_input_mode_off_manual_on_auto",
+          "friendlyName": "Generator Input Mode (off = Manual, on = Auto)",
+          "cSharpName": "GeneratorInputModeOffManualOnAuto"
+        },
+        {
+          "id": "switch.grid_feed_in_power_limit_switch",
+          "friendlyName": "Grid feed in power limit switch",
+          "cSharpName": "GridFeedInPowerLimitSwitch"
+        },
+        {
           "id": "switch.grid_interference_protection",
           "friendlyName": "Grid-Interference Protection",
           "cSharpName": "GridInterferenceProtection"
+        },
+        {
+          "id": "switch.grid_peak_shaving_power_enable",
+          "friendlyName": "Grid Peak-shaving power enable",
+          "cSharpName": "GridPeakShavingPowerEnable"
+        },
+        {
+          "id": "switch.grid_time_of_use_charging_period_1",
+          "friendlyName": "Grid Time of Use Charging Period 1",
+          "cSharpName": "GridTimeOfUseChargingPeriod1"
+        },
+        {
+          "id": "switch.grid_time_of_use_charging_period_2",
+          "friendlyName": "Grid Time of Use Charging Period 2",
+          "cSharpName": "GridTimeOfUseChargingPeriod2"
+        },
+        {
+          "id": "switch.grid_time_of_use_charging_period_3",
+          "friendlyName": "Grid Time of Use Charging Period 3",
+          "cSharpName": "GridTimeOfUseChargingPeriod3"
+        },
+        {
+          "id": "switch.grid_time_of_use_charging_period_4",
+          "friendlyName": "Grid Time of Use Charging Period 4",
+          "cSharpName": "GridTimeOfUseChargingPeriod4"
+        },
+        {
+          "id": "switch.grid_time_of_use_charging_period_5",
+          "friendlyName": "Grid Time of Use Charging Period 5",
+          "cSharpName": "GridTimeOfUseChargingPeriod5"
+        },
+        {
+          "id": "switch.grid_time_of_use_charging_period_6",
+          "friendlyName": "Grid Time of Use Charging Period 6",
+          "cSharpName": "GridTimeOfUseChargingPeriod6"
+        },
+        {
+          "id": "switch.grid_time_of_use_discharge_period_1",
+          "friendlyName": "Grid Time of Use Discharge Period 1",
+          "cSharpName": "GridTimeOfUseDischargePeriod1"
+        },
+        {
+          "id": "switch.grid_time_of_use_discharge_period_2",
+          "friendlyName": "Grid Time of Use Discharge Period 2",
+          "cSharpName": "GridTimeOfUseDischargePeriod2"
+        },
+        {
+          "id": "switch.grid_time_of_use_discharge_period_3",
+          "friendlyName": "Grid Time of Use Discharge Period 3",
+          "cSharpName": "GridTimeOfUseDischargePeriod3"
+        },
+        {
+          "id": "switch.grid_time_of_use_discharge_period_4",
+          "friendlyName": "Grid Time of Use Discharge Period 4",
+          "cSharpName": "GridTimeOfUseDischargePeriod4"
+        },
+        {
+          "id": "switch.grid_time_of_use_discharge_period_5",
+          "friendlyName": "Grid Time of Use Discharge Period 5",
+          "cSharpName": "GridTimeOfUseDischargePeriod5"
+        },
+        {
+          "id": "switch.grid_time_of_use_discharge_period_6",
+          "friendlyName": "Grid Time of Use Discharge Period 6",
+          "cSharpName": "GridTimeOfUseDischargePeriod6"
         },
         {
           "id": "switch.i_leak_protection",
@@ -3865,9 +4390,34 @@
           "cSharpName": "MpptParallelFunction"
         },
         {
+          "id": "switch.off_grid_mode",
+          "friendlyName": "Off-Grid Mode",
+          "cSharpName": "OffGridMode"
+        },
+        {
+          "id": "switch.peak_shaving_mode",
+          "friendlyName": "Peak Shaving Mode",
+          "cSharpName": "PeakShavingMode"
+        },
+        {
+          "id": "switch.power_state",
+          "friendlyName": "Power State",
+          "cSharpName": "PowerState"
+        },
+        {
           "id": "switch.pv_iso_protection",
           "friendlyName": "PV ISO Protection",
           "cSharpName": "PvIsoProtection"
+        },
+        {
+          "id": "switch.rc_force_battery_charge",
+          "friendlyName": "RC Force Battery Charge",
+          "cSharpName": "RcForceBatteryCharge"
+        },
+        {
+          "id": "switch.rc_force_battery_discharge",
+          "friendlyName": "RC Force Battery Discharge",
+          "cSharpName": "RcForceBatteryDischarge"
         },
         {
           "id": "switch.relay_protection",
@@ -3875,194 +4425,24 @@
           "cSharpName": "RelayProtection"
         },
         {
-          "id": "switch.solis_ac_coupling_enable",
-          "friendlyName": "Solis AC Coupling Enable",
-          "cSharpName": "SolisAcCouplingEnable"
+          "id": "switch.reserve_battery_mode",
+          "friendlyName": "Reserve Battery Mode",
+          "cSharpName": "ReserveBatteryMode"
         },
         {
-          "id": "switch.solis_ac_coupling_position_off_gen_port_on_backup_port",
-          "friendlyName": "Solis AC Coupling Position (off = GEN port, on = Backup port)",
-          "cSharpName": "SolisAcCouplingPositionOffGenPortOnBackupPort"
+          "id": "switch.self_use_mode",
+          "friendlyName": "Self-Use Mode",
+          "cSharpName": "SelfUseMode"
         },
         {
-          "id": "switch.solis_allow_export_switch_under_self_generation_and_self_use",
-          "friendlyName": "Solis Allow export switch under self-generation and self-use",
-          "cSharpName": "SolisAllowExportSwitchUnderSelfGenerationAndSelfUse"
+          "id": "switch.smart_load_port_grid_connected_forced_output",
+          "friendlyName": "Smart load port grid-connected forced output",
+          "cSharpName": "SmartLoadPortGridConnectedForcedOutput"
         },
         {
-          "id": "switch.solis_allow_grid_to_charge_the_battery",
-          "friendlyName": "Solis Allow Grid To Charge The Battery",
-          "cSharpName": "SolisAllowGridToChargeTheBattery"
-        },
-        {
-          "id": "switch.solis_backup2load_manual_automatic_switch_off_manual_on_automatic",
-          "friendlyName": "Solis Backup2Load manual/automatic switch (off = Manual, on = Automatic",
-          "cSharpName": "SolisBackup2loadManualAutomaticSwitchOffManualOnAutomatic"
-        },
-        {
-          "id": "switch.solis_backup2load_manual_enable",
-          "friendlyName": "Solis Backup2Load manual enable",
-          "cSharpName": "SolisBackup2loadManualEnable"
-        },
-        {
-          "id": "switch.solis_batt_ovc",
-          "friendlyName": "Solis Batt OVC",
-          "cSharpName": "SolisBattOvc"
-        },
-        {
-          "id": "switch.solis_battery_current_correction",
-          "friendlyName": "Solis Battery current correction",
-          "cSharpName": "SolisBatteryCurrentCorrection"
-        },
-        {
-          "id": "switch.solis_battery_forcecharge_peakshaving",
-          "friendlyName": "Solis Battery Forcecharge Peakshaving",
-          "cSharpName": "SolisBatteryForcechargePeakshaving"
-        },
-        {
-          "id": "switch.solis_battery_healing_mode",
-          "friendlyName": "Solis Battery healing mode",
-          "cSharpName": "SolisBatteryHealingMode"
-        },
-        {
-          "id": "switch.solis_battery_wakeup_switch",
-          "friendlyName": "Solis Battery Wakeup Switch",
-          "cSharpName": "SolisBatteryWakeupSwitch"
-        },
-        {
-          "id": "switch.solis_dual_backup_enable",
-          "friendlyName": "Solis Dual Backup Enable",
-          "cSharpName": "SolisDualBackupEnable"
-        },
-        {
-          "id": "switch.solis_feed_in_priority_mode",
-          "friendlyName": "Solis Feed In Priority Mode",
-          "cSharpName": "SolisFeedInPriorityMode"
-        },
-        {
-          "id": "switch.solis_force_start_generator",
-          "friendlyName": "Solis Force Start Generator",
-          "cSharpName": "SolisForceStartGenerator"
-        },
-        {
-          "id": "switch.solis_generator_access_location",
-          "friendlyName": "Solis Generator access location",
-          "cSharpName": "SolisGeneratorAccessLocation"
-        },
-        {
-          "id": "switch.solis_generator_charge_enable",
-          "friendlyName": "Solis Generator Charge Enable",
-          "cSharpName": "SolisGeneratorChargeEnable"
-        },
-        {
-          "id": "switch.solis_generator_charging_period_1_switch",
-          "friendlyName": "Solis Generator charging period 1 switch",
-          "cSharpName": "SolisGeneratorChargingPeriod1Switch"
-        },
-        {
-          "id": "switch.solis_generator_charging_period_2_switch",
-          "friendlyName": "Solis Generator charging period 2 switch",
-          "cSharpName": "SolisGeneratorChargingPeriod2Switch"
-        },
-        {
-          "id": "switch.solis_generator_charging_period_3_switch",
-          "friendlyName": "Solis Generator charging period 3 switch",
-          "cSharpName": "SolisGeneratorChargingPeriod3Switch"
-        },
-        {
-          "id": "switch.solis_generator_charging_period_4_switch",
-          "friendlyName": "Solis Generator charging period 4 switch",
-          "cSharpName": "SolisGeneratorChargingPeriod4Switch"
-        },
-        {
-          "id": "switch.solis_generator_charging_period_5_switch",
-          "friendlyName": "Solis Generator charging period 5 switch",
-          "cSharpName": "SolisGeneratorChargingPeriod5Switch"
-        },
-        {
-          "id": "switch.solis_generator_charging_period_6_switch",
-          "friendlyName": "Solis Generator charging period 6 switch",
-          "cSharpName": "SolisGeneratorChargingPeriod6Switch"
-        },
-        {
-          "id": "switch.solis_generator_connection_position",
-          "friendlyName": "Solis Generator connection position",
-          "cSharpName": "SolisGeneratorConnectionPosition"
-        },
-        {
-          "id": "switch.solis_generator_enable_signal",
-          "friendlyName": "Solis Generator enable signal",
-          "cSharpName": "SolisGeneratorEnableSignal"
-        },
-        {
-          "id": "switch.solis_generator_input_mode_off_manual_on_auto",
-          "friendlyName": "Solis Generator Input Mode (off = Manual, on = Auto)",
-          "cSharpName": "SolisGeneratorInputModeOffManualOnAuto"
-        },
-        {
-          "id": "switch.solis_grid_peak_shaving_power_enable",
-          "friendlyName": "Solis Grid Peak-shaving power enable",
-          "cSharpName": "SolisGridPeakShavingPowerEnable"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_charging_period_1",
-          "friendlyName": "Solis Grid Time of Use Charging Period 1",
-          "cSharpName": "SolisGridTimeOfUseChargingPeriod1"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_charging_period_2",
-          "friendlyName": "Solis Grid Time of Use Charging Period 2",
-          "cSharpName": "SolisGridTimeOfUseChargingPeriod2"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_charging_period_3",
-          "friendlyName": "Solis Grid Time of Use Charging Period 3",
-          "cSharpName": "SolisGridTimeOfUseChargingPeriod3"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_charging_period_4",
-          "friendlyName": "Solis Grid Time of Use Charging Period 4",
-          "cSharpName": "SolisGridTimeOfUseChargingPeriod4"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_charging_period_5",
-          "friendlyName": "Solis Grid Time of Use Charging Period 5",
-          "cSharpName": "SolisGridTimeOfUseChargingPeriod5"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_charging_period_6",
-          "friendlyName": "Solis Grid Time of Use Charging Period 6",
-          "cSharpName": "SolisGridTimeOfUseChargingPeriod6"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_discharge_period_1",
-          "friendlyName": "Solis Grid Time of Use Discharge Period 1",
-          "cSharpName": "SolisGridTimeOfUseDischargePeriod1"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_discharge_period_2",
-          "friendlyName": "Solis Grid Time of Use Discharge Period 2",
-          "cSharpName": "SolisGridTimeOfUseDischargePeriod2"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_discharge_period_3",
-          "friendlyName": "Solis Grid Time of Use Discharge Period 3",
-          "cSharpName": "SolisGridTimeOfUseDischargePeriod3"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_discharge_period_4",
-          "friendlyName": "Solis Grid Time of Use Discharge Period 4",
-          "cSharpName": "SolisGridTimeOfUseDischargePeriod4"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_discharge_period_5",
-          "friendlyName": "Solis Grid Time of Use Discharge Period 5",
-          "cSharpName": "SolisGridTimeOfUseDischargePeriod5"
-        },
-        {
-          "id": "switch.solis_grid_time_of_use_discharge_period_6",
-          "friendlyName": "Solis Grid Time of Use Discharge Period 6",
-          "cSharpName": "SolisGridTimeOfUseDischargePeriod6"
+          "id": "switch.smart_load_port_stops_output_when_off_grid",
+          "friendlyName": "Smart load port stops output when off-grid",
+          "cSharpName": "SmartLoadPortStopsOutputWhenOffGrid"
         },
         {
           "id": "switch.solis_modbus_enabled",
@@ -4070,59 +4450,19 @@
           "cSharpName": "SolisModbusEnabled"
         },
         {
-          "id": "switch.solis_off_grid_mode",
-          "friendlyName": "Solis OFF-Grid Mode",
-          "cSharpName": "SolisOffGridMode"
-        },
-        {
-          "id": "switch.solis_peak_shaving_mode",
-          "friendlyName": "Solis Peak-shaving Mode",
-          "cSharpName": "SolisPeakShavingMode"
-        },
-        {
-          "id": "switch.solis_rc_force_battery_charge",
-          "friendlyName": "Solis RC Force Battery Charge",
-          "cSharpName": "SolisRcForceBatteryCharge"
-        },
-        {
-          "id": "switch.solis_rc_force_battery_discharge",
-          "friendlyName": "Solis RC Force Battery Discharge",
-          "cSharpName": "SolisRcForceBatteryDischarge"
-        },
-        {
-          "id": "switch.solis_reserve_battery_mode",
-          "friendlyName": "Solis Reserve Battery Mode",
-          "cSharpName": "SolisReserveBatteryMode"
-        },
-        {
-          "id": "switch.solis_self_use_mode",
-          "friendlyName": "Solis Self-Use Mode",
-          "cSharpName": "SolisSelfUseMode"
-        },
-        {
-          "id": "switch.solis_smart_load_port_grid_connected_forced_output",
-          "friendlyName": "Solis Smart load port grid-connected forced output",
-          "cSharpName": "SolisSmartLoadPortGridConnectedForcedOutput"
-        },
-        {
-          "id": "switch.solis_smart_load_port_stops_output_when_off_grid",
-          "friendlyName": "Solis Smart load port stops output when off-grid",
-          "cSharpName": "SolisSmartLoadPortStopsOutputWhenOffGrid"
-        },
-        {
-          "id": "switch.solis_time_of_use_mode",
-          "friendlyName": "Solis Time Of Use Mode",
-          "cSharpName": "SolisTimeOfUseMode"
-        },
-        {
-          "id": "switch.solis_with_generator",
-          "friendlyName": "Solis With Generator",
-          "cSharpName": "SolisWithGenerator"
-        },
-        {
           "id": "switch.the_dc_component_of_the_grid_current_protection_switch",
           "friendlyName": "The DC component of the grid current protection switch",
           "cSharpName": "TheDcComponentOfTheGridCurrentProtectionSwitch"
+        },
+        {
+          "id": "switch.time_of_use",
+          "friendlyName": "Time of Use",
+          "cSharpName": "TimeOfUse"
+        },
+        {
+          "id": "switch.with_generator",
+          "friendlyName": "With Generator",
+          "cSharpName": "WithGenerator"
         }
       ],
       "attributes": [
@@ -4346,14 +4686,14 @@
       "domain": "select",
       "entities": [
         {
+          "id": "select.battery_model",
+          "friendlyName": "Battery Model",
+          "cSharpName": "BatteryModel"
+        },
+        {
           "id": "select.rc_force_charge_discharge",
           "friendlyName": "RC Force Charge/Discharge",
           "cSharpName": "RcForceChargeDischarge"
-        },
-        {
-          "id": "select.soliscloud_energy_storage_control_switch",
-          "friendlyName": "Soliscloud Energy Storage Control Switch",
-          "cSharpName": "SoliscloudEnergyStorageControlSwitch"
         },
         {
           "id": "select.work_mode",
@@ -4378,287 +4718,264 @@
       "domain": "time",
       "entities": [
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_end_slot_1",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge End (Slot 1)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeEndSlot1"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_end_slot_1",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge End (Slot 1)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeEndSlot1"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_end_slot_2",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge End (Slot 2)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeEndSlot2"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_end_slot_2",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge End (Slot 2)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeEndSlot2"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_end_slot_3",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge End (Slot 3)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeEndSlot3"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_end_slot_3",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge End (Slot 3)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeEndSlot3"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_end_slot_4",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge End (Slot 4)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeEndSlot4"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_end_slot_4",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge End (Slot 4)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeEndSlot4"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_end_slot_5",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge End (Slot 5)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeEndSlot5"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_end_slot_5",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge End (Slot 5)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeEndSlot5"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_end_slot_6",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge End (Slot 6)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeEndSlot6"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_end_slot_6",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge End (Slot 6)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeEndSlot6"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_start_slot_1",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge Start (Slot 1)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeStartSlot1"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_start_slot_1",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge Start (Slot 1)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeStartSlot1"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_start_slot_2",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge Start (Slot 2)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeStartSlot2"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_start_slot_2",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge Start (Slot 2)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeStartSlot2"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_start_slot_3",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge Start (Slot 3)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeStartSlot3"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_start_slot_3",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge Start (Slot 3)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeStartSlot3"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_start_slot_4",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge Start (Slot 4)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeStartSlot4"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_start_slot_4",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge Start (Slot 4)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeStartSlot4"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_start_slot_5",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge Start (Slot 5)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeStartSlot5"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_start_slot_5",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge Start (Slot 5)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeStartSlot5"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_charge_start_slot_6",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Charge Start (Slot 6)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseChargeStartSlot6"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_charge_start_slot_6",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Charge Start (Slot 6)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseChargeStartSlot6"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_end_slot_1",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge End (Slot 1)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeEndSlot1"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_end_slot_1",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge End (Slot 1)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeEndSlot1"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_end_slot_2",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge End (Slot 2)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeEndSlot2"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_end_slot_2",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge End (Slot 2)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeEndSlot2"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_end_slot_3",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge End (Slot 3)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeEndSlot3"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_end_slot_3",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge End (Slot 3)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeEndSlot3"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_end_slot_4",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge End (Slot 4)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeEndSlot4"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_end_slot_4",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge End (Slot 4)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeEndSlot4"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_end_slot_5",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge End (Slot 5)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeEndSlot5"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_end_slot_5",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge End (Slot 5)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeEndSlot5"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_end_slot_6",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge End (Slot 6)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeEndSlot6"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_end_slot_6",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge End (Slot 6)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeEndSlot6"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_start_slot_1",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge Start (Slot 1)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeStartSlot1"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_start_slot_1",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge Start (Slot 1)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeStartSlot1"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_start_slot_2",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge Start (Slot 2)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeStartSlot2"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_start_slot_2",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge Start (Slot 2)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeStartSlot2"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_start_slot_3",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge Start (Slot 3)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeStartSlot3"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_start_slot_3",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge Start (Slot 3)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeStartSlot3"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_start_slot_4",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge Start (Slot 4)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeStartSlot4"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_start_slot_4",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge Start (Slot 4)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeStartSlot4"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_start_slot_5",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge Start (Slot 5)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeStartSlot5"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_start_slot_5",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge Start (Slot 5)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeStartSlot5"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_grid_time_of_use_discharge_start_slot_6",
-          "friendlyName": "Solis S6-EH1P Solis Grid Time of Use Discharge Start (Slot 6)",
-          "cSharpName": "SolisS6Eh1pSolisGridTimeOfUseDischargeStartSlot6"
+          "id": "time.solis_s6_eh1p_grid_time_of_use_discharge_start_slot_6",
+          "friendlyName": "Solis S6-EH1P Grid Time of Use Discharge Start (Slot 6)",
+          "cSharpName": "SolisS6Eh1pGridTimeOfUseDischargeStartSlot6"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_end_slot_1",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge End (Slot 1)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeEndSlot1"
+          "id": "time.solis_s6_eh1p_time_charging_charge_end_slot_1",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge End (Slot 1)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeEndSlot1"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_end_slot_2",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge End (Slot 2)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeEndSlot2"
+          "id": "time.solis_s6_eh1p_time_charging_charge_end_slot_2",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge End (Slot 2)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeEndSlot2"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_end_slot_3",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge End (Slot 3)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeEndSlot3"
+          "id": "time.solis_s6_eh1p_time_charging_charge_end_slot_3",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge End (Slot 3)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeEndSlot3"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_end_slot_4",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge End (Slot 4)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeEndSlot4"
+          "id": "time.solis_s6_eh1p_time_charging_charge_end_slot_4",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge End (Slot 4)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeEndSlot4"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_end_slot_5",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge End (Slot 5)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeEndSlot5"
+          "id": "time.solis_s6_eh1p_time_charging_charge_end_slot_5",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge End (Slot 5)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeEndSlot5"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_start_slot_1",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge Start (Slot 1)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeStartSlot1"
+          "id": "time.solis_s6_eh1p_time_charging_charge_start_slot_1",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge Start (Slot 1)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeStartSlot1"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_start_slot_2",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge Start (Slot 2)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeStartSlot2"
+          "id": "time.solis_s6_eh1p_time_charging_charge_start_slot_2",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge Start (Slot 2)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeStartSlot2"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_start_slot_3",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge Start (Slot 3)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeStartSlot3"
+          "id": "time.solis_s6_eh1p_time_charging_charge_start_slot_3",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge Start (Slot 3)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeStartSlot3"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_start_slot_4",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge Start (Slot 4)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeStartSlot4"
+          "id": "time.solis_s6_eh1p_time_charging_charge_start_slot_4",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge Start (Slot 4)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeStartSlot4"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_charge_start_slot_5",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Charge Start (Slot 5)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingChargeStartSlot5"
+          "id": "time.solis_s6_eh1p_time_charging_charge_start_slot_5",
+          "friendlyName": "Solis S6-EH1P Time-Charging Charge Start (Slot 5)",
+          "cSharpName": "SolisS6Eh1pTimeChargingChargeStartSlot5"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_end_slot_1",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge End (Slot 1)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeEndSlot1"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_end_slot_1",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge End (Slot 1)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeEndSlot1"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_end_slot_2",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge End (Slot 2)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeEndSlot2"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_end_slot_2",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge End (Slot 2)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeEndSlot2"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_end_slot_3",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge End (Slot 3)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeEndSlot3"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_end_slot_3",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge End (Slot 3)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeEndSlot3"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_end_slot_4",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge End (Slot 4)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeEndSlot4"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_end_slot_4",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge End (Slot 4)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeEndSlot4"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_end_slot_5",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge End (Slot 5)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeEndSlot5"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_end_slot_5",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge End (Slot 5)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeEndSlot5"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_start_slot_1",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge Start (Slot 1)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeStartSlot1"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_start_slot_1",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge Start (Slot 1)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeStartSlot1"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_start_slot_2",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge Start (Slot 2)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeStartSlot2"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_start_slot_2",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge Start (Slot 2)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeStartSlot2"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_start_slot_3",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge Start (Slot 3)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeStartSlot3"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_start_slot_3",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge Start (Slot 3)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeStartSlot3"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_start_slot_4",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge Start (Slot 4)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeStartSlot4"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_start_slot_4",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge Start (Slot 4)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeStartSlot4"
         },
         {
-          "id": "time.solis_s6_eh1p_solis_time_charging_discharge_start_slot_5",
-          "friendlyName": "Solis S6-EH1P Solis Time-Charging Discharge Start (Slot 5)",
-          "cSharpName": "SolisS6Eh1pSolisTimeChargingDischargeStartSlot5"
-        },
-        {
-          "id": "time.soliscloud_timed_charge_end_1",
-          "friendlyName": "Soliscloud Timed Charge End 1",
-          "cSharpName": "SoliscloudTimedChargeEnd1"
-        },
-        {
-          "id": "time.soliscloud_timed_charge_end_2",
-          "friendlyName": "Soliscloud Timed Charge End 2",
-          "cSharpName": "SoliscloudTimedChargeEnd2"
-        },
-        {
-          "id": "time.soliscloud_timed_charge_end_3",
-          "friendlyName": "Soliscloud Timed Charge End 3",
-          "cSharpName": "SoliscloudTimedChargeEnd3"
-        },
-        {
-          "id": "time.soliscloud_timed_charge_start_1",
-          "friendlyName": "Soliscloud Timed Charge Start 1",
-          "cSharpName": "SoliscloudTimedChargeStart1"
-        },
-        {
-          "id": "time.soliscloud_timed_charge_start_2",
-          "friendlyName": "Soliscloud Timed Charge Start 2",
-          "cSharpName": "SoliscloudTimedChargeStart2"
-        },
-        {
-          "id": "time.soliscloud_timed_charge_start_3",
-          "friendlyName": "Soliscloud Timed Charge Start 3",
-          "cSharpName": "SoliscloudTimedChargeStart3"
-        },
-        {
-          "id": "time.soliscloud_timed_discharge_end_1",
-          "friendlyName": "Soliscloud Timed Discharge End 1",
-          "cSharpName": "SoliscloudTimedDischargeEnd1"
-        },
-        {
-          "id": "time.soliscloud_timed_discharge_end_2",
-          "friendlyName": "Soliscloud Timed Discharge End 2",
-          "cSharpName": "SoliscloudTimedDischargeEnd2"
-        },
-        {
-          "id": "time.soliscloud_timed_discharge_end_3",
-          "friendlyName": "Soliscloud Timed Discharge End 3",
-          "cSharpName": "SoliscloudTimedDischargeEnd3"
-        },
-        {
-          "id": "time.soliscloud_timed_discharge_start_1",
-          "friendlyName": "Soliscloud Timed Discharge Start 1",
-          "cSharpName": "SoliscloudTimedDischargeStart1"
-        },
-        {
-          "id": "time.soliscloud_timed_discharge_start_2",
-          "friendlyName": "Soliscloud Timed Discharge Start 2",
-          "cSharpName": "SoliscloudTimedDischargeStart2"
-        },
-        {
-          "id": "time.soliscloud_timed_discharge_start_3",
-          "friendlyName": "Soliscloud Timed Discharge Start 3",
-          "cSharpName": "SoliscloudTimedDischargeStart3"
+          "id": "time.solis_s6_eh1p_time_charging_discharge_start_slot_5",
+          "friendlyName": "Solis S6-EH1P Time-Charging Discharge Start (Slot 5)",
+          "cSharpName": "SolisS6Eh1pTimeChargingDischargeStartSlot5"
         }
       ],
       "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "event",
+      "entities": [
+        {
+          "id": "event.backup_automatic_backup",
+          "friendlyName": "Backup Automatic backup",
+          "cSharpName": "BackupAutomaticBackup"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "event_types",
+          "cSharpName": "EventTypes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "event_type",
+          "cSharpName": "EventType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "backup_stage",
+          "cSharpName": "BackupStage",
+          "clrType": null
+        },
+        {
+          "jsonName": "failed_reason",
+          "cSharpName": "FailedReason",
+          "clrType": null
+        },
         {
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",
