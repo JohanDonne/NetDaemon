@@ -456,12 +456,12 @@
       "entities": [
         {
           "id": "button.charger_reset",
-          "friendlyName": "charger Reset",
+          "friendlyName": "Reset",
           "cSharpName": "ChargerReset"
         },
         {
           "id": "button.charger_unlock",
-          "friendlyName": "charger Unlock",
+          "friendlyName": "Unlock",
           "cSharpName": "ChargerUnlock"
         },
         {
@@ -901,9 +901,9 @@
       "isNumeric": true,
       "entities": [
         {
-          "id": "number.charger_maximum_current",
-          "friendlyName": "charger Maximum Current",
-          "cSharpName": "ChargerMaximumCurrent"
+          "id": "number.charger_maximum_current_2",
+          "friendlyName": "Maximum Current",
+          "cSharpName": "ChargerMaximumCurrent2"
         },
         {
           "id": "number.id_3_pro_performance_target_climate_temperature",
@@ -1391,87 +1391,87 @@
         },
         {
           "id": "sensor.charger_connectors",
-          "friendlyName": "charger Connectors",
+          "friendlyName": "Connectors",
           "cSharpName": "ChargerConnectors"
         },
         {
           "id": "sensor.charger_error_code",
-          "friendlyName": "charger Error Code",
+          "friendlyName": "Error Code",
           "cSharpName": "ChargerErrorCode"
         },
         {
           "id": "sensor.charger_error_code_connector",
-          "friendlyName": "charger Error Code Connector",
+          "friendlyName": "Error Code Connector",
           "cSharpName": "ChargerErrorCodeConnector"
         },
         {
           "id": "sensor.charger_features",
-          "friendlyName": "charger Features",
+          "friendlyName": "Features",
           "cSharpName": "ChargerFeatures"
         },
         {
           "id": "sensor.charger_heartbeat",
-          "friendlyName": "charger Heartbeat",
+          "friendlyName": "Heartbeat",
           "cSharpName": "ChargerHeartbeat"
         },
         {
           "id": "sensor.charger_id",
-          "friendlyName": "charger ID",
+          "friendlyName": "ID",
           "cSharpName": "ChargerId"
         },
         {
           "id": "sensor.charger_id_tag",
-          "friendlyName": "charger Id Tag",
+          "friendlyName": "Id Tag",
           "cSharpName": "ChargerIdTag"
         },
         {
           "id": "sensor.charger_model",
-          "friendlyName": "charger Model",
+          "friendlyName": "Model",
           "cSharpName": "ChargerModel"
         },
         {
           "id": "sensor.charger_reconnects",
-          "friendlyName": "charger Reconnects",
+          "friendlyName": "Reconnects",
           "cSharpName": "ChargerReconnects"
         },
         {
           "id": "sensor.charger_serial",
-          "friendlyName": "charger Serial",
+          "friendlyName": "Serial",
           "cSharpName": "ChargerSerial"
         },
         {
           "id": "sensor.charger_status",
-          "friendlyName": "charger Status",
+          "friendlyName": "Status",
           "cSharpName": "ChargerStatus"
         },
         {
           "id": "sensor.charger_status_connector",
-          "friendlyName": "charger Status Connector",
+          "friendlyName": "Status Connector",
           "cSharpName": "ChargerStatusConnector"
         },
         {
           "id": "sensor.charger_stop_reason",
-          "friendlyName": "charger Stop Reason",
+          "friendlyName": "Stop Reason",
           "cSharpName": "ChargerStopReason"
         },
         {
           "id": "sensor.charger_timestamp_config_response",
-          "friendlyName": "charger Timestamp Config Response",
+          "friendlyName": "Timestamp Config Response",
           "cSharpName": "ChargerTimestampConfigResponse"
         },
         {
           "id": "sensor.charger_transaction_id",
-          "friendlyName": "charger Transaction Id",
+          "friendlyName": "Transaction Id",
           "cSharpName": "ChargerTransactionId"
         },
         {
           "id": "sensor.charger_vendor",
-          "friendlyName": "charger Vendor",
+          "friendlyName": "Vendor",
           "cSharpName": "ChargerVendor"
         },
         {
           "id": "sensor.charger_version_firmware",
-          "friendlyName": "charger Version Firmware",
+          "friendlyName": "Version Firmware",
           "cSharpName": "ChargerVersionFirmware"
         },
         {
@@ -2064,37 +2064,37 @@
         },
         {
           "id": "sensor.charger_current_import",
-          "friendlyName": "charger Current Import",
+          "friendlyName": "Current Import",
           "cSharpName": "ChargerCurrentImport"
         },
         {
-          "id": "sensor.charger_current_offered",
-          "friendlyName": "charger Current Offered",
-          "cSharpName": "ChargerCurrentOffered"
+          "id": "sensor.charger_current_offered_2",
+          "friendlyName": "Current Offered",
+          "cSharpName": "ChargerCurrentOffered2"
         },
         {
           "id": "sensor.charger_energy_session",
-          "friendlyName": "charger Energy Session",
+          "friendlyName": "Energy Session",
           "cSharpName": "ChargerEnergySession"
         },
         {
           "id": "sensor.charger_latency_ping",
-          "friendlyName": "charger Latency Ping",
+          "friendlyName": "Latency Ping",
           "cSharpName": "ChargerLatencyPing"
         },
         {
           "id": "sensor.charger_latency_pong",
-          "friendlyName": "charger Latency Pong",
+          "friendlyName": "Latency Pong",
           "cSharpName": "ChargerLatencyPong"
         },
         {
           "id": "sensor.charger_power_active_import",
-          "friendlyName": "charger Power Active Import",
+          "friendlyName": "Power Active Import",
           "cSharpName": "ChargerPowerActiveImport"
         },
         {
           "id": "sensor.charger_voltage",
-          "friendlyName": "charger Voltage",
+          "friendlyName": "Voltage",
           "cSharpName": "ChargerVoltage"
         },
         {
@@ -4211,12 +4211,12 @@
         },
         {
           "id": "switch.charger_availability",
-          "friendlyName": "charger Availability",
+          "friendlyName": "Availability",
           "cSharpName": "ChargerAvailability"
         },
         {
           "id": "switch.charger_charge_control",
-          "friendlyName": "charger Charge Control",
+          "friendlyName": "Charge Control",
           "cSharpName": "ChargerChargeControl"
         },
         {

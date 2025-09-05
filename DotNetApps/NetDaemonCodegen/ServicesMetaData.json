@@ -1,4 +1,57 @@
 {
+  "persistent_notification": {
+    "create": {
+      "name": "Create",
+      "description": "Shows a notification on the notifications panel.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "Please check your configuration.yaml.",
+          "selector": {
+            "text": {}
+          },
+          "name": "Message",
+          "description": "Message body of the notification."
+        },
+        "title": {
+          "example": "Test notification",
+          "selector": {
+            "text": {}
+          },
+          "name": "Title",
+          "description": "Optional title of the notification."
+        },
+        "notification_id": {
+          "example": 1234,
+          "selector": {
+            "text": {}
+          },
+          "name": "Notification ID",
+          "description": "ID of the notification. This new notification will overwrite an existing notification with the same ID."
+        }
+      }
+    },
+    "dismiss": {
+      "name": "Dismiss",
+      "description": "Deletes a notification from the notifications panel.",
+      "fields": {
+        "notification_id": {
+          "required": true,
+          "example": 1234,
+          "selector": {
+            "text": {}
+          },
+          "name": "Notification ID",
+          "description": "ID of the notification to be deleted."
+        }
+      }
+    },
+    "dismiss_all": {
+      "name": "Dismiss all",
+      "description": "Deletes all notifications from the notifications panel.",
+      "fields": {}
+    }
+  },
   "homeassistant": {
     "save_persistent_states": {
       "name": "Save persistent states",
@@ -153,59 +206,6 @@
       "fields": {}
     }
   },
-  "persistent_notification": {
-    "create": {
-      "name": "Create",
-      "description": "Shows a notification on the notifications panel.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "Please check your configuration.yaml.",
-          "selector": {
-            "text": {}
-          },
-          "name": "Message",
-          "description": "Message body of the notification."
-        },
-        "title": {
-          "example": "Test notification",
-          "selector": {
-            "text": {}
-          },
-          "name": "Title",
-          "description": "Optional title of the notification."
-        },
-        "notification_id": {
-          "example": 1234,
-          "selector": {
-            "text": {}
-          },
-          "name": "Notification ID",
-          "description": "ID of the notification. This new notification will overwrite an existing notification with the same ID."
-        }
-      }
-    },
-    "dismiss": {
-      "name": "Dismiss",
-      "description": "Deletes a notification from the notifications panel.",
-      "fields": {
-        "notification_id": {
-          "required": true,
-          "example": 1234,
-          "selector": {
-            "text": {}
-          },
-          "name": "Notification ID",
-          "description": "ID of the notification to be deleted."
-        }
-      }
-    },
-    "dismiss_all": {
-      "name": "Dismiss all",
-      "description": "Deletes all notifications from the notifications panel.",
-      "fields": {}
-    }
-  },
   "system_log": {
     "clear": {
       "name": "Clear",
@@ -237,9 +237,9 @@
                 "critical"
               ],
               "translation_key": "level",
+              "custom_value": false,
               "multiple": false,
-              "sort": false,
-              "custom_value": false
+              "sort": false
             }
           },
           "name": "Level",
@@ -273,9 +273,9 @@
                 "critical"
               ],
               "translation_key": "level",
+              "custom_value": false,
               "multiple": false,
-              "sort": false,
-              "custom_value": false
+              "sort": false
             }
           },
           "name": "Level",
@@ -314,9 +314,9 @@
                 "light"
               ],
               "translation_key": "mode",
+              "custom_value": false,
               "multiple": false,
-              "sort": false,
-              "custom_value": false
+              "sort": false
             }
           },
           "name": "Mode",
@@ -473,9 +473,9 @@
                 "week",
                 "month"
               ],
+              "custom_value": false,
               "multiple": false,
-              "sort": false,
-              "custom_value": false
+              "sort": false
             }
           },
           "name": "Period",
@@ -499,8 +499,8 @@
                 "sum"
               ],
               "multiple": true,
-              "sort": false,
-              "custom_value": false
+              "custom_value": false,
+              "sort": false
             }
           },
           "name": "Types",
@@ -1116,6 +1116,119 @@
       "fields": {}
     }
   },
+  "scene": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads the scenes from the YAML-configuration.",
+      "fields": {}
+    },
+    "apply": {
+      "name": "Apply",
+      "description": "Activates a scene with configuration.",
+      "fields": {
+        "entities": {
+          "required": true,
+          "example": "light.kitchen: \u0022on\u0022\nlight.ceiling:\n  state: \u0022on\u0022\n  brightness: 80\n",
+          "selector": {
+            "object": {}
+          },
+          "name": "Entities state",
+          "description": "List of entities and their target state."
+        },
+        "transition": {
+          "selector": {
+            "number": {
+              "min": 0.0,
+              "max": 300.0,
+              "unit_of_measurement": "seconds",
+              "step": 1.0,
+              "mode": "slider"
+            }
+          },
+          "name": "Transition",
+          "description": "Time it takes the devices to transition into the states defined in the scene."
+        }
+      }
+    },
+    "create": {
+      "name": "Create",
+      "description": "Creates a new scene.",
+      "fields": {
+        "scene_id": {
+          "required": true,
+          "example": "all_lights",
+          "selector": {
+            "text": {}
+          },
+          "name": "Scene entity ID",
+          "description": "The entity ID of the new scene."
+        },
+        "entities": {
+          "advanced": true,
+          "example": "light.tv_back_light: \u0022on\u0022\nlight.ceiling:\n  state: \u0022on\u0022\n  brightness: 200\n",
+          "selector": {
+            "object": {}
+          },
+          "name": "Entity states",
+          "description": "List of entities and their target state. If your entities are already in the target state right now, use \u0027Entities snapshot\u0027 instead."
+        },
+        "snapshot_entities": {
+          "example": "- light.ceiling\n- light.kitchen\n",
+          "selector": {
+            "entity": {
+              "multiple": true,
+              "reorder": false
+            }
+          },
+          "name": "Entities snapshot",
+          "description": "List of entities to be included in the snapshot. By taking a snapshot, you record the current state of those entities. If you do not want to use the current state of all your entities for this scene, you can combine \u0027Entities snapshot\u0027 with \u0027Entity states\u0027."
+        }
+      }
+    },
+    "delete": {
+      "name": "Delete",
+      "description": "Deletes a dynamically created scene.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "integration": "homeassistant",
+            "domain": [
+              "scene"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_on": {
+      "name": "Activate",
+      "description": "Activates a scene.",
+      "fields": {
+        "transition": {
+          "selector": {
+            "number": {
+              "min": 0.0,
+              "max": 300.0,
+              "unit_of_measurement": "seconds",
+              "step": 1.0,
+              "mode": "slider"
+            }
+          },
+          "name": "Transition",
+          "description": "Time it takes the devices to transition into the states defined in the scene."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "scene"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "camera": {
     "enable_motion_detection": {
       "name": "Enable motion detection",
@@ -1222,9 +1335,9 @@
               "options": [
                 "hls"
               ],
+              "custom_value": false,
               "multiple": false,
-              "sort": false,
-              "custom_value": false
+              "sort": false
             }
           },
           "name": "Format",
@@ -1288,119 +1401,6 @@
           {
             "domain": [
               "camera"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "scene": {
-    "turn_on": {
-      "name": "Activate",
-      "description": "Activates a scene.",
-      "fields": {
-        "transition": {
-          "selector": {
-            "number": {
-              "min": 0.0,
-              "max": 300.0,
-              "unit_of_measurement": "seconds",
-              "step": 1.0,
-              "mode": "slider"
-            }
-          },
-          "name": "Transition",
-          "description": "Time it takes the devices to transition into the states defined in the scene."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "scene"
-            ]
-          }
-        ]
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads the scenes from the YAML-configuration.",
-      "fields": {}
-    },
-    "apply": {
-      "name": "Apply",
-      "description": "Activates a scene with configuration.",
-      "fields": {
-        "entities": {
-          "required": true,
-          "example": "light.kitchen: \u0022on\u0022\nlight.ceiling:\n  state: \u0022on\u0022\n  brightness: 80\n",
-          "selector": {
-            "object": {}
-          },
-          "name": "Entities state",
-          "description": "List of entities and their target state."
-        },
-        "transition": {
-          "selector": {
-            "number": {
-              "min": 0.0,
-              "max": 300.0,
-              "unit_of_measurement": "seconds",
-              "step": 1.0,
-              "mode": "slider"
-            }
-          },
-          "name": "Transition",
-          "description": "Time it takes the devices to transition into the states defined in the scene."
-        }
-      }
-    },
-    "create": {
-      "name": "Create",
-      "description": "Creates a new scene.",
-      "fields": {
-        "scene_id": {
-          "required": true,
-          "example": "all_lights",
-          "selector": {
-            "text": {}
-          },
-          "name": "Scene entity ID",
-          "description": "The entity ID of the new scene."
-        },
-        "entities": {
-          "advanced": true,
-          "example": "light.tv_back_light: \u0022on\u0022\nlight.ceiling:\n  state: \u0022on\u0022\n  brightness: 200\n",
-          "selector": {
-            "object": {}
-          },
-          "name": "Entity states",
-          "description": "List of entities and their target state. If your entities are already in the target state right now, use \u0027Entities snapshot\u0027 instead."
-        },
-        "snapshot_entities": {
-          "example": "- light.ceiling\n- light.kitchen\n",
-          "selector": {
-            "entity": {
-              "multiple": true,
-              "reorder": false
-            }
-          },
-          "name": "Entities snapshot",
-          "description": "List of entities to be included in the snapshot. By taking a snapshot, you record the current state of those entities. If you do not want to use the current state of all your entities for this scene, you can combine \u0027Entities snapshot\u0027 with \u0027Entity states\u0027."
-        }
-      }
-    },
-    "delete": {
-      "name": "Delete",
-      "description": "Deletes a dynamically created scene.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "integration": "homeassistant",
-            "domain": [
-              "scene"
             ]
           }
         ]
@@ -1498,6 +1498,75 @@
           {
             "domain": [
               "timer"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "logbook": {
+    "log": {
+      "name": "Log",
+      "description": "Creates a custom entry in the logbook.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Kitchen",
+          "selector": {
+            "text": {}
+          },
+          "name": "Name",
+          "description": "Custom name for an entity, can be referenced using the \u0027Entity ID\u0027 field."
+        },
+        "message": {
+          "required": true,
+          "example": "is being used",
+          "selector": {
+            "text": {}
+          },
+          "name": "Message",
+          "description": "Message of the logbook entry."
+        },
+        "entity_id": {
+          "selector": {
+            "entity": {}
+          },
+          "name": "Entity ID",
+          "description": "Entity to reference in the logbook entry."
+        },
+        "domain": {
+          "example": "light",
+          "selector": {
+            "text": {}
+          },
+          "name": "Domain",
+          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
+        }
+      }
+    }
+  },
+  "zone": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads zones from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "input_button": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "press": {
+      "name": "Press",
+      "description": "Mimics the physical button press on the device.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_button"
             ]
           }
         ]
@@ -1685,73 +1754,11 @@
       }
     }
   },
-  "zone": {
+  "person": {
     "reload": {
       "name": "Reload",
-      "description": "Reloads zones from the YAML-configuration.",
+      "description": "Reloads persons from the YAML-configuration.",
       "fields": {}
-    }
-  },
-  "logbook": {
-    "log": {
-      "name": "Log",
-      "description": "Creates a custom entry in the logbook.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Kitchen",
-          "selector": {
-            "text": {}
-          },
-          "name": "Name",
-          "description": "Custom name for an entity, can be referenced using the \u0027Entity ID\u0027 field."
-        },
-        "message": {
-          "required": true,
-          "example": "is being used",
-          "selector": {
-            "text": {}
-          },
-          "name": "Message",
-          "description": "Message of the logbook entry."
-        },
-        "entity_id": {
-          "selector": {
-            "entity": {}
-          },
-          "name": "Entity ID",
-          "description": "Entity to reference in the logbook entry."
-        },
-        "domain": {
-          "example": "light",
-          "selector": {
-            "text": {}
-          },
-          "name": "Domain",
-          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
-        }
-      }
-    }
-  },
-  "input_button": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "press": {
-      "name": "Press",
-      "description": "Mimics the physical button press on the device.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_button"
-            ]
-          }
-        ]
-      }
     }
   },
   "input_number": {
@@ -1815,13 +1822,6 @@
           }
         ]
       }
-    }
-  },
-  "person": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads persons from the YAML-configuration.",
-      "fields": {}
     }
   },
   "input_boolean": {
@@ -1915,6 +1915,330 @@
           "name": "Desired Time"
         }
       }
+    }
+  },
+  "tado": {
+    "add_meter_reading": {
+      "name": "Add meter reading",
+      "description": "Adds a meter reading to Tado Energy IQ.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "tado"
+            }
+          },
+          "name": "Config Entry",
+          "description": "Config entry to add meter reading to."
+        },
+        "reading": {
+          "required": true,
+          "selector": {
+            "number": {
+              "mode": "box",
+              "min": 0.0,
+              "step": 1.0
+            }
+          },
+          "name": "Reading",
+          "description": "Reading in m\u00B3 or kWh without decimals."
+        }
+      }
+    },
+    "set_water_heater_timer": {
+      "name": "Set water heater timer",
+      "description": "Turns on water heater for a set time.",
+      "fields": {
+        "time_period": {
+          "required": true,
+          "example": "01:30:00",
+          "default": "01:00:00",
+          "selector": {
+            "text": {}
+          },
+          "name": "Time period",
+          "description": "Set the time period for the boost."
+        },
+        "temperature": {
+          "selector": {
+            "number": {
+              "min": 0.0,
+              "max": 100.0,
+              "step": 0.5,
+              "unit_of_measurement": "\u00B0",
+              "mode": "slider"
+            }
+          },
+          "name": "Temperature",
+          "description": "Temperature to set heater to."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "tado",
+            "domain": [
+              "water_heater"
+            ]
+          }
+        ]
+      }
+    },
+    "set_climate_timer": {
+      "name": "Set climate timer",
+      "description": "Turns on climate entities for a set time.",
+      "fields": {
+        "temperature": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0.0,
+              "max": 100.0,
+              "step": 0.5,
+              "unit_of_measurement": "\u00B0",
+              "mode": "slider"
+            }
+          },
+          "name": "Temperature",
+          "description": "Temperature to set climate entity to."
+        },
+        "time_period": {
+          "required": false,
+          "example": "01:30:00",
+          "selector": {
+            "text": {}
+          },
+          "name": "Time period",
+          "description": "Choose this or \u0027Overlay\u0027. Set the time period for the change if you want to be specific."
+        },
+        "requested_overlay": {
+          "required": false,
+          "example": "MANUAL",
+          "selector": {
+            "select": {
+              "options": [
+                "NEXT_TIME_BLOCK",
+                "MANUAL",
+                "TADO_DEFAULT"
+              ],
+              "custom_value": false,
+              "multiple": false,
+              "sort": false
+            }
+          },
+          "name": "Overlay",
+          "description": "Choose this or \u0027Time period\u0027. Allows you to choose an overlay. MANUAL:=Overlay until user removes; NEXT_TIME_BLOCK:=Overlay until next timeblock; TADO_DEFAULT:=Overlay based on Tado app setting."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "tado",
+            "domain": [
+              "climate"
+            ]
+          }
+        ]
+      }
+    },
+    "set_climate_temperature_offset": {
+      "name": "Set climate temperature offset",
+      "description": "Sets the temperature offset of climate entities.",
+      "fields": {
+        "offset": {
+          "default": 0,
+          "selector": {
+            "number": {
+              "min": -10.0,
+              "max": 10.0,
+              "step": 0.01,
+              "unit_of_measurement": "\u00B0",
+              "mode": "slider"
+            }
+          },
+          "name": "Offset",
+          "description": "Offset you would like (depending on your device)."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "tado",
+            "domain": [
+              "climate"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_datetime": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_datetime": {
+      "name": "Set",
+      "description": "Sets the date and/or time.",
+      "fields": {
+        "date": {
+          "example": "\u00222019-04-20\u0022",
+          "selector": {
+            "text": {}
+          },
+          "name": "Date",
+          "description": "The target date."
+        },
+        "time": {
+          "example": "\u002205:04:20\u0022",
+          "selector": {
+            "time": {}
+          },
+          "name": "Time",
+          "description": "The target time."
+        },
+        "datetime": {
+          "example": "\u00222019-04-20 05:04:20\u0022",
+          "selector": {
+            "text": {}
+          },
+          "name": "Date \u0026 time",
+          "description": "The target date \u0026 time."
+        },
+        "timestamp": {
+          "selector": {
+            "number": {
+              "min": 0.0,
+              "max": 9.223372036854776e18,
+              "mode": "box",
+              "step": 1.0
+            }
+          },
+          "name": "Timestamp",
+          "description": "The target date \u0026 time, expressed by a UNIX timestamp."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_datetime"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "command_line": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads command line configuration from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "counter": {
+    "increment": {
+      "name": "Increment",
+      "description": "Increments a counter by its step size.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements a counter by its step size.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "reset": {
+      "name": "Reset",
+      "description": "Resets a counter to its initial value.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the counter to a specific value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0.0,
+              "max": 9.223372036854776e18,
+              "mode": "box",
+              "step": 1.0
+            }
+          },
+          "name": "Value",
+          "description": "The new counter value the entity should be set to."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "schedule": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads schedules from the YAML-configuration.",
+      "fields": {}
+    },
+    "get_schedule": {
+      "name": "Get schedule",
+      "description": "Retrieves the configured time ranges of one or multiple schedules.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "schedule"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
+  "template": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads template entities from the YAML-configuration.",
+      "fields": {}
     }
   },
   "modbus": {
@@ -2039,85 +2363,6 @@
       }
     }
   },
-  "command_line": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads command line configuration from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "counter": {
-    "increment": {
-      "name": "Increment",
-      "description": "Increments a counter by its step size.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements a counter by its step size.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "reset": {
-      "name": "Reset",
-      "description": "Resets a counter to its initial value.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the counter to a specific value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0.0,
-              "max": 9.223372036854776e18,
-              "mode": "box",
-              "step": 1.0
-            }
-          },
-          "name": "Value",
-          "description": "The new counter value the entity should be set to."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "input_text": {
     "reload": {
       "name": "Reload",
@@ -2146,465 +2391,6 @@
             ]
           }
         ]
-      }
-    }
-  },
-  "template": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads template entities from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "tado": {
-    "add_meter_reading": {
-      "name": "Add meter reading",
-      "description": "Adds a meter reading to Tado Energy IQ.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "tado"
-            }
-          },
-          "name": "Config Entry",
-          "description": "Config entry to add meter reading to."
-        },
-        "reading": {
-          "required": true,
-          "selector": {
-            "number": {
-              "mode": "box",
-              "min": 0.0,
-              "step": 1.0
-            }
-          },
-          "name": "Reading",
-          "description": "Reading in m\u00B3 or kWh without decimals."
-        }
-      }
-    },
-    "set_water_heater_timer": {
-      "name": "Set water heater timer",
-      "description": "Turns on water heater for a set time.",
-      "fields": {
-        "time_period": {
-          "required": true,
-          "example": "01:30:00",
-          "default": "01:00:00",
-          "selector": {
-            "text": {}
-          },
-          "name": "Time period",
-          "description": "Set the time period for the boost."
-        },
-        "temperature": {
-          "selector": {
-            "number": {
-              "min": 0.0,
-              "max": 100.0,
-              "step": 0.5,
-              "unit_of_measurement": "\u00B0",
-              "mode": "slider"
-            }
-          },
-          "name": "Temperature",
-          "description": "Temperature to set heater to."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "tado",
-            "domain": [
-              "water_heater"
-            ]
-          }
-        ]
-      }
-    },
-    "set_climate_timer": {
-      "name": "Set climate timer",
-      "description": "Turns on climate entities for a set time.",
-      "fields": {
-        "temperature": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0.0,
-              "max": 100.0,
-              "step": 0.5,
-              "unit_of_measurement": "\u00B0",
-              "mode": "slider"
-            }
-          },
-          "name": "Temperature",
-          "description": "Temperature to set climate entity to."
-        },
-        "time_period": {
-          "required": false,
-          "example": "01:30:00",
-          "selector": {
-            "text": {}
-          },
-          "name": "Time period",
-          "description": "Choose this or \u0027Overlay\u0027. Set the time period for the change if you want to be specific."
-        },
-        "requested_overlay": {
-          "required": false,
-          "example": "MANUAL",
-          "selector": {
-            "select": {
-              "options": [
-                "NEXT_TIME_BLOCK",
-                "MANUAL",
-                "TADO_DEFAULT"
-              ],
-              "multiple": false,
-              "sort": false,
-              "custom_value": false
-            }
-          },
-          "name": "Overlay",
-          "description": "Choose this or \u0027Time period\u0027. Allows you to choose an overlay. MANUAL:=Overlay until user removes; NEXT_TIME_BLOCK:=Overlay until next timeblock; TADO_DEFAULT:=Overlay based on Tado app setting."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "tado",
-            "domain": [
-              "climate"
-            ]
-          }
-        ]
-      }
-    },
-    "set_climate_temperature_offset": {
-      "name": "Set climate temperature offset",
-      "description": "Sets the temperature offset of climate entities.",
-      "fields": {
-        "offset": {
-          "default": 0,
-          "selector": {
-            "number": {
-              "min": -10.0,
-              "max": 10.0,
-              "step": 0.01,
-              "unit_of_measurement": "\u00B0",
-              "mode": "slider"
-            }
-          },
-          "name": "Offset",
-          "description": "Offset you would like (depending on your device)."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "tado",
-            "domain": [
-              "climate"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "input_datetime": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "set_datetime": {
-      "name": "Set",
-      "description": "Sets the date and/or time.",
-      "fields": {
-        "date": {
-          "example": "\u00222019-04-20\u0022",
-          "selector": {
-            "text": {}
-          },
-          "name": "Date",
-          "description": "The target date."
-        },
-        "time": {
-          "example": "\u002205:04:20\u0022",
-          "selector": {
-            "time": {}
-          },
-          "name": "Time",
-          "description": "The target time."
-        },
-        "datetime": {
-          "example": "\u00222019-04-20 05:04:20\u0022",
-          "selector": {
-            "text": {}
-          },
-          "name": "Date \u0026 time",
-          "description": "The target date \u0026 time."
-        },
-        "timestamp": {
-          "selector": {
-            "number": {
-              "min": 0.0,
-              "max": 9.223372036854776e18,
-              "mode": "box",
-              "step": 1.0
-            }
-          },
-          "name": "Timestamp",
-          "description": "The target date \u0026 time, expressed by a UNIX timestamp."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_datetime"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "ocpp": {
-    "configure": {
-      "name": "Configure charger features",
-      "description": "Change supported Ocpp configuration values",
-      "fields": {
-        "devid": {
-          "name": "Charger identifier",
-          "description": "Either HA charger id or Ocpp id",
-          "required": false,
-          "advanced": true,
-          "example": "charger"
-        },
-        "ocpp_key": {
-          "name": "Write-enabled configuration key name",
-          "description": "v1.6- Key name supported v2.0.1- Component name/Key name",
-          "required": true,
-          "advanced": true,
-          "example": "WebSocketPingInterval"
-        },
-        "value": {
-          "name": "Key value",
-          "description": "Value to write to key",
-          "required": true,
-          "advanced": true,
-          "example": "60"
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "get_configuration": {
-      "name": "Get configuration values for charger",
-      "description": "Get supported Ocpp configuration values",
-      "fields": {
-        "devid": {
-          "name": "Charger identifier",
-          "description": "Either HA charger id or Ocpp id",
-          "required": false,
-          "advanced": true,
-          "example": "charger"
-        },
-        "ocpp_key": {
-          "name": "Configuration key name",
-          "description": "v1.6- Key name v2.0.1- Component name/Key name",
-          "required": true,
-          "advanced": true,
-          "example": "WebSocketPingInterval"
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "data_transfer": {
-      "name": "Request data transfer from charger",
-      "description": "Note this is specific to charger, see manufacturer\u0027s documentation",
-      "fields": {
-        "devid": {
-          "name": "Charger identifier",
-          "description": "Either HA charger id or Ocpp id",
-          "required": false,
-          "advanced": true,
-          "example": "charger"
-        },
-        "vendor_id": {
-          "name": "vendorId",
-          "description": "Defined by charger manufacturer",
-          "required": true,
-          "advanced": true,
-          "example": "ABC"
-        },
-        "message_id": {
-          "name": "messageId",
-          "description": "Defined by charger manufacturer",
-          "required": false,
-          "advanced": true,
-          "example": "ABC"
-        },
-        "data": {
-          "name": "data",
-          "description": "Defined by charger manufacturer",
-          "required": false,
-          "advanced": true,
-          "example": "ABC"
-        }
-      }
-    },
-    "trigger_custom_message": {
-      "name": "Trigger Message",
-      "description": "Request a specific message from the charger",
-      "fields": {
-        "devid": {
-          "name": "Charger identifier",
-          "description": "Either HA charger id or Ocpp id",
-          "required": false,
-          "advanced": true,
-          "example": "charger"
-        },
-        "requested_message": {
-          "name": "Requested Message",
-          "description": "Message Requested from the charger",
-          "required": true,
-          "advanced": true,
-          "example": "StatusNotification"
-        }
-      }
-    },
-    "clear_profile": {
-      "name": "Clear charging profiles",
-      "description": "Clears all charging profiles (limits) set (dependent on charger support)",
-      "fields": {
-        "devid": {
-          "name": "Charger identifier",
-          "description": "Either HA charger id or Ocpp id",
-          "required": false,
-          "advanced": true,
-          "example": "charger"
-        }
-      }
-    },
-    "set_charge_rate": {
-      "name": "Set maximum charge rate",
-      "description": "Sets the maximum charge rate in Amps or Watts (dependent on charger support)",
-      "fields": {
-        "devid": {
-          "name": "Charger identifier",
-          "description": "Either HA charger id or Ocpp id",
-          "required": false,
-          "advanced": true,
-          "example": "charger"
-        },
-        "limit_amps": {
-          "name": "Limit (A)",
-          "description": "Maximum charge rate in Amps (optional)",
-          "required": false,
-          "advanced": false,
-          "example": 16,
-          "default": 32
-        },
-        "limit_watts": {
-          "name": "Limit (W)",
-          "description": "Maximum charge rate in Watts (optional)",
-          "required": false,
-          "advanced": true,
-          "example": 1500,
-          "default": 22000
-        },
-        "conn_id": {
-          "name": "Connector identifier",
-          "description": "Optional, 0 = all connectors (default), 1 is first connector",
-          "required": false,
-          "advanced": true,
-          "example": 0,
-          "default": 0
-        },
-        "custom_profile": {
-          "name": "Custom profile",
-          "description": "Used to send a custom charge profile to charger (for advanced users only use \u003E- or \u0027\u0027 to ensure profile is a string variable)",
-          "required": false,
-          "advanced": true,
-          "example": "{\u0022chargingProfileId\u0022:8,\u0022stackLevel\u0022:0,\u0022chargingProfileKind\u0022:\u0022Relative\u0022,\u0022chargingProfilePurpose\u0022:\u0022ChargePointMaxProfile\u0022,\u0022chargingSchedule\u0022:{\u0022chargingRateUnit\u0022:\u0022A\u0022,\u0022chargingSchedulePeriod\u0022:[{\u0022startPeriod\u0022:0,\u0022limit\u0022:16}]}}"
-        }
-      }
-    },
-    "update_firmware": {
-      "name": "Update charger firmware",
-      "description": "Specify server to download firmware and time to delay updating (dependent on charger support), supported transfer protocols can be requested by the configuration key SupportedFileTransferProtocols",
-      "fields": {
-        "devid": {
-          "name": "Charger identifier",
-          "description": "Either HA charger id or Ocpp id",
-          "required": false,
-          "advanced": true,
-          "example": "charger"
-        },
-        "firmware_url": {
-          "name": "Url of firmware",
-          "description": "Full url of firmware file (http or https)",
-          "required": true,
-          "advanced": true,
-          "example": "http://www.charger.com/firmware.bin"
-        },
-        "delay_hours": {
-          "name": "Delay hours",
-          "description": "Hours to delay charger update",
-          "required": false,
-          "advanced": true,
-          "example": 12,
-          "default": 0
-        }
-      }
-    },
-    "get_diagnostics": {
-      "name": "Request diagnostic data from charger",
-      "description": "Specify server url to upload diagnostic data to (dependent on charger support), supported transfer protocols can be requested by the configuration key SupportedFileTransferProtocols",
-      "fields": {
-        "devid": {
-          "name": "Charger identifier",
-          "description": "Either HA charger id or Ocpp id",
-          "required": false,
-          "advanced": true,
-          "example": "charger"
-        },
-        "upload_url": {
-          "name": "Url for upload",
-          "description": "Full url to upload to",
-          "required": true,
-          "advanced": true,
-          "example": "https://webhook.site/abc"
-        }
-      }
-    }
-  },
-  "schedule": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads schedules from the YAML-configuration.",
-      "fields": {}
-    },
-    "get_schedule": {
-      "name": "Get schedule",
-      "description": "Retrieves the configured time ranges of one or multiple schedules.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "schedule"
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
       }
     }
   },
@@ -2644,50 +2430,6 @@
       },
       "response": {
         "optional": true
-      }
-    }
-  },
-  "switch": {
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns a switch off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns a switch on.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles a switch on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
       }
     }
   },
@@ -2895,6 +2637,50 @@
       }
     }
   },
+  "switch": {
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns a switch off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns a switch on.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles a switch on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "number": {
     "set_value": {
       "name": "Set",
@@ -3015,22 +2801,6 @@
           {
             "domain": [
               "select"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "button": {
-    "press": {
-      "name": "Press",
-      "description": "Presses a button entity.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "button"
             ]
           }
         ]
@@ -3215,9 +2985,9 @@
                 "heat"
               ],
               "translation_key": "hvac_mode",
+              "custom_value": false,
               "multiple": false,
-              "sort": false,
-              "custom_value": false
+              "sort": false
             }
           },
           "name": "HVAC mode",
@@ -3492,144 +3262,6 @@
       }
     }
   },
-  "volkswagen_we_connect_id": {
-    "volkswagen_id_start_stop_charging": {
-      "name": "Volkswagen ID Start or Stop Charging",
-      "description": "Starts or stops charging of Volkswagen ID cars.",
-      "fields": {
-        "vin": {
-          "name": "VIN",
-          "description": "Vehicle identification number for the car.",
-          "required": true,
-          "example": "WVGZZZA1ZMP001337",
-          "selector": {
-            "text": {}
-          }
-        },
-        "start_stop": {
-          "name": "Start or Stop",
-          "description": "Starts or stops charging.",
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "start",
-                "stop"
-              ],
-              "multiple": false,
-              "sort": false,
-              "custom_value": false
-            }
-          }
-        }
-      }
-    },
-    "volkswagen_id_set_climatisation": {
-      "name": "Volkswagen ID Set Climatisation",
-      "description": "Sets climatisation in Volkswagen ID cars.",
-      "fields": {
-        "vin": {
-          "name": "VIN",
-          "description": "Vehicle identification number for the car.",
-          "required": true,
-          "example": "WVGZZZA1ZMP001337",
-          "selector": {
-            "text": {}
-          }
-        },
-        "start_stop": {
-          "name": "Start or Stop",
-          "description": "Starts or stops climatisation.",
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "start",
-                "stop"
-              ],
-              "multiple": false,
-              "sort": false,
-              "custom_value": false
-            }
-          }
-        },
-        "target_temp": {
-          "name": "Target Temperature.",
-          "description": "Sets target temperature in celsius.",
-          "required": false,
-          "selector": {
-            "number": {
-              "min": 10.0,
-              "max": 30.0,
-              "unit_of_measurement": "\u00BAC",
-              "step": 1.0,
-              "mode": "slider"
-            }
-          }
-        }
-      }
-    },
-    "volkswagen_id_set_target_soc": {
-      "name": "Volkswagen ID Set Target SoC",
-      "description": "Sets the target SoC in Volkswagen ID cars.",
-      "fields": {
-        "vin": {
-          "name": "VIN",
-          "description": "Vehicle identification number for the car.",
-          "required": true,
-          "example": "WVGZZZA1ZMP001337",
-          "selector": {
-            "text": {}
-          }
-        },
-        "target_soc": {
-          "name": "Target State of Charge.",
-          "description": "Sets state of charge in percentage.",
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 10.0,
-              "max": 100.0,
-              "step": 10.0,
-              "unit_of_measurement": "%",
-              "mode": "slider"
-            }
-          }
-        }
-      }
-    },
-    "volkswagen_id_set_ac_charge_speed": {
-      "name": "Volkswagen ID Set AC Charge speed",
-      "description": "Sets the AC charging speed in Volkswagen ID cars.",
-      "fields": {
-        "vin": {
-          "name": "VIN",
-          "description": "Vehicle identification number for the car.",
-          "required": true,
-          "example": "WVGZZZA1ZMP001337",
-          "selector": {
-            "text": {}
-          }
-        },
-        "maximum_reduced": {
-          "name": "Maximum or reduced",
-          "description": "Maximum (default) charging speed or reduced speed. Actual maximum/reduced speed depends on charging station.",
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "maximum",
-                "reduced"
-              ],
-              "multiple": false,
-              "sort": false,
-              "custom_value": false
-            }
-          }
-        }
-      }
-    }
-  },
   "automation": {
     "trigger": {
       "name": "Trigger",
@@ -3709,6 +3341,374 @@
       "name": "Reload",
       "description": "Reloads the automation configuration.",
       "fields": {}
+    }
+  },
+  "button": {
+    "press": {
+      "name": "Press",
+      "description": "Presses a button entity.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "button"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "volkswagen_we_connect_id": {
+    "volkswagen_id_start_stop_charging": {
+      "name": "Volkswagen ID Start or Stop Charging",
+      "description": "Starts or stops charging of Volkswagen ID cars.",
+      "fields": {
+        "vin": {
+          "name": "VIN",
+          "description": "Vehicle identification number for the car.",
+          "required": true,
+          "example": "WVGZZZA1ZMP001337",
+          "selector": {
+            "text": {}
+          }
+        },
+        "start_stop": {
+          "name": "Start or Stop",
+          "description": "Starts or stops charging.",
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                "start",
+                "stop"
+              ],
+              "custom_value": false,
+              "multiple": false,
+              "sort": false
+            }
+          }
+        }
+      }
+    },
+    "volkswagen_id_set_climatisation": {
+      "name": "Volkswagen ID Set Climatisation",
+      "description": "Sets climatisation in Volkswagen ID cars.",
+      "fields": {
+        "vin": {
+          "name": "VIN",
+          "description": "Vehicle identification number for the car.",
+          "required": true,
+          "example": "WVGZZZA1ZMP001337",
+          "selector": {
+            "text": {}
+          }
+        },
+        "start_stop": {
+          "name": "Start or Stop",
+          "description": "Starts or stops climatisation.",
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                "start",
+                "stop"
+              ],
+              "custom_value": false,
+              "multiple": false,
+              "sort": false
+            }
+          }
+        },
+        "target_temp": {
+          "name": "Target Temperature.",
+          "description": "Sets target temperature in celsius.",
+          "required": false,
+          "selector": {
+            "number": {
+              "min": 10.0,
+              "max": 30.0,
+              "unit_of_measurement": "\u00BAC",
+              "step": 1.0,
+              "mode": "slider"
+            }
+          }
+        }
+      }
+    },
+    "volkswagen_id_set_target_soc": {
+      "name": "Volkswagen ID Set Target SoC",
+      "description": "Sets the target SoC in Volkswagen ID cars.",
+      "fields": {
+        "vin": {
+          "name": "VIN",
+          "description": "Vehicle identification number for the car.",
+          "required": true,
+          "example": "WVGZZZA1ZMP001337",
+          "selector": {
+            "text": {}
+          }
+        },
+        "target_soc": {
+          "name": "Target State of Charge.",
+          "description": "Sets state of charge in percentage.",
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 10.0,
+              "max": 100.0,
+              "step": 10.0,
+              "unit_of_measurement": "%",
+              "mode": "slider"
+            }
+          }
+        }
+      }
+    },
+    "volkswagen_id_set_ac_charge_speed": {
+      "name": "Volkswagen ID Set AC Charge speed",
+      "description": "Sets the AC charging speed in Volkswagen ID cars.",
+      "fields": {
+        "vin": {
+          "name": "VIN",
+          "description": "Vehicle identification number for the car.",
+          "required": true,
+          "example": "WVGZZZA1ZMP001337",
+          "selector": {
+            "text": {}
+          }
+        },
+        "maximum_reduced": {
+          "name": "Maximum or reduced",
+          "description": "Maximum (default) charging speed or reduced speed. Actual maximum/reduced speed depends on charging station.",
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                "maximum",
+                "reduced"
+              ],
+              "custom_value": false,
+              "multiple": false,
+              "sort": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "ocpp": {
+    "configure": {
+      "name": "Configure charger features",
+      "description": "Change supported Ocpp configuration values",
+      "fields": {
+        "devid": {
+          "name": "Charger identifier",
+          "description": "Either HA charger id or Ocpp id",
+          "required": false,
+          "advanced": true,
+          "example": "charger"
+        },
+        "ocpp_key": {
+          "name": "Write-enabled configuration key name",
+          "description": "v1.6- Key name supported v2.0.1- Component name/Key name",
+          "required": true,
+          "advanced": true,
+          "example": "WebSocketPingInterval"
+        },
+        "value": {
+          "name": "Key value",
+          "description": "Value to write to key",
+          "required": true,
+          "advanced": true,
+          "example": "60"
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "get_configuration": {
+      "name": "Get configuration values for charger",
+      "description": "Get supported Ocpp configuration values",
+      "fields": {
+        "devid": {
+          "name": "Charger identifier",
+          "description": "Either HA charger id or Ocpp id",
+          "required": false,
+          "advanced": true,
+          "example": "charger"
+        },
+        "ocpp_key": {
+          "name": "Configuration key name",
+          "description": "v1.6- Key name v2.0.1- Component name/Key name",
+          "required": true,
+          "advanced": true,
+          "example": "WebSocketPingInterval"
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "data_transfer": {
+      "name": "Request data transfer from charger",
+      "description": "Note this is specific to charger, see manufacturer\u0027s documentation",
+      "fields": {
+        "devid": {
+          "name": "Charger identifier",
+          "description": "Either HA charger id or Ocpp id",
+          "required": false,
+          "advanced": true,
+          "example": "charger"
+        },
+        "vendor_id": {
+          "name": "vendorId",
+          "description": "Defined by charger manufacturer",
+          "required": true,
+          "advanced": true,
+          "example": "ABC"
+        },
+        "message_id": {
+          "name": "messageId",
+          "description": "Defined by charger manufacturer",
+          "required": false,
+          "advanced": true,
+          "example": "ABC"
+        },
+        "data": {
+          "name": "data",
+          "description": "Defined by charger manufacturer",
+          "required": false,
+          "advanced": true,
+          "example": "ABC"
+        }
+      }
+    },
+    "trigger_custom_message": {
+      "name": "Trigger Message",
+      "description": "Request a specific message from the charger",
+      "fields": {
+        "devid": {
+          "name": "Charger identifier",
+          "description": "Either HA charger id or Ocpp id",
+          "required": false,
+          "advanced": true,
+          "example": "charger"
+        },
+        "requested_message": {
+          "name": "Requested Message",
+          "description": "Message Requested from the charger",
+          "required": true,
+          "advanced": true,
+          "example": "StatusNotification"
+        }
+      }
+    },
+    "clear_profile": {
+      "name": "Clear charging profiles",
+      "description": "Clears all charging profiles (limits) set (dependent on charger support)",
+      "fields": {
+        "devid": {
+          "name": "Charger identifier",
+          "description": "Either HA charger id or Ocpp id",
+          "required": false,
+          "advanced": true,
+          "example": "charger"
+        }
+      }
+    },
+    "set_charge_rate": {
+      "name": "Set maximum charge rate",
+      "description": "Sets the maximum charge rate in Amps or Watts (dependent on charger support)",
+      "fields": {
+        "devid": {
+          "name": "Charger identifier",
+          "description": "Either HA charger id or Ocpp id",
+          "required": false,
+          "advanced": true,
+          "example": "charger"
+        },
+        "limit_amps": {
+          "name": "Limit (A)",
+          "description": "Maximum charge rate in Amps (optional)",
+          "required": false,
+          "advanced": false,
+          "example": 16,
+          "default": 32
+        },
+        "limit_watts": {
+          "name": "Limit (W)",
+          "description": "Maximum charge rate in Watts (optional)",
+          "required": false,
+          "advanced": true,
+          "example": 1500,
+          "default": 22000
+        },
+        "conn_id": {
+          "name": "Connector identifier",
+          "description": "Optional, 0 = all connectors (default), 1 is first connector",
+          "required": false,
+          "advanced": true,
+          "example": 0,
+          "default": 0
+        },
+        "custom_profile": {
+          "name": "Custom profile",
+          "description": "Used to send a custom charge profile to charger (for advanced users only use \u003E- or \u0027\u0027 to ensure profile is a string variable)",
+          "required": false,
+          "advanced": true,
+          "example": "{\u0022chargingProfileId\u0022:8,\u0022stackLevel\u0022:0,\u0022chargingProfileKind\u0022:\u0022Relative\u0022,\u0022chargingProfilePurpose\u0022:\u0022ChargePointMaxProfile\u0022,\u0022chargingSchedule\u0022:{\u0022chargingRateUnit\u0022:\u0022A\u0022,\u0022chargingSchedulePeriod\u0022:[{\u0022startPeriod\u0022:0,\u0022limit\u0022:16}]}}"
+        }
+      }
+    },
+    "update_firmware": {
+      "name": "Update charger firmware",
+      "description": "Specify server to download firmware and time to delay updating (dependent on charger support), supported transfer protocols can be requested by the configuration key SupportedFileTransferProtocols",
+      "fields": {
+        "devid": {
+          "name": "Charger identifier",
+          "description": "Either HA charger id or Ocpp id",
+          "required": false,
+          "advanced": true,
+          "example": "charger"
+        },
+        "firmware_url": {
+          "name": "Url of firmware",
+          "description": "Full url of firmware file (http or https)",
+          "required": true,
+          "advanced": true,
+          "example": "http://www.charger.com/firmware.bin"
+        },
+        "delay_hours": {
+          "name": "Delay hours",
+          "description": "Hours to delay charger update",
+          "required": false,
+          "advanced": true,
+          "example": 12,
+          "default": 0
+        }
+      }
+    },
+    "get_diagnostics": {
+      "name": "Request diagnostic data from charger",
+      "description": "Specify server url to upload diagnostic data to (dependent on charger support), supported transfer protocols can be requested by the configuration key SupportedFileTransferProtocols",
+      "fields": {
+        "devid": {
+          "name": "Charger identifier",
+          "description": "Either HA charger id or Ocpp id",
+          "required": false,
+          "advanced": true,
+          "example": "charger"
+        },
+        "upload_url": {
+          "name": "Url for upload",
+          "description": "Full url to upload to",
+          "required": true,
+          "advanced": true,
+          "example": "https://webhook.site/abc"
+        }
+      }
     }
   }
 }

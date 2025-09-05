@@ -148,12 +148,12 @@ public class ElectricityApp
         dynamicCharging = _entities.InputBoolean.DynamicCharging;
         setChargerPowerEntity = _entities.InputNumber.SetChargerPower;
         voltageEntity = _entities.Sensor.ElectricityMeterSpanningFaseL1;
-        chargerMaxCurrentEntity = _entities.Number.ChargerMaximumCurrent;
+        chargerMaxCurrentEntity = _entities.Number.ChargerMaximumCurrent2;
         OfferedChargingPowerEntity = _entities.InputNumber.OfferedChargingPower;
         netMaxPowerEntity = _entities.InputNumber.NetMaxPower;
         chargerStatusEntity = _entities.Sensor.ChargerStatusConnector;
         chargerCurrentImportEntity = _entities.Sensor.ChargerCurrentImport;
-        chargerCurrentOfferedEntity = _entities.Sensor.ChargerCurrentOffered;
+        chargerCurrentOfferedEntity = _entities.Sensor.ChargerCurrentOffered2 ;
         batterySocEntity = _entities.Sensor.SolisS6Eh1pBatterySoc;
         configureChargerEntity = _entities.Automation.ConfigureOcppCharger;
     }
