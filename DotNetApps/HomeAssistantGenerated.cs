@@ -768,6 +768,11 @@ public partial class SensorEntities
     ///<summary>Solis_Inverter_010262224270628 Solis HMI Version all</summary>
     public SensorEntity SolisHmiVersionAll => new(_haContext, "sensor.solis_hmi_version_all");
     ///<summary>Solis_Inverter_010262224270628 Solis Power State</summary>
+
+    // Johan
+    public NumericSensorEntity SolisBatteryPowerNet => new (_haContext, "sensor.solis_s6_eh1p_battery_power_net");
+
+    ///<summary>Solis_Inverter_010262224270628 Solis Power State</summary>
     public SensorEntity SolisPowerState => new(_haContext, "sensor.solis_power_state");
     ///<summary>Solis S6-EH1P Alarm code data</summary>
     public SensorEntity SolisS6Eh1pAlarmCodeData => new(_haContext, "sensor.solis_s6_eh1p_alarm_code_data");
