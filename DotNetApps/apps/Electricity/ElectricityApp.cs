@@ -248,7 +248,7 @@ public class ElectricityApp
             //    Note: the calculation for the case where the car is in the 'CHARGING' state should make sure that the home battery 
             //          is not discharged beyond an acceptable level 
 
-            if ((500.0 < powerBudget && powerBudget < 1500.0) && (actualBatteryPower < -2000 || batterySocEntity.State > 95.0)) powerBudget = 1500.0;
+            if ((800.0 < powerBudget && powerBudget < 1500.0) && (actualBatteryPower < -2000 || batterySocEntity.State > 95.0)) powerBudget = 1500.0;
             current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
             _logger.LogDebug($"Not charging, current --> {current}");
             return current > 0.0 ? current : 0.0;
@@ -306,7 +306,7 @@ public class ElectricityApp
         double current = 0.0;
         if (chargerStatusEntity.State != CHARGING)
         {
-            double powerBudget = (netMaxPowerEntity.State ?? 0.0) - (averageActualPower + actualBatteryPower);
+            double powerBudget = GetPowerBudget();
             current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
             _logger.LogDebug($"Car Priority,  Not charging, current --> {current}");
             return current > 0.0 ? current : 0.0;
@@ -321,11 +321,19 @@ public class ElectricityApp
             return chargerCurrent;
         }
         //// if actually charging calculate new current
-        double deltaBudget = (netMaxPowerEntity.State ?? 0.0) - actualBatteryPower - averageActualPower;
+        double deltaBudget = GetPowerBudget();
         current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
         _logger.LogDebug($"Car Priority, Charging, current --> {current}");
 
         return current;
+    }
+
+    private double GetPowerBudget()
+    {
+        bool batteryForcedCharging = actualBatteryPower < -500 && batterySocEntity.State < 20.0;
+        return batteryForcedCharging
+            ? (netMaxPowerEntity.State ?? 0.0) - averageActualPower
+            : (netMaxPowerEntity.State ?? 0.0) - averageActualPower - actualBatteryPower;
     }
 
     private void SetChargerCurrent(double current)
