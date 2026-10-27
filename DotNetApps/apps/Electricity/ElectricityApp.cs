@@ -18,13 +18,12 @@ public class ElectricityApp
 
     private double actualTotalPower;
     private double actualBatteryPower;
-    private double chargerCurrent;
+    private double _chargerCurrent;
     private bool chargingSuspended = false;
 
     private const string CHARGING = "Charging";
     private const string AVAILABLE = "Available";
     private long _SuspendTime = 30;
-    private double _PFactor = 0.7;
     private double[] actualPower = new double[3];
     private int actualPowerIndex = 0;
     private double averageActualPower;
@@ -35,6 +34,8 @@ public class ElectricityApp
     private InputNumberEntity actualBatteryPowerEntity;
     private InputBooleanEntity enableChargerEntity;
     private InputBooleanEntity dynamicCharging;
+
+    private InputBooleanEntity _solarOnly;
     private InputNumberEntity setChargerPowerEntity;
     private NumericSensorEntity voltageEntity;
     private NumberEntity chargerMaxCurrentEntity;
@@ -60,7 +61,7 @@ public class ElectricityApp
         _logger = logger;
         ConfigureApp(config);
         SetupEntities();
-        chargerCurrent = chargerCurrentOfferedEntity.State ?? 0.0;
+        _chargerCurrent = chargerCurrentOfferedEntity.State ?? 0.0;
 
         scheduler.SchedulePeriodic(TimeSpan.FromSeconds(2), () =>
         {
@@ -92,7 +93,6 @@ public class ElectricityApp
     private void ConfigureApp(IAppConfig<ChargerConfig> config)
     {
         _SuspendTime = config.Value.SuspendTime;
-        _PFactor = config.Value.PFactor;
     }
 
     private void ResumeCharging()
@@ -118,6 +118,7 @@ public class ElectricityApp
                      nameof(actualTotalPowerEntity),
                      nameof(enableChargerEntity),
                      nameof(dynamicCharging),
+                     nameof(_solarOnly),
                      nameof(voltageEntity),
                      nameof(chargerMaxCurrentEntity),
                      nameof(OfferedChargingPowerEntity),
@@ -133,6 +134,7 @@ public class ElectricityApp
                      nameof(batterySocEntity),
                      nameof(configureChargerEntity)
                   )]
+
     private void SetupEntities()
     {
         consumptionEntity = _entities.Sensor.ElectricityMeterEnergieverbruik;
@@ -143,6 +145,7 @@ public class ElectricityApp
         batteryDischargingPowerEntity = _entities.Sensor.SolisS6Eh1pBatteryDischargePower;
         enableChargerEntity = _entities.InputBoolean.Enablecharger;
         dynamicCharging = _entities.InputBoolean.DynamicCharging;
+        _solarOnly = new InputBooleanEntity(_ha, "input_boolean.solaronly");
         setChargerPowerEntity = _entities.InputNumber.SetChargerPower;
         voltageEntity = _entities.Sensor.ElectricityMeterSpanningFaseL1;
         chargerMaxCurrentEntity = _entities.Number.ChargerMaximumCurrent2;
@@ -205,146 +208,125 @@ public class ElectricityApp
 
     private void UpdateChargerPower()
     {
-        double current;
-        if (enableChargerEntity.IsOff())
+        double current = (enableChargerEntity.IsOff(), dynamicCharging.IsOff(), _solarOnly.IsOn()) switch
         {
-            SetChargerCurrent(0);
-            return;
-        }
-        if (dynamicCharging.IsOff())
-        {
-            current = Math.Round((double)((voltageEntity.State != null) ? (setChargerPowerEntity.State ?? 0.0) / voltageEntity.State! : 0.0));
-            _logger.LogDebug($"Static, current > {current}");
-            SetChargerCurrent(current);
-            return;
-        }
-        current = GetDynamicCurrent();
+            (true, _, _) => 0.0,
+            (false, true, _) => GetStaticPower(),
+            (false, false, true) => GetSolarCurrent(),
+            _ => GetDynamicCurrent()
+        };
         SetChargerCurrent(current);
+    }
+
+    private double GetStaticPower()
+    {
+        double current = Math.Round((double)((voltageEntity.State != null) ? (setChargerPowerEntity.State ?? 0.0) / voltageEntity.State! : 0.0));
+        _logger.LogDebug($"Static, current > {current}");
+        return current;
     }
 
     private double GetDynamicCurrent()
     {
         UpdateActualBatteryPower();
-        return (netMaxPowerEntity.State ?? 0.0) > 0.0
-            ? GetDynamicChargerCurrentWithCarPriority()
-            : GetDynamicChargerCurrentWithHomeBatteryPriority();
+        return GetDynamicChargerCurrent();
     }
 
-    private double GetDynamicChargerCurrentWithHomeBatteryPriority()
+    private double GetSolarCurrent()
     {
+        UpdateActualBatteryPower();
+        return chargerStatusEntity.State != CHARGING ? GetInitialSolarCurrent() : GetChargingSolarCurrent();
+    }
+
+    private double GetInitialSolarCurrent()
+    {
+        // calculate current offered to car
+
         double current;
-        if (chargerStatusEntity.State != CHARGING)
-        {
-            // calculate current offered to car
-            double powerBudget = averageActualPower > -100 ? 0 : -1.0 * averageActualPower;
+        double powerBudget = GetSolarPowerBudget();
 
-            // the condition (500.0 < powerBudget && powerBudget < 1500.0) indicates one of two conditions:
-            // 1. there is a surplus of solar power while the home battery is charging, but not enough to charge the car.
-            //    In that case it's better to lower the charging budget for the home battery to the point where the car
-            //    starts charging as well (otherwise the surplus solar power is injected into the grid).
-            // 2. the home battery is fully charged and solar power surplus is not enough to charge the car. In that case
-            //    it's better to take some power from the home battery to the point where the car starts charging.
-            //    Otherwise the surplus solar power is injected into the grid.
-            //    Note: the calculation for the case where the car is in the 'CHARGING' state should make sure that the home battery 
-            //          is not discharged beyond an acceptable level 
-
-            if ((800.0 < powerBudget && powerBudget < 1500.0) && (actualBatteryPower < -2000 || batterySocEntity.State > 95.0)) powerBudget = 1500.0;
-            current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
-            _logger.LogDebug($"Not charging, current --> {current}");
-            return current > 0.0 ? current : 0.0;
-        }
-        // Check if car is actually charging 
-        // This is to prevent changing the offered power while the car/charger is still
-        // syncing to the previous setting 
-        double delta = (chargerCurrentImportEntity.State ?? 0.0) - chargerCurrent;
-        if ((delta < -1.0) || (delta > 1.0))
-        {
-            _logger.LogDebug($"Car is syncing, delta: {delta}");
-            return chargerCurrent;
-        }
-
-        // if actually charging, calculate new current
-        double deltaBudget;
-        if (actualBatteryPower < 0)
-        {
-            // home battery is charging, get surplus power to car
-            if (actualBatteryPower < -2500)
-            {
-                // lower car charging rate to try to charge home battery with at least 2500W 
-                deltaBudget = -actualBatteryPower - 2500;
-            }
-            else
-            {
-                deltaBudget = -1.0 * averageActualPower;
-            }
-        }
-        else if ((-0.1 < -actualBatteryPower) && (-actualBatteryPower < 0.1))
-        {
-            // case where battery is full or there is not enough solar power to charge home battery
-            deltaBudget = -1.0 * averageActualPower;
-            // is battery is not fully charged, lower car charging power to allow home battery charging
-            if (batterySocEntity.State < 95.0) deltaBudget = (-1.0 * chargerCurrent * voltageEntity.State ?? 0.0) * 0.25;
-        }
-        else
-        {
-            // Battery is discharging to car, stop charging car
-            deltaBudget = -actualBatteryPower;
-        }
-        // don't lower the power offered to the car when there is temporarily lower solar power
-        // as long as the battery still has decent charging power or SOC
-        // This is to avoid toggling the car charging current between 6 (charging) and 5 (not  charging)
-        if (deltaBudget < 0 && chargerCurrent < 7.0 && -actualBatteryPower > -1000.0 && (-actualBatteryPower > 2000 || batterySocEntity.State > 95.0)) deltaBudget = 0;
-
-        current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
-        _logger.LogDebug($"Charging, averagePower: {averageActualPower:F0}, deltaBudget: {deltaBudget:F0}, actualBatteryPower: {actualBatteryPower:F0} ");
-        _logger.LogDebug($"Charging, current --> {current}");
-        return current;
+        current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
+        // if the current offered is 4 or 5A and the SOC of the home battery is > 20%, set the current to 6A: better 
+        // to drain the home battery a little bit to enable charging the car, than to inject the solar power surplus into the grid.
+        if (3 < current && current < 6 && (batterySocEntity.State > 20.0)) current = 6.0;
+        _logger.LogDebug($"SolarOnly, Not charging, current offered --> {current}");
+        return current > 0.0 ? current : 0.0;
     }
 
-    private double GetDynamicChargerCurrentWithCarPriority()
+    private double GetSolarPowerBudget()
     {
-        double current = 0.0;
-        if (chargerStatusEntity.State != CHARGING)
-        {
-            double powerBudget = GetPowerBudget();
-            current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
-            _logger.LogDebug($"Car Priority,  Not charging, current --> {current}");
-            return current > 0.0 ? current : 0.0;
-        }
-        // Check if car is actually charging 
-        // This is to prevent changing the offered power while the car/charger is still
-        // syncing to the previous setting 
-        double delta = (chargerCurrentImportEntity.State ?? 0.0) - chargerCurrent;
-        if ((delta < -1.0) || (delta > 1.0))
-        {
-            _logger.LogDebug($"Car is syncing, delta: {delta}");
-            return chargerCurrent;
-        }
-        //// if actually charging calculate new current
-        double deltaBudget = GetPowerBudget();
-        current = Math.Floor(chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget * _PFactor / voltageEntity.State! : 0.0));
-        _logger.LogDebug($"Car Priority, Charging, current --> {current}");
+        double powerBudget = averageActualPower > -100 ? 0 : -1.0 * averageActualPower;
 
-        return current;
+        // if the home battery is charging and has a SOC > 20%, add its charging power to the power budget
+        // (car always gets priority over the home battery)
+        // We do not do this if home battery SOC is < 20%, because it may be forced charging.
+        powerBudget += (actualBatteryPower < -100 && batterySocEntity.State > 20.0) ? actualBatteryPower : 0.0;
+        return powerBudget;
+    }
+
+    private double GetChargingSolarCurrent()
+    {
+        double deltaCurrent;
+        double powerBudget = GetSolarPowerBudget();
+        deltaCurrent = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
+        var newcurrent = _chargerCurrent + deltaCurrent;
+        if (3 < newcurrent && newcurrent < 6 && (batterySocEntity.State > 20.0)) newcurrent = 6.0;
+        // if the current offered is 4 or 5A and the SOC of the home battery is > 20%, set the current to 6A: better 
+        // to drain the home battery a little bit to enable charging the car, than to inject the solar power surplus into the grid.
+
+        _logger.LogDebug($"SolarOnly, Charging, current --> {newcurrent}");
+        return newcurrent > 0.0 ? newcurrent : 0.0;
+    }
+
+    private double GetDynamicChargerCurrent()
+    {
+        return chargerStatusEntity.State != CHARGING ? GetInitialDynamicCurrent() : GetChargingDynamicCurrent();
+    }
+
+    private double GetInitialDynamicCurrent()
+    {
+        double powerBudget = GetPowerBudget();
+        double current = Math.Floor((double)((voltageEntity.State != null) ? powerBudget / voltageEntity.State! : 0.0));
+        _logger.LogDebug($"Dynamic charging, Not charging, current --> {current}");
+        return current > 0.0 ? current : 0.0;
+    }
+
+    private double GetChargingDynamicCurrent()
+    {
+        double deltaBudget = GetPowerBudget();
+        double current = Math.Floor(_chargerCurrent + (double)((voltageEntity.State != null) ? deltaBudget / voltageEntity.State! : 0.0));
+        _logger.LogDebug($"Dynamic charging, Charging, current --> {current}");
+        return current > 0.0 ? current : 0.0;
     }
 
     private double GetPowerBudget()
     {
-        bool batteryForcedCharging = actualBatteryPower < -500 && batterySocEntity.State < 20.0;
-        return batteryForcedCharging
-            ? (netMaxPowerEntity.State ?? 0.0) - averageActualPower
-            : (netMaxPowerEntity.State ?? 0.0) - averageActualPower - actualBatteryPower;
+        double budget = (netMaxPowerEntity.State ?? 0.0) - averageActualPower;
+        if (batterySocEntity.State > 20.0) budget = budget + 3000.0;
+        return budget;
     }
 
     private void SetChargerCurrent(double current)
     {
         if (current < 0.0) current = 0.0;
-        if ((chargerCurrent - current) > 0.5 || (chargerCurrent - current) < -0.5)
+        // while charging, only update charger current increase if the car has reacted to the previous increase, to prevent overshoots 
+        // due to deadtime between charger and car. The car may take a few seconds to react to the new offered current,
+        // and if the offered current is increased again before the car has reacted, it may overshoot the desired charging power.
+        if (chargerStatusEntity.State == CHARGING)
+        {
+            double delta = (chargerCurrentImportEntity.State ?? 0.0) - _chargerCurrent;
+            if (delta < -1.0)
+            {
+                _logger.LogDebug($"Car is syncing, delta: {delta}");
+                return;
+            }
+        }
+        // only update the charger current if the difference is more than 0.5A, to prevent too many updates
+        if ((_chargerCurrent - current) > 0.5 || (_chargerCurrent - current) < -0.5)
         {
             current = current < 32.0 ? current : 32.0;
-            chargerCurrent = current;
-            chargerMaxCurrentEntity.SetValue(chargerCurrent.ToString());
-            OfferedChargingPowerEntity.SetValue(chargerCurrent * voltageEntity.State ?? 0.0);
+            _chargerCurrent = current;
+            chargerMaxCurrentEntity.SetValue(_chargerCurrent.ToString());
+            OfferedChargingPowerEntity.SetValue(_chargerCurrent * voltageEntity.State ?? 0.0);
         }
     }
 }
